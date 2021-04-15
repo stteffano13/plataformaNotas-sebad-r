@@ -215,7 +215,7 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
   public listadoEstudianteMatriculas;
   public listadoMateriasCurso;
   public listadoNotas;
-  public objNotasPT:any=[[]];
+  public objNotasPT: any = [[]];
   public diviciones;
   public nuevo;
   public nuevo2 = [];
@@ -1580,10 +1580,11 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
       buscar: this.listadoEstudianteMatriculas
     }
     var value = objBuscarNotas;
-    this.objNotasPT = [];
+    this.objNotasPT = [[]];
     this.diviciones;
     this.nuevo = [];
     this.nuevo2 = [];
+    let i = 0;
     console.log(" hoal entre a matris", value);
     this.subscribe22 = this._notaService.buscarNotasMatris(value).subscribe(
       response => {
@@ -1592,10 +1593,10 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
         this.listadoNotas = response.vectorNotas;
         console.log("listado de notas antes de nada", this.listadoNotas);
         //  ordenar
-        let i = 0;
-        this.listadoEstudianteMatriculas.forEach(elementE => {
-          this.listadoMateriasCurso.forEach(elementM => {
 
+        this.listadoEstudianteMatriculas.forEach(elementE => {
+          this.objNotasPT.push([]);
+          this.listadoMateriasCurso.forEach(elementM => {
 
             this.listadoNotas.forEach(element => {
 
@@ -1606,16 +1607,18 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
                 this.objNotasPT[i].push(element.PT)
 
+              } else
+                //this.objNotasPT[i].push(0)
 
+                if (elementE.ESTUDIANTE.ID_ESTUDIANTE == element.ID_ESTUDIANTE) {
+                  this.objNotasPT[i].push(0);
 
-
-              }
-              i++;
+                }
 
             });
 
           });
-
+          i++;
           //  this.objNotasPT.push(";");
         });
 
@@ -1676,50 +1679,50 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
 
   traerNotasMatrisB(value) {
-    
+
     this.objNotasPT = [[]];
     this.diviciones;
     this.nuevo = [];
     this.nuevo2 = [];
-    let i=0;
+    let i = 0;
     this._notaService.buscarNotasMatrisB(value).subscribe(
       response => {
         this.loading = false;
         this.listadoNotas = response.vectorNotas;
 
         //  ordenar
-     
-     
+
+
         this.listadoEstudianteMatriculas.forEach(elementE => {
-         
-            this.objNotasPT.push([]);
+
+          this.objNotasPT.push([]);
           this.listadoMateriasCurso.forEach(elementM => {
             this.listadoNotas.forEach(element => {
-              
+
               console.log("elementoE", elementE, "elemento", element, "ELEMTNM", elementM);
 
-            
+
 
               if (elementE.ESTUDIANTE.ID_ESTUDIANTE == element.ID_ESTUDIANTE && element.ID_MATERIA == elementM.ID_MATERIA) {
-                
-                this.objNotasPT[i].push(element.PT);
-                
-              }else
-                //this.objNotasPT[i].push(0)
-              
-              if(elementE.ESTUDIANTE.ID_ESTUDIANTE == element.ID_ESTUDIANTE){
-                this.objNotasPT[i].push(0);
 
-              }
-             
-             
+                this.objNotasPT[i].push(element.PT);
+
+              } else
+                //this.objNotasPT[i].push(0)
+
+                if (elementE.ESTUDIANTE.ID_ESTUDIANTE == element.ID_ESTUDIANTE) {
+                  this.objNotasPT[i].push(0);
+
+                }
+
+
             });
-            
+
           });
           i++;
           // this.objNotasPT.push(";");
         });
-        
+
         /* this.objNotasPT.pop();
          console.log("notas del promedio total", this.objNotasPT);
          this.diviciones = this.objNotasPT.toString().split(";");

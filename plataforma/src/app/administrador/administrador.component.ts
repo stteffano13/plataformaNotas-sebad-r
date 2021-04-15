@@ -215,7 +215,7 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
   public listadoEstudianteMatriculas;
   public listadoMateriasCurso;
   public listadoNotas;
-  public objNotasPT = [];
+  public objNotasPT:any=[[]];
   public diviciones;
   public nuevo;
   public nuevo2 = [];
@@ -494,46 +494,46 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
     this.listadoMatriculasNueva = [];
     this.listadoMatriculas = "";
     this.loading = true;
-    
-      this.subscribe3 = this._matriculaServices.buscarMatriculas(this.busquedaMatricula).subscribe(
-        response => {
-          console.log("satisfactoriamente matriculas", response.matriculas);
 
-          this.listadoMatriculas = response.matriculas;
+    this.subscribe3 = this._matriculaServices.buscarMatriculas(this.busquedaMatricula).subscribe(
+      response => {
+        console.log("satisfactoriamente matriculas", response.matriculas);
 
-          if (this.listadoMatriculas == null) {
-            this.listadoM = false;
+        this.listadoMatriculas = response.matriculas;
 
-          } else {
-            console.log("entre a loq ue tenia");
-            this.listadoM = true;
+        if (this.listadoMatriculas == null) {
+          this.listadoM = false;
+
+        } else {
+          console.log("entre a loq ue tenia");
+          this.listadoM = true;
+          this.loading = false;
+          this.busquedaMatricula2();
+        }
+        // console.log(this.listadoChoferes);
+        this.loading = false;
+      },
+      error => {
+        this.loading = false;
+        var errorMessage = <any>error;
+        if (errorMessage) {
+          console.log(errorMessage);
+          document.getElementById("openModalError").click();
+          try {
+            var body = JSON.parse(error._body);
+            errorMessage = body.message;
+          } catch {
+            errorMessage = "No hay conexión intentelo más tarde";
             this.loading = false;
-            this.busquedaMatricula2();
-          }
-          // console.log(this.listadoChoferes);
-          this.loading = false;
-        },
-        error => {
-          this.loading = false;
-          var errorMessage = <any>error;
-          if (errorMessage) {
-            console.log(errorMessage);
             document.getElementById("openModalError").click();
-            try {
-              var body = JSON.parse(error._body);
-              errorMessage = body.message;
-            } catch {
-              errorMessage = "No hay conexión intentelo más tarde";
-              this.loading = false;
-              document.getElementById("openModalError").click();
-            }
-            // this.loading =false;
           }
           // this.loading =false;
         }
+        // this.loading =false;
+      }
 
-      );
-    
+    );
+
   }
 
 
@@ -644,7 +644,7 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
       });
 
-      console.log(" this.listadoAsignacionNueva",  this.listadoAsignacionNueva);
+      console.log(" this.listadoAsignacionNueva", this.listadoAsignacionNueva);
 
     } catch (err) {
       this.mensajecorrectomodals = "Es necesario ingresar los 3 parametros de busqueda";
@@ -1573,6 +1573,7 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
 
   traerNotasMatris() {
+
     var objBuscarNotas = {
 
       materias: this.listadoMateriasCurso,
@@ -1598,25 +1599,28 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
             this.listadoNotas.forEach(element => {
 
-                console.log("elementoE", elementE.ESTUDIANTE.ID_ESTUDIANTE , "elemento", element, "elemento", elementM.ID_MATERIA );
+              console.log("elementoE", elementE.ESTUDIANTE.ID_ESTUDIANTE, "elemento", element, "elemento", elementM.ID_MATERIA);
 
 
               if (elementE.ESTUDIANTE.ID_ESTUDIANTE == element.ID_ESTUDIANTE && element.ID_MATERIA == elementM.ID_MATERIA) {
 
-                this.objNotasPT.push(element.PT)
+                this.objNotasPT[i].push(element.PT)
 
 
-                i++;
+
 
               }
+              i++;
 
             });
 
           });
 
-          this.objNotasPT.push(";");
+          //  this.objNotasPT.push(";");
         });
-        this.objNotasPT.pop();
+
+        console.log("notas del promedio total", this.objNotasPT);
+        /*this.objNotasPT.pop();
         console.log("notas del promedio total", this.objNotasPT);
         this.diviciones = this.objNotasPT.toString().split(";");
 
@@ -1640,10 +1644,10 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
               this.nuevo = n2.filter(Boolean);
             }
           }
-          this.nuevo2.push(this.nuevo);
+          this.nuevo2[3].push(this.nuevo);
           console.log("final", this.nuevo2);
         }
-
+*/
         this.loading = false;
 
       },
@@ -1672,56 +1676,79 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
 
   traerNotasMatrisB(value) {
-    this.objNotasPT = [];
+    
+    this.objNotasPT = [[]];
     this.diviciones;
     this.nuevo = [];
     this.nuevo2 = [];
+    let i=0;
     this._notaService.buscarNotasMatrisB(value).subscribe(
       response => {
         this.loading = false;
         this.listadoNotas = response.vectorNotas;
 
         //  ordenar
-
+     
+     
         this.listadoEstudianteMatriculas.forEach(elementE => {
+         
+            this.objNotasPT.push([]);
           this.listadoMateriasCurso.forEach(elementM => {
             this.listadoNotas.forEach(element => {
-              console.log("elementoE", elementE, "elemento", element, "ELEMTNM",elementM );
+              
+              console.log("elementoE", elementE, "elemento", element, "ELEMTNM", elementM);
+
+            
+
               if (elementE.ESTUDIANTE.ID_ESTUDIANTE == element.ID_ESTUDIANTE && element.ID_MATERIA == elementM.ID_MATERIA) {
-                this.objNotasPT.push(element.PT)
+                
+                this.objNotasPT[i].push(element.PT);
+                
+              }else
+                //this.objNotasPT[i].push(0)
+              
+              if(elementE.ESTUDIANTE.ID_ESTUDIANTE == element.ID_ESTUDIANTE){
+                this.objNotasPT[i].push(0);
+
               }
+             
+             
             });
+            
           });
-          this.objNotasPT.push(";");
+          i++;
+          // this.objNotasPT.push(";");
         });
-        this.objNotasPT.pop();
-        console.log("notas del promedio total", this.objNotasPT);
-        this.diviciones = this.objNotasPT.toString().split(";");
-        console.log("diviciones0", this.diviciones[0]);
-        console.log("divicione1", this.diviciones[1]);
-        console.log("divicione2", this.diviciones[2]);
-
-        for (let i = 0; i < this.diviciones.length; i++) {
-
-          if (i == this.diviciones.length - 1) {
-            this.nuevo = this.diviciones[i].substring(1).split(",");
-
-          } else {
-
-            if (i % 2 == 0) {
-
-              var n = this.diviciones[i].slice(0, -1).split(",");
-              this.nuevo = n.filter(Boolean);
-            } else {
-              var n2 = this.diviciones[i].slice(1, -1).split(",");
-              this.nuevo = n2.filter(Boolean);
-
-            }
-          }
-          this.nuevo2.push(this.nuevo);
-          console.log("final", this.nuevo2);
-        }
-
+        
+        /* this.objNotasPT.pop();
+         console.log("notas del promedio total", this.objNotasPT);
+         this.diviciones = this.objNotasPT.toString().split(";");
+         console.log("diviciones0", this.diviciones[0]);
+         console.log("divicione1", this.diviciones[1]);
+         console.log("divicione2", this.diviciones[2]);
+ 
+         for (let i = 0; i < this.diviciones.length; i++) {
+ 
+           if (i == this.diviciones.length - 1) {
+             this.nuevo = this.diviciones[i].substring(1).split(",");
+ 
+           } else {
+ 
+             if (i % 2 == 0) {
+ 
+               var n = this.diviciones[i].slice(0, -1).split(",");
+               this.nuevo = n.filter(Boolean);
+             } else {
+               var n2 = this.diviciones[i].slice(1, -1).split(",");
+               this.nuevo = n2.filter(Boolean);
+ 
+             }
+           }
+           this.nuevo2.push(this.nuevo);
+           console.log("final", this.nuevo2);
+         }
+ */
+        console.log("final", this.objNotasPT);
         this.loading = false;
 
       },

@@ -20,10 +20,10 @@
   <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #0071BD;" id="mainNav">
     <a class="navbar-brand" (click)="recargar()" style="color: #ffffff">SEBAD-R</a>
 
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+    <button style="color: #ffffff" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
       data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
       aria-label="Toggle navigation">
-      <span  style="color: #ffffff" class="navbar-toggler-icon"></span>
+      <span   class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive" style="background-color: #0071BD;">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion" style="background-color: #0071BD;">
@@ -324,22 +324,21 @@
 
 
         <!-- ====================================================         Listado Docentes ============================================-->
-        <div *ngIf="listadoD" class="">
+        <div *ngIf="listadoD" class="px-5 mx-auto" >
           <br>
           <br>
           <br>
           <div class="row">
             <div class="col-md-12" style="text-align: center; color: #2863a9">
-              <h3>LISTADO DOCENTES
-              </h3>
+              <h4>LISTADO DOCENTES
+                <hr>
+              </h4>
             </div>
-            <div class="col-md-12">
-              <hr style="background-color: #000000; width: 100%;">
-            </div>
+            
           </div>
-          <table class="table  text-center">
+          <table class="table  text-center  ">
             <thead>
-              <tr style="background-color: #343a40; align-content: center">
+              <tr style="background-color: #65686b; align-content: center">
                 <th style="color: white" scope="col">#</th>
                 <th style="color: white" scope="col">Nombre</th>
                 <th style="color: white" scope="col">Cédula</th>
@@ -351,10 +350,10 @@
             <tbody>
               <tr *ngFor=" let listado of  listadoDocentes">
                 <th scope="row">1</th>
-                <td style="font-size: 130%">{{listado.NOMBRE_DOCENTE}} {{ listado.APELLIDO_DOCENTE}}</td>
-                <td style="font-size: 130%">{{listado.CEDULA_DOCENTE}}</td>
-                <td style="font-size: 130%">{{ listado.CORREO_DOCENTE}}</td>
-                <td style="font-size: 130%">{{listado.CELULAR_DOCENTE }}</td>
+                <td >{{listado.NOMBRE_DOCENTE}} {{ listado.APELLIDO_DOCENTE}}</td>
+                <td >{{listado.CEDULA_DOCENTE}}</td>
+                <td >{{ listado.CORREO_DOCENTE}}</td>
+                <td >{{listado.CELULAR_DOCENTE }}</td>
                 <td>
                   <input class="btn btn-primary " type="button" value="ver"
                     (click)="aparecerUpdateDatosDocentes(listado)">
@@ -366,19 +365,18 @@
 
         <!-- ====================================================       Listado Estudiantes ============================================-->
 
-        <div *ngIf="listadoE" class="">
+        <div *ngIf="listadoE" class="px-5 mx-auto">
           <div class="row">
             <div class="col-md-12" style="text-align: center; color: #2863a9">
-              <h3>LISTADO ESTUDIANTES
-              </h3>
+              <h4>LISTADO ESTUDIANTES
+                <hr>
+              </h4>
             </div>
-            <div class="col-md-12">
-              <hr style="background-color: #e9ecef; width: 50%;">
-            </div>
+           
           </div>
           <table class="table  text-center">
             <thead>
-              <tr style="background-color: #343a40; align-content: center">
+              <tr style="background-color: #65686b; align-content: center">
                 <th style="color: white" scope="col">#</th>
                 <th style="color: white" scope="col">Nombre</th>
                 <th style="color: white" scope="col">Cédula</th>
@@ -391,10 +389,10 @@
               <tr *ngFor=" let listado of  listadoEstudiantes">
                 <th scope="row">1</th>
 
-                <td style="font-size: 130%">{{listado.NOMBRE_ESTUDIANTE}} {{ listado.APELLIDO_ESTUDIANTE}}</td>
-                <td style="font-size: 130%">{{listado.CEDULA_ESTUDIANTE}}</td>
-                <td style="font-size: 130%">{{ listado.CORREO_ESTUDIANTE}}</td>
-                <td style="font-size: 130%">{{listado.CELULAR_ESTUDIANTE }}</td>
+                <td >{{listado.NOMBRE_ESTUDIANTE}} {{ listado.APELLIDO_ESTUDIANTE}}</td>
+                <td >{{listado.CEDULA_ESTUDIANTE}}</td>
+                <td >{{ listado.CORREO_ESTUDIANTE}}</td>
+                <td>{{listado.CELULAR_ESTUDIANTE }}</td>
                 <td>
                   <input class="btn btn-primary " type="button" value="ver"
                     (click)="aparecerUpdateDatosEstudiante(listado)">
@@ -447,19 +445,18 @@
         <br>
         <br>
         <br>
-        <div *ngIf="listadoM">
+        <div *ngIf="listadoM" class="px-5">
           <div class="row">
             <div class="col-md-12" style="text-align: center; color: #2863a9">
-              <h3>LISTADO MATRICULAS
-              </h3>
+              <h4>LISTADO MATRICULAS
+                <hr>
+              </h4>
             </div>
-            <div class="col-md-12">
-              <hr style="background-color: #e9ecef; width: 50%;">
-            </div>
+            
           </div>
-          <table class="table  text-center txt-small">
+          <table class="table  text-center ">
             <thead>
-              <tr style="background-color: #343a40; align-content: center">
+              <tr style="background-color: #65686b; align-content: center">
                 <th style="color: white" scope="col">#</th>
                 <th style="color: white" scope="col">Nombre</th>
                 <th style="color: white" scope="col">Apellido</th>
@@ -473,11 +470,11 @@
               <tr *ngFor=" let listado of  listadoMatriculasNueva;let i = index">
                 <th scope="row">{{i+1}}</th>
 
-                <td style="font-size: 130%">{{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
-                <td style="font-size: 130%"> {{ listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}}</td>
-                <td style="font-size: 130%">{{listado.ESTUDIANTE.CEDULA_ESTUDIANTE}}</td>
-                <td style="font-size: 130%">{{listado.CURSO.CURSO }} "{{listado.CURSO.PARALELO }}"</td>
-                <td style="font-size: 130%">{{listado.PERIODO }}</td>
+                <td >{{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
+                <td > {{ listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}}</td>
+                <td >{{listado.ESTUDIANTE.CEDULA_ESTUDIANTE}}</td>
+                <td >{{listado.CURSO.CURSO }} "{{listado.CURSO.PARALELO }}"</td>
+                <td >{{listado.PERIODO }}</td>
                 <td>
                   <input class="btn btn-primary " type="button" value="Eliminar"
                     (click)="updateDatosMatricula(listado)">
@@ -590,14 +587,14 @@
 
       <div class="container" *ngIf="IngresarAsignacion">
         <br>
-        <h5 style="color: blue">Nueva asignación de materias</h5>
+        <h5 style="color: blue">NUEVA ASIGNACIÓN</h5>
         <form #IngresarAsignacion="ngForm" novalidate>
           <div class="row">
             <div class="col-6 col-md-3 mx-auto">
               <img src="../../assets/imgs/IngresarAsignacion.png">
             </div>
           </div>
-          <br>
+         
           <div class="form-group">
 
             <label for="apellido">Seleccione el Docente que Impartira la materia</label>
@@ -628,7 +625,7 @@
                 <datalist id="listadoCursosAsignacion">
                   <option *ngFor="let oneDoor of vectorListadoCursos">
                     {{oneDoor.CODIGO_CURSO}}.&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{oneDoor.CURSO}},{{oneDoor.PARALELO}}
+                    &nbsp;&nbsp;&nbsp;{{oneDoor.CURSO}},{{oneDoor.PARALELO}}
                   </option>
                 </datalist>
               </div>
@@ -743,14 +740,14 @@
 
       <div class="container" *ngIf="IngresarDocente">
         <br>
-        <h5 style="color: blue">Ingresar nuevo docente</h5>
+        <h4 style="color: blue">INGRESAR NUEVO DOCENTE</h4>
         <form #IngresarDocente="ngForm" (ngSubmit)="onRegisterDocente()" novalidate>
-          <div class="row">
-            <div class="col-6 col-md-3 mx-auto">
-              <img src="../../assets/imgs/IngresarDocente.png" class=" txt-center">
+          <div class="row mx-auto">
+            <div class="col-12 col-md-3 mx-auto">
+              <img src="../../assets/imgs/IngresarDocente.png"  class="txt-center">
             </div>
           </div>
-          <br>
+      
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group">
@@ -964,16 +961,16 @@
 
       <div class="container" *ngIf="IngresarEstudiante">
         <br>
-        <h5 style="color: blue">Ingresar nuevo estudiante</h5>
+        <h4 style="color: blue">INGRESAR NUEVO ESTUDIANTE</h4>
         <form #IngresarEstudiante="ngForm" (ngSubmit)="onRegisterEstudiante()">
           <div class="row">
 
             <div class="col-6 col-md-3 mx-auto">
-              <img [src]="url2" class=" txt-center">
+              <img [src]="url2"   class=" txt-center" >
             </div>
 
           </div>
-          <br>
+   
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group">
@@ -1200,7 +1197,7 @@
 
 
       <div *ngIf="banderReporteExcel" style="margin-top:3%" class="container-fluid">
-        <h5 style="color: blue">Reporte Consolidado de Notas</h5>
+        <h4 style="color: blue">REPORTE CONSOLIDADO DE NOTAS</h4>
         <br>
         <select (change)="asignarMateriaCurso($event.target.value)" class=" custom-select  mx-auto" required>
           <option [value]="" selected>Selecciona el curso</option>
@@ -1231,8 +1228,8 @@
           <tr *ngFor=" let listado of  listadoEstudianteMatriculas; let i = index;">
             <th scope="row">{{i+1}}</th>
             <td class="active">{{listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}} {{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
-            <td class="active" *ngFor=" let listad of  this.nuevo2[i]">{{listad}}</td>
-            <!-- <td class="active" *ngFor=" let listad of  this.objNotasPT">{{listad}}</td>-->
+           
+            <td class="active" *ngFor=" let listad of  this.objNotasPT[i]">{{listad}}</td>
 
           </tr>
         </tbody>
@@ -1298,17 +1295,15 @@
           <div style="width: 80%; border: 0; background-color: white;  margin-left: 10%" disabled
             class="modal-body  row">
             <select (change)="asignarCurso($event.target.value)" class=" custom-select col-lg-8" required>
-              <option disabled selected hidde value="" selected>Seleccione un curso</option>
-              <option value="OCTAVO AÑO DE EDUCACIÓN GENERAL BÁSICA">OCTAVO AÑO DE EDUCACIÓN GENERAL BÁSICA</option>
-              <option value="NOVENO AÑO DE EDUCACIÓN GENERAL BÁSICA">NOVENO AÑO DE EDUCACIÓN GENERAL BÁSICA</option>
-              <option value="DÉCIMO AÑO DE EDUCACIÓN GENERAL BÁSICA">DÉCIMO AÑO DE EDUCACIÓN GENERAL BÁSICA</option>
-              <option value="BÁSICO SUPERIOR INTENSIVO">BÁSICO SUPERIOR INTENSIVO</option>
-              <option value="PRIMER AÑO DE BACHILLERATO GENERAL UNIFICADO">PRIMER AÑO DE BACHILLERATO GENERAL UNIFICADO
+              <option disabled selected hidde value="" selected>Seleccione el nivel</option>
+              <option value="Nivel I">Nivel I</option>
+              <option value="Nivel II">Nivel II </option>
+              <option value="Nivel III">Nivel III</option>
+              <option value="Nivel IV">Nivel IV</option>
+              <option value="Nivel V">Nivel V
               </option>
-              <option value="SEGUNDO AÑO DE BACHILLERATO GENERAL UNIFICADO">SEGUNDO AÑO DE BACHILLERATO GENERAL
-                UNIFICADO</option>
-              <option value="TERCER AÑO DE BACHILLERATO GENERAL UNIFICADO">TERCER AÑO DE BACHILLERATO GENERAL UNIFICADO
-              </option>
+              <option value="Nivel VI">Nivel VI</option>
+             
             </select>
 
             <input class="form-control col-lg-3 " style="margin-left: 3%" placeholder="Paralelo" type=" text"

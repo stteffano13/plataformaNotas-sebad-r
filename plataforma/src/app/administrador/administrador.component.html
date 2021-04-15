@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Montecarlo VIP</title>
+</head>
+
+<div class="my-container">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+</div>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" (click)="recargar()" style="color: #ffffff">EBENEZER</a>
+
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Ingreso de nuevos Usuarios">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#nvusuario" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-user"></i>
+            <span class="nav-link-text">Docente</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="nvusuario">
+            <li>
+              <a (click)="apareceIngreseDocente()">Nuevo</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#nvChofer" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-users"></i>
+            <span class="nav-link-text"> Estudiante</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="nvChofer">
+            <li>
+              <a (click)="apareceIngreseEstudiante()">Nuevo</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#nvautomovil" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-list-alt"></i>
+            <span class="nav-link-text"> Matricula</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="nvautomovil">
+            <li>
+              <a href="#" (click)="aparecerNuevaMatricula()">Nueva</a>
+            </li>
+            <li>
+              <a href="#" (click)="aparecerEliminarMatricula()">Eliminar</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#listarClientes" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-address-book"></i>
+            <span class="nav-link-text"> Asignación</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="listarClientes">
+            <li>
+              <a href="#" (click)="aparecerAsignar()">Asignar Materias</a>
+            </li>
+            <li>
+              <a href="#" (click)="aparecerEliminarAsignar()">Eliminar </a>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#reportes" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-clipboard"></i>
+            <span class="nav-link-text"> Reportes</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="reportes">
+            <li>
+              <a href="#" (click)="aparecerReportesNotas()">Notas por Curso</a>
+            </li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#listarSubirNota" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-address-book"></i>
+            <span class="nav-link-text"> Subir notas</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="listarSubirNota">
+            <li>
+              <a href="#" (click)="subirNotas('1')">Desactivar</a>
+            </li>
+            <li>
+              <a href="#" (click)="subirNotas('0')">Activar </a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+          </a>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav ml-auto">
+
+
+        <li class="nav-item">
+
+          <form class="form-control  form-inline my-4 my-lg-0 mr-lg-4">
+            <div class="input-group">
+              <p style=" font-size: 80% ">Mes inicio &nbsp;&nbsp;&nbsp;</p>
+
+
+
+
+              <select style="font-size: 80%" (change)="asignarMesInicio($event.target.value)" class=" form-control custom-select " required>
+                <option disabled selected hidde [value]="opcionMesInicio" selected>{{opcionMesInicio}} </option>
+                <option value="ENERO">ENERO</option>
+                <option value="FEBRERO">FEBRERO</option>
+                <option value="MARZO">MARZO</option>
+                <option value="ABRIL">ABRIL</option>
+                <option value="MAYO">MAYO</option>
+                <option value="JUNIO">JUNIO</option>
+                <option value="JULIO">JULIO</option>
+                <option value="AGOSTO">AGOSTO</option>
+                <option value="SEPTIEMBRE">SEPTIEMBRE</option>
+                <option value="OCTUBRE">OCTUBRE</option>
+                <option value="NOVIEMBRE">NOVIEMBRE</option>
+                <option value="DICIEMBRE">DICIEMBRE</option>
+              </select>
+
+
+              <p style="color: transparent">d</p>
+
+              <p style="font-size: 80%">Año inicio &nbsp;&nbsp;&nbsp;</p>
+
+
+
+
+              <select style="font-size: 80%" (change)="asignarAnoInicio($event.target.value)" class=" custom-select " required>
+                <option disabled selected hidde [value]="opcionAnoInicio" selected>{{opcionAnoInicio}} </option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+              </select>
+
+
+
+
+              <!-- periodo Final -->
+              <p style="color: transparent">d</p>
+
+              <p style=" font-size: 80% ">Mes final &nbsp;&nbsp;&nbsp;</p>
+
+
+
+
+              <select style="font-size: 80%" (change)="asignarMesFinal($event.target.value)" class=" custom-select " required>
+                <option disabled selected hidde [value]="opcionMesFinal" selected>{{opcionMesFinal}} </option>
+                <option value="ENERO">ENERO</option>
+                <option value="FEBRERO">FEBRERO</option>
+                <option value="MARZO">MARZO</option>
+                <option value="ABRIL">ABRIL</option>
+                <option value="MAYO">MAYO</option>
+                <option value="JUNIO">JUNIO</option>
+                <option value="JULIO">JULIO</option>
+                <option value="AGOSTO">AGOSTO</option>
+                <option value="SEPTIEMBRE">SEPTIEMBRE</option>
+                <option value="OCTUBRE">OCTUBRE</option>
+                <option value="NOVIEMBRE">NOVIEMBRE</option>
+                <option value="DICIEMBRE">DICIEMBRE</option>
+              </select>
+
+              <p style="color: transparent">d</p>
+
+              <p style="font-size: 80% ">Año final&nbsp;&nbsp;&nbsp;</p>
+
+
+
+
+              <select style="font-size: 80%" (change)="asignarAnoFinal($event.target.value)" class=" custom-select " required>
+                <option disabled selected hidde [value]="opcionAnoFinal" selected>{{opcionAnoFinal}} </option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+              </select>
+
+
+              <p style="color: transparent">ddd</p>
+              <button class="btn btn-primary" style="font-size: 70%" (click)="asignarPeriodoLectivo()"> Guardar</button>
+            </div>
+          </form>
+        </li>
+        <li> &nbsp;&nbsp;&nbsp; &nbsp;</li>
+        <!-- ====================================================       Notificaciones  INGRESAR PARALELO ============================================-->
+
+
+        <li class="nav-item dropdown">
+          <a title="Crear paralelo" class="nav-link dropdown-toggle " id="openModalIngresarParalelo" data-toggle="modal" aria-haspopup="true"
+            aria-expanded="false" data-target="#ModalIngresarParalelo">
+            <i class="fa  fa-list-alt"></i>
+            <span class="d-lg-none">Paralelo
+              <span class="badge badge-pill badge-primary"> Nuevos</span>
+            </span>
+            <span class="indicator text-primary d-none d-lg-block">
+              <i class="fa fa-arrows"></i>
+
+            </span>
+          </a>
+        </li>
+
+        <!-- ====================================================       Notificaciones  ELIMINAR  PARALELO ============================================-->
+
+
+        <li class="nav-item dropdown">
+          <a title="Eliminar  Paralelo" class="nav-link dropdown-toggle  " id="openModalEliminarParalelo" data-toggle="modal"
+            aria-haspopup="true" aria-expanded="false" data-target="#ModalEliminarParalelo">
+            <i class="fa fa-fw fa-list-alt"></i>
+            <span class="d-lg-none">Paralelo
+              <span class="badge badge-pill badge-primary"> Nuevos</span>
+            </span>
+            <span class="indicator text-primary d-none d-lg-block">
+              <i class=" fa fa-minus" style="width: 80%"></i>
+
+            </span>
+          </a>
+        </li>
+
+        <!--<li><button (click)="traerNotasMatris()"> hola</button></li>-->
+
+        <li class="nav-item">
+
+          <!-- ====================================================       BUSCADOR UNIVERSAL  ============================================-->
+
+          <form class="form-inline my-8 my-lg-0 mr-lg-8">
+            <div class="input-group">
+              <input style="padding: 5%" title="Buscardor de usuarios, choferes y automóviles" class="form-control" type="text" placeholder="Buscar"
+                #Buscar="ngModel" [(ngModel)]="buscar" name="buscar">
+              <span class="input-group-append">
+                <button title="Buscardor de estudiantes  y docentes" class="btn btn-primary" (click)="busqueda()" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+        </li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li class="nav-item" title="Salir del Sistema Montecarlo VIP">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Salir</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- scroll de navegacion -->
+  <div class="content-wrapper" style="height: 100%; overflow: auto;">
+    <div class="container-fluid">
+
+      <!-- Division Principal-->
+      <div class="rows1" style="width: 70%; height: 70vh; margin-left: 12%" *ngIf="imagen"> </div>
+
+      <!--Listado -->
+
+
+
+      <div class="pre-scrollable" style="max-height: 100%;" *ngIf="listados">
+
+
+
+        <!-- ====================================================         Listado Docentes ============================================-->
+        <div *ngIf="listadoD" class="">
+          <br>
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-md-12" style="text-align: center; color: #2863a9">
+              <h3>LISTADO DOCENTES
+              </h3>
+            </div>
+            <div class="col-md-12">
+              <hr style="background-color: #000000; width: 100%;">
+            </div>
+          </div>
+          <table class="table  text-center">
+            <thead>
+              <tr style="background-color: #343a40; align-content: center">
+                <th style="color: white" scope="col">#</th>
+                <th style="color: white" scope="col">Nombre</th>
+                <th style="color: white" scope="col">Cédula</th>
+                <th style="color: white" scope="col">Correo</th>
+                <th style="color: white" scope="col">Celular</th>
+                <th style="color: white" scope="col">Opción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor=" let listado of  listadoDocentes">
+                <th scope="row">1</th>
+                <td style="font-size: 130%">{{listado.NOMBRE_DOCENTE}} {{ listado.APELLIDO_DOCENTE}}</td>
+                <td style="font-size: 130%">{{listado.CEDULA_DOCENTE}}</td>
+                <td style="font-size: 130%">{{ listado.CORREO_DOCENTE}}</td>
+                <td style="font-size: 130%">{{listado.CELULAR_DOCENTE }}</td>
+                <td>
+                  <input class="btn btn-primary " type="button" value="ver" (click)="aparecerUpdateDatosDocentes(listado)">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ====================================================       Listado Estudiantes ============================================-->
+
+        <div *ngIf="listadoE" class="">
+          <div class="row">
+            <div class="col-md-12" style="text-align: center; color: #2863a9">
+              <h3>LISTADO ESTUDIANTES
+              </h3>
+            </div>
+            <div class="col-md-12">
+              <hr style="background-color: #e9ecef; width: 50%;">
+            </div>
+          </div>
+          <table class="table  text-center">
+            <thead>
+              <tr style="background-color: #343a40; align-content: center">
+                <th style="color: white" scope="col">#</th>
+                <th style="color: white" scope="col">Nombre</th>
+                <th style="color: white" scope="col">Cédula</th>
+                <th style="color: white" scope="col">Correo</th>
+                <th style="color: white" scope="col">Celular</th>
+                <th style="color: white" scope="col">Opción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor=" let listado of  listadoEstudiantes">
+                <th scope="row">1</th>
+
+                <td style="font-size: 130%">{{listado.NOMBRE_ESTUDIANTE}} {{ listado.APELLIDO_ESTUDIANTE}}</td>
+                <td style="font-size: 130%">{{listado.CEDULA_ESTUDIANTE}}</td>
+                <td style="font-size: 130%">{{ listado.CORREO_ESTUDIANTE}}</td>
+                <td style="font-size: 130%">{{listado.CELULAR_ESTUDIANTE }}</td>
+                <td>
+                  <input class="btn btn-primary " type="button" value="ver" (click)="aparecerUpdateDatosEstudiante(listado)">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- ====================================================    Listado Matriculas ============================================-->
+      <div class="pre-scrollable" style="max-height: 100%; " *ngIf="listadosMostrarMatriculas">
+        <br>
+        <div class="row container w-100  mx-auto">
+          <div class="col-md-4 ">
+            <label>Seleccione el periodo académico </label>
+            <select (change)="buscarMatriculas($event.target.value)" class=" custom-select " required>
+              <option value="no asignado" selected>no asignado</option>
+              <option *ngFor="let oneDoor of vectorListadoPeriodos">{{oneDoor.PERIODO}}</option>
+            </select>
+          </div>
+          <div class=" col-md-6">
+            <label>Ingrese Cedula, Nombre o Apellido del estudiante</label>
+            <input list="listadoEstudianteMatricula" type="text" class="form-control" #BusuqedaMatricula="ngModel" [(ngModel)]="busquedaMatricula"
+              name="busquedaMatricula" required>
+
+
+
+
+            <datalist id="listadoEstudianteMatricula">
+              <option id="oneDoor.ID_ESTUDIANTE" *ngFor="let oneDoor of vectorListadoEstudiantes">
+
+                {{oneDoor.CODIGO_ESTUDIANTE}}.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {{oneDoor.NOMBRE_ESTUDIANTE}} {{oneDoor.APELLIDO_ESTUDIANTE}} &nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;{{oneDoor.CEDULA_ESTUDIANTE}}
+              </option>
+
+
+            </datalist>
+
+          </div>
+
+          <div class="col-lg-2">
+            <label style="color: white"> hola</label>
+
+            <button class=" btn  btn-primary form-control w-100" (click)="busquedaMatriculaFiltrado()">Buscar </button>
+          </div>
+
+
+        </div>
+        <br>
+        <br>
+        <br>
+        <div *ngIf="listadoM">
+          <div class="row">
+            <div class="col-md-12" style="text-align: center; color: #2863a9">
+              <h3>LISTADO MATRICULAS
+              </h3>
+            </div>
+            <div class="col-md-12">
+              <hr style="background-color: #e9ecef; width: 50%;">
+            </div>
+          </div>
+          <table class="table  text-center txt-small">
+            <thead>
+              <tr style="background-color: #343a40; align-content: center">
+                <th style="color: white" scope="col">#</th>
+                <th style="color: white" scope="col">Nombre</th>
+                <th style="color: white" scope="col">Apellido</th>
+                <th style="color: white" scope="col">Cédula</th>
+                <th style="color: white" scope="col">Curso</th>
+                <th style="color: white" scope="col">Periodo</th>
+                <th style="color: white" scope="col">Opción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor=" let listado of  listadoMatriculasNueva;let i = index">
+                <th scope="row">{{i+1}}</th>
+
+                <td style="font-size: 130%">{{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
+                <td style="font-size: 130%"> {{ listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}}</td>
+                <td style="font-size: 130%">{{listado.ESTUDIANTE.CEDULA_ESTUDIANTE}}</td>
+                <td style="font-size: 130%">{{listado.CURSO.CURSO }} "{{listado.CURSO.PARALELO }}"</td>
+                <td style="font-size: 130%">{{listado.PERIODO }}</td>
+                <td>
+                  <input class="btn btn-primary " type="button" value="Eliminar" (click)="updateDatosMatricula(listado)">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- ====================================================  Listado Asignacion ============================================-->
+      <div class="pre-scrollable" style="max-height: 100%; " *ngIf="listadosMostrarAsignacion">
+        <br>
+        <div class="row mx-auto" >
+
+          <div class="col-md-4 ">
+            <label for="apellido">Seleccione el Docente</label>
+            <input list="busquedaDocentesAsignacion" style="font-size: 85%" type="text" [(ngModel)]="busquedaDocenteAsignacion" name="busquedaDocenteAsignacion"
+              required class="form-control">
+
+
+            <datalist id="busquedaDocentesAsignacion">
+              <option id="oneDoor.ID_DOCENTE" *ngFor="let oneDoor of vectorListadoDocentes">
+
+                {{oneDoor.CODIGO_DOCENTE}}.&nbsp;&nbsp;&nbsp;&nbsp; {{oneDoor.NOMBRE_DOCENTE}} {{oneDoor.APELLIDO_DOCENTE}} &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;{{oneDoor.CEDULA_DOCENTE}}
+              </option>
+
+
+            </datalist>
+
+          </div>
+
+          <div class="col-md-3 ">
+            <label>Periodo académico </label>
+            <select (change)="buscarAsignacionPeriodo($event.target.value)" class=" custom-select " required>
+              <option value="no asignado" selected>no asignado</option>
+              <option *ngFor="let oneDoor of vectorListadoPeriodos">{{oneDoor.PERIODO}}</option>
+            </select>
+          </div>
+          <div class=" col-md-4">
+            <label for="apellido">Seleccione el curso </label>
+            <input style="font-size: 85%" list="buscarCursoAsignacion" [(ngModel)]="buscarCursoAsignacion" name="buscarCursoAsignacion"
+              required type="text" class="form-control">
+            <datalist id="buscarCursoAsignacion">
+              <option *ngFor="let oneDoor of vectorListadoCursos">
+                {{oneDoor.CODIGO_CURSO}}.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;{{oneDoor.CURSO}}. {{oneDoor.PARALELO}}
+              </option>
+            </datalist>
+
+          </div>
+
+          <div class="col-lg-1">
+            <label style="color: white"> hola</label>
+
+            <input style="align-content: center" class=" btn btn-primary form-control" value="Buscar" type="button" (click)="busquedaAsignacionFiltrado()">
+          </div>
+
+
+        </div>
+        <br>
+        <br>
+        <br>
+        <div *ngIf="listadoA">
+          <div class="row">
+            <div class="col-md-12" style="text-align: center; color: #2863a9">
+              <h3>LISTADO ASIGNACIONES
+              </h3>
+            </div>
+            <div class="col-md-12">
+              <hr style="background-color: #e9ecef; width: 50%;">
+            </div>
+          </div>
+          <table class="table  text-center">
+            <thead>
+              <tr style="background-color: #343a40; align-content: center">
+                <th style="color: white" scope="col">#</th>
+                <th style="color: white" scope="col">Curso</th>
+                <th style="color: white" scope="col">Docente</th>
+                <th style="color: white" scope="col">Periodo</th>
+                <th style="color: white" scope="col">Materia</th>
+
+                <th style="color: white" scope="col">Opción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor=" let listado of  listadoAsignacionNueva; let i = index">
+                <th scope="row">{{i+1}}</th>
+
+                <td style="font-size: 130%">{{listado.CURSO.CURSO}} "{{listado.CURSO.PARALELO}}"</td>
+                <td style="font-size: 130%"> {{ listado.DOCENTE.NOMBRE_DOCENTE}} {{ listado.DOCENTE.APELLIDO_DOCENTE}}</td>
+                <td style="font-size: 130%">{{listado.PERIODO}}</td>
+                <td style="font-size: 130%">{{listado.NOMBRE_MATERIA}}</td>
+
+                <td>
+                  <input class="btn btn-primary " type="button" value="Eliminar" (click)="updateDatosAsignacion(listado)">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      <!-- ====================================================      Formulario de Ingresar ASIGNACION ============================================-->
+
+      <div class="container" *ngIf="IngresarAsignacion">
+        <br>
+        <h5 style="color: blue">Nueva asignación de materias</h5>
+        <form #IngresarAsignacion="ngForm" novalidate>
+          <div class="row">
+            <div class="col-6 col-md-3 mx-auto">
+              <img src="../../assets/imgs/IngresarAsignacion.png" >
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+
+            <label for="apellido">Seleccione el Docente que Impartira la materia</label>
+            <input list="listadoDocentesAsignacion" style="font-size: 85%" [(ngModel)]="selectedDocenteAsignacion" name="selectedDocenteAsinacion"
+              required type="text" class="form-control">
+
+
+            <datalist id="listadoDocentesAsignacion">
+              <option id="oneDoor.ID_DOCENTE" *ngFor="let oneDoor of vectorListadoDocentes">
+
+                {{oneDoor.CODIGO_DOCENTE}}.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {{oneDoor.NOMBRE_DOCENTE}} {{oneDoor.APELLIDO_DOCENTE}} &nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;{{oneDoor.CEDULA_DOCENTE}}
+              </option>
+
+
+            </datalist>
+
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="apellido">Seleccione el curso donde se impartira la materia</label>
+
+                <input style="font-size: 85%" list="listadoCursosAsignacion" [(ngModel)]="selectedCursoAsignacion" (change)="selectedCursoA($event.target.value)"
+                  name="selectedCursoAsignacion" required type="text" class="form-control">
+                <datalist id="listadoCursosAsignacion">
+                  <option *ngFor="let oneDoor of vectorListadoCursos">
+                    {{oneDoor.CODIGO_CURSO}}.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{oneDoor.CURSO}},{{oneDoor.PARALELO}}
+                  </option>
+                </datalist>
+              </div>
+
+
+              <div class="card-columns">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="apellido">Seleccione la materia a impartir</label>
+                <input style="font-size: 85%" [disabled]="disabledMateriaImpartir" list="listadoMateriasAsignacion" [(ngModel)]="selectedMateriaAsignacion"
+                  name="selectedMateriaAsignacion" required type="text" class="form-control">
+                <datalist id="listadoMateriasAsignacion">
+                  <option *ngFor="let oneDoor of vectorlistadoMaterias"> {{oneDoor}}</option>
+
+                </datalist>
+              </div>
+
+
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <hr style="background-color: #e9ecef; width: 50%;">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" style="text-align: center;">
+              <button type="submit" (click)="onRegisterAsignacion()" class="btn btn-primary">Terminar Asignación
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+      <!-- ====================================================       Formulario de Ingresar MATRICULA ============================================-->
+
+      <div class="container" *ngIf="IngresarMatricula">
+        <br>
+        <h5 style="color: blue">Nueva matricula</h5>
+        <form #IngresarMatricula="ngForm" novalidate>
+          <div class="row">
+            <div class="col-6 col-md-3 mx-auto">
+              <img src="../../assets/imgs/IngresarMatricula.png" >
+            </div>
+
+            
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+
+                <label for="apellido">Seleccione el estudiante a matricular</label>
+                <input list="listadoEstudiantes" style="font-size: 85%" [(ngModel)]="selectedEstudiante" name="selectedEstudiante" required
+                  type="text" class="form-control">
+
+
+                <datalist id="listadoEstudiantes">
+                  <option id="oneDoor.ID_ESTUDIANTE" *ngFor="let oneDoor of vectorListadoEstudiantes">
+
+                    {{oneDoor.CODIGO_ESTUDIANTE}}.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {{oneDoor.NOMBRE_ESTUDIANTE}} {{oneDoor.APELLIDO_ESTUDIANTE}} &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;{{oneDoor.CEDULA_ESTUDIANTE}}
+                  </option>
+
+
+                </datalist>
+
+              </div>
+
+              <div class="card-columns">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="apellido">Seleccione el curso a matricular</label>
+                <input style="font-size: 85%" list="listadoCursos" [(ngModel)]="selectedCurso" name="selectedCur" required type="text" class="form-control">
+                <datalist id="listadoCursos">
+                  <option *ngFor="let oneDoor of vectorListadoCursos">
+
+                    {{oneDoor.CODIGO_CURSO}}.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{oneDoor.CURSO}},{{oneDoor.PARALELO}}
+                  </option>
+                </datalist>
+              </div>
+
+
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <hr style="background-color: #e9ecef; width: 50%;">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" style="text-align: center;">
+              <button type="submit" (click)="onRegisterMatricula()" class="btn btn-primary">Generar Matricula
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- ====================================================     Formulario de INGRESAR DOCENTE ============================================-->
+
+      <div class="container" *ngIf="IngresarDocente">
+        <br>
+        <h5 style="color: blue">Ingresar nuevo docente</h5>
+        <form #IngresarDocente="ngForm" (ngSubmit)="onRegisterDocente()" novalidate>
+          <div class="row">
+            <div class="col-6 col-md-3 mx-auto">
+              <img src="../../assets/imgs/IngresarDocente.png" class=" txt-center">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="nombre"> Ingrese el Nombre</label>
+                <input style="text-transform:uppercase;" type="text" required class="form-control" #Nombre="ngModel" [(ngModel)]="docente_register.nombre"
+                  name="nombre" id="nombre" pattern="[ A-Za-zñÑ]*">
+                <div [hidden]="Nombre.valid || Nombre.pristine" class="alert alert-warning" id="ocu">
+                  Ingrese solo letras
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="cedula">Ingrese la Cédula</label>
+                <input type="text" required class="form-control" #Cedula="ngModel" [(ngModel)]="docente_register.cedula" name="cedula" id="cedula"
+                  pattern=".{10,10}">
+                <div [hidden]="Cedula.valid || Cedula.pristine" class="alert alert-warning">
+                  Ingrese solo números y maximo 10 números
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="contrasena">Ingrese la contraseña</label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend" (click)="myFunctionUsuario()">
+                    <div class="input-group-text">
+                      <i class="{{clase_ojoUsuario}}"></i>
+                    </div>
+                  </div>
+                  <input type="{{tipoUsuario}}" required class="form-control" aria-label="Text input with checkbox" #Password="ngModel" [(ngModel)]="docente_register.contrasena"
+                    name="contrasena" id="contrasena" pattern=".{6,}">
+                </div>
+                <div [hidden]="Password.valid || Password.pristine" class="alert alert-warning">
+                  Contraseña mínima de 6 caracteres
+                </div>
+              </div>
+
+
+              <div class="card-columns">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="apellido">Ingrese el Apellido</label>
+                <input style="text-transform:uppercase;" type="text" required class="form-control" #Apellido="ngModel" [(ngModel)]="docente_register.apellido"
+                  name="apellido" id="apellido" pattern="[ A-Za-zñÑ]*">
+                <div [hidden]="Apellido.valid || Apellido.pristine" class="alert alert-warning">
+                  Ingrese solo letras
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="correo">Ingrese el Correo</label>
+                <input type="email" required class="form-control" #Correo="ngModel" [(ngModel)]="docente_register.correo" name="correo" id="correo"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                <div [hidden]="Correo.valid || Correo.pristine" class="alert alert-warning">
+                  Ingrese un correo electrónico válido
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="celular">Ingrese numero celular</label>
+                <input type="text" required class="form-control" #Celular="ngModel" [(ngModel)]="docente_register.tel_celular" name="celular"
+                  id="celular" pattern=".{10,10}">
+                <div [hidden]="Celular.valid || Celular.pristine" class="alert alert-warning">
+                  Ingrese 10 digitos solo numericos
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <hr style="background-color: #e9ecef; width: 50%;">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" style="text-align: center;">
+              <button type="submit" class="btn btn-primary" [disabled]="!IngresarDocente.form.valid">Guardar Docente
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- ====================================================      Formulario de MODIFICAR DOCENTE ============================================-->
+
+      <div class="container" *ngIf="ModificarDocente">
+        <br>
+        <h5 style="color: blue">Modificar docente</h5>
+        <form #ModificarUsuario="ngForm">
+          <div class="row">
+            <div class="col-lg-12">
+              <img src="../../assets/imgs/IngresarDocente.png" style="display: block; margin-left: 40%; width: 15%;  height:18%; border-radius:50%">
+              <br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label> Nombre del Docente</label>
+                <input type="text" class="form-control" #NombreM="ngModel" [(ngModel)]="datosDocentes.NOMBRE_DOCENTE" name="nombreM" [disabled]='textBox'
+                  pattern="[ A-Za-zñÑ]*" required>
+                <div *ngIf="txtvalidacionModificarDocente" [hidden]="NombreM.valid || NombreM.pristine" class="alert alert-warning">
+                  Ingrese solo letras
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Celular del Docente</label>
+                <input type="text" class="form-control" #CelularM="ngModel" [(ngModel)]="datosDocentes.CELULAR_DOCENTE" name="celularM" pattern="[0-9]*"
+                  id="celular" pattern=".{10,10}" [disabled]='textBox' required>
+                <div *ngIf="txtvalidacionModificarDocente" [hidden]="CelularM.valid || CelularM.pristine" class="alert alert-warning">
+                  Ingrese solo 10 digitos numéricos
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Cédula del docente</label>
+                <label style="font-size: 80%">&nbsp;&nbsp;La cédula no se puede modificar, tiene que eliminar el usuario</label>
+                <input type="text" class="form-control" #TelefonoM="ngModel" [(ngModel)]="datosDocentes.CEDULA_DOCENTE" name="telefonoM" disabled
+                  id="celular" pattern=".{10,10}"  required>
+
+                <div *ngIf="txtvalidacionModificarDocente" [hidden]="TelefonoM.valid || TelefonoM.pristine" class="alert alert-warning">
+                  Ingrese solo 10 digitos numéricos
+                </div>
+              </div>
+              <div class="card-columns">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label>Apellido del Docente</label>
+                <input type="text" class="form-control" #ApellidoM="ngModel" [(ngModel)]="datosDocentes.APELLIDO_DOCENTE" name="apellidoM" [disabled]='textBox'
+                  pattern="[ A-Za-zñÑ]*" required>
+                <div *ngIf="txtvalidacionModificarDocente" [hidden]="ApellidoM.valid || ApellidoM.pristine" class="alert alert-warning">
+                  Ingrese solo letras
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Correo del Docente</label>
+                <input type="email" class="form-control" #CorreoM="ngModel" [(ngModel)]="datosDocentes.CORREO_DOCENTE" name="correorM" [disabled]='textBox'
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                <div *ngIf="txtvalidacionModificarDocente" [hidden]="CorreoM.valid || CorreoM.pristine" class="alert alert-warning">
+                  Ingrese un correo electrónico válido
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contrasena">Modificar la contraseña</label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend" (click)='habilitarContrasenaU()'>
+
+                    <div class="input-group-text">
+                      <i class="{{clase_ojoUsuarioM}}"></i>
+                    </div>
+                  </div>
+                  <input type="{{tipoUsuarioM}}" disabled required class="form-control" aria-label="Text input with checkbox" #Password="ngModel"
+                    [(ngModel)]="this.contrasenaUpdateDocente" name="contrasena" id="contrasena" pattern=".{6,}" [disabled]='textBoxContra'>
+                </div>
+                <div *ngIf="txtvalidacionOjoModificarDocente" [hidden]="Password.valid || Password.pristine" class="alert alert-warning">
+                  Contraseña mínima de 6 caracteres
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <hr style="background-color: #e9ecef; width: 50%;">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6" style="text-align: right;">
+              <button type="submit" class="btn btn-warning" style="color: #ffffff" (click)='habilitar()' [hidden]='txtHide'>
+                <i class="fa fa-edit fa-0.5x" style="color: #ffffff"></i> Modificar
+              </button>
+            </div>
+            <div class="col-md-6" style="text-align: left;">
+              <button (click)='onUpdateDocentes(1)' type="submit" class="btn btn-danger" [hidden]='txtHide'>
+                <i class="fa fa-trash fa-0.5x" style="color: #ffffff"></i>
+                Eliminar
+              </button>
+            </div>
+            <div class="col-md-6" style="text-align: right;">
+              <button type="submit" class="btn btn-primary" (click)='onUpdateDocentes(0)' [hidden]='txtAparece' [disabled]="!ModificarUsuario.form.valid">
+                <i class="fa fa-save fa-0.5x" style="color: #ffffff"></i>
+                Guardar Cambios</button>
+            </div>
+            <div class="col-md-6" style="text-align: left;">
+              <button class="btn btn-default" (click)="deshabilitar()" [hidden]='txtAparece'>
+                <i class="fa fa-ban fa-0.5x" style="color: #000000"></i>
+                Cancelar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- ====================================================      Formulario de INGRESAR ESTUDIANTE ============================================-->
+
+      <div class="container" *ngIf="IngresarEstudiante">
+        <br>
+        <h5 style="color: blue">Ingresar nuevo estudiante</h5>
+        <form #IngresarEstudiante="ngForm" (ngSubmit)="onRegisterEstudiante()">
+          <div class="row">
+
+            <div class="col-6 col-md-3 mx-auto">
+              <img [src]="url2" class=" txt-center">
+            </div>
+            
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="nombreChofer"> Ingrese el Nombre</label>
+                <input style="text-transform:uppercase;" type="text" required class="form-control" #NombreChofer1="ngModel" [(ngModel)]="estudiante_register.nombre"
+                  name="nombreChofer" id="nombreChofer" pattern="[ A-Za-zñÑ]*">
+                <div [hidden]="NombreChofer1.valid || NombreChofer1.pristine" class="alert alert-warning">
+                  Ingrese solo letras
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="cedulaChofer">Ingrese la Cédula</label>
+                <input type="text" required class="form-control" #CedulaChofer="ngModel" [(ngModel)]="estudiante_register.cedula" name="cedulaChofer"
+                  id="cedulaChofer" pattern=".{10,10}">
+                <div [hidden]="CedulaChofer.valid || CedulaChofer.pristine" class="alert alert-warning">
+                  Ingrese solo 10 digitos numéricos
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contrasenaChofer">Ingrese la contraseña</label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend" (click)="myFunctionChofer()">
+                    <div class="input-group-text">
+                      <i class="{{clase_ojoChofer}}"></i>
+                    </div>
+                  </div>
+                  <input type="{{tipoChofer}}" required class="form-control" aria-label="Text input with checkbox" #ContrasenaChofer="ngModel"
+                    [(ngModel)]="estudiante_register.contrasena" name="ContrasenaChofer" id="contrasenaChofer" pattern=".{6,}">
+                </div>
+                <div [hidden]="ContrasenaChofer.valid || ContrasenaChofer.pristine" class="alert alert-warning">
+                  Contraseña mínima de 6 caracteres
+                </div>
+              </div>
+
+              <div class="card-columns">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="apellidoChofer">Ingrese el Apellido</label>
+                <input style="text-transform:uppercase;" type="text" required class="form-control" #ApellidoChofer="ngModel" [(ngModel)]="estudiante_register.apellido"
+                  name="apellidoChofer" id="apellidoChofer" pattern="[ A-Za-zñÑ]*">
+                <div [hidden]="ApellidoChofer.valid || ApellidoChofer.pristine" class="alert alert-warning">
+                  Ingrese solo letras
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="correoChofer">Ingrese el Correo</label>
+                <input type="email" required class="form-control" #CorreoChofer="ngModel" [(ngModel)]="estudiante_register.correo" name="correoChofer"
+                  id="correoChofer" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                <div [hidden]="CorreoChofer.valid || CorreoChofer.pristine" class="alert alert-warning">
+                  Ingrese un correo electrónico válido
+                </div>
+              </div>
+              <!-- <div class="form-group">
+                <label for="licenciaChofer">Ingrese numero de licencia</label>
+                <input type="text" required class="form-control" #LicenciaChofer="ngModel" [(ngModel)]="chofer_register.num_licencia" name="licenciaChofer"
+                  id="licenciaChofer" pattern="[0-9]*">
+                <div [hidden]="LicenciaChofer.valid || LicenciaChofer.pristine" class="alert alert-warning">
+                  Ingrese solo números
+                </div>
+              </div>-->
+              <div class="form-group">
+                <label for="celularChofer">Ingrese numero celular</label>
+                <input type="text" required class="form-control" #CelularChofer="ngModel" [(ngModel)]="estudiante_register.tel_celular" name="celularChofer"
+                  id="celularChofer" pattern=".{10,10}">
+                <div [hidden]="CelularChofer.valid || CelularChofer.pristine" class="alert alert-warning">
+                  Ingrese solo 10 digitos numéricos
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" style="text-align: center;">
+              <div></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" style="text-align: center;">
+              <hr style="background-color: #e9ecef; width: 50%;">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" style="text-align: center;">
+              <button type="submit" class="btn btn-primary" [disabled]="!IngresarEstudiante.form.valid">Guardar Datos</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+
+      <!-- ====================================================      Formulario de MODIFICAR ESTUDIANTE ============================================-->
+      <div class="container" *ngIf="ModificarEstudiante">
+        <br>
+        <h5 style="color: blue">Modificar estudiantes</h5>
+        <form #ModificarEstudiante="ngForm">
+          <div class="row">
+            <div class="col-lg-12">
+              <img src="../../assets/imgs/IngresarEstudiante.png" style="display: block; margin-left: 40%; width: 15%;  height:18%; border-radius:50%">
+
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label> Nombre del Estudiante</label>
+                <input type="text" class="form-control" #NombreM="ngModel" [(ngModel)]="datosEstudiantes.NOMBRE_ESTUDIANTE" name="nombreM" [disabled]='textBox'
+                  pattern="[ A-Za-zñÑ]*" required>
+                <div *ngIf="txtvalidacionModificarEstudiante" [hidden]="NombreM.valid || NombreM.pristine" class="alert alert-warning">
+                  Ingrese solo letras
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Celular del Estudiante</label>
+                <input type="text" class="form-control" #CelularM="ngModel" [(ngModel)]="datosEstudiantes.CELULAR_ESTUDIANTE" name="celularM" [disabled]='textBox'
+                  pattern=".{10,10}" required>
+                <div *ngIf="txtvalidacionModificarEstudiante" [hidden]="CelularM.valid || CelularM.pristine" class="alert alert-warning">
+                  Ingrese solo 10 dígitos numericos
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Cédula del Estudiante</label>
+                <label style="font-size: 80%">&nbsp;&nbsp;La cédula no se puede modificar, tiene que eliminar el usuario</label>
+                <input type="text" class="form-control" #TelefonoM="ngModel" [(ngModel)]="datosEstudiantes.CEDULA_ESTUDIANTE" name="telefonoM" disabled
+                  pattern="[0-9]*" required>
+                <div [hidden]="TelefonoM.valid || TelefonoM.pristine" class="alert alert-warning">
+                  Ingrese solo números
+                </div>
+              </div>
+              <div class="card-columns">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label>Apellido del Estudiante</label>
+                <input type="text" class="form-control" #ApellidoM="ngModel" [(ngModel)]="datosEstudiantes.APELLIDO_ESTUDIANTE" name="apellidoM" [disabled]='textBox'
+                  pattern="[ A-Za-zñÑ]*" required>
+                <div *ngIf="txtvalidacionModificarEstudiante" [hidden]="ApellidoM.valid || ApellidoM.pristine" class="alert alert-warning">
+                  Ingrese solo letras
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Correo del Estudiante</label>
+                <input type="email" class="form-control" #CorreoM="ngModel" [(ngModel)]="datosEstudiantes.CORREO_ESTUDIANTE" name="correoM" [disabled]='textBox'
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                <div *ngIf="txtvalidacionModificarEstudiante" [hidden]="CorreoM.valid || CorreoM.pristine" class="alert alert-warning">
+                  Ingrese un correo electrónico válido
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contrasena">Modificar la contraseña</label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend" (click)='habilitarContrasenaC()'>
+                    <div class="input-group-text">
+                      <i class="{{clase_ojoUsuarioC}}"></i>
+                    </div>
+                  </div>
+                  <input type="{{tipoUsuarioC}}" disabled required class="form-control" aria-label="Text input with checkbox" #Password="ngModel"
+                    [(ngModel)]=" this.contrasenaUpdateEstudiante" name="contrasena" id="contrasena" pattern=".{6,}" [disabled]='textBoxContraC'>
+                </div>
+                <div *ngIf="txtvalidacionOjoModificarEstudiante" [hidden]="Password.valid || Password.pristine" class="alert alert-warning">
+                  Contraseña mínima de 6 caracteres
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <hr style="background-color: #e9ecef; width: 50%;">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6" style="text-align: right;">
+              <button type="submit" class="btn btn-warning" style="color: #ffffff" (click)='habilitar()' [hidden]='txtHide'>
+                <i class="fa fa-edit fa-0.5x" style="color: #ffffff"></i> Modificar
+              </button>
+            </div>
+            <div class="col-md-6" style="text-align: left;">
+              <button (click)='onUpdateEstudiante(1)' type="submit" class="btn btn-danger" [hidden]='txtHide'>
+                <i class="fa fa-trash fa-0.5x" style="color: #ffffff"></i>
+                Eliminar
+              </button>
+            </div>
+            <div class="col-md-6" style="text-align: right;">
+              <button type="submit" class="btn btn-primary" (click)='onUpdateEstudiante(0)' [hidden]='txtAparece' [disabled]="!ModificarEstudiante.form.valid">
+                <i class="fa fa-save fa-0.5x" style="color: #ffffff"></i> Guardar Cambios
+              </button>
+            </div>
+            <div class="col-md-6" style="text-align: left;">
+              <button type="submit" class="btn btn-default" (click)="deshabilitar()" [hidden]='txtAparece'>
+                <i class="fa fa-ban fa-0.5x" style="color: #000000"></i>
+                Cancelar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+      <!-- ====================================================      Reportes Notas ============================================-->
+
+
+      <div *ngIf="banderReporteExcel" style="margin-top:3%" class="container-fluid">
+        <h5 style="color: blue">Reporte Consolidado de Notas</h5>
+        <br>
+        <select (change)="asignarMateriaCurso($event.target.value)" class=" custom-select  mx-auto" required>
+          <option [value]="" selected>Selecciona el curso</option>
+          <option *ngFor="let oneDoor of this.vectorListadoCursos" value="{{oneDoor.ID_CURSO}},{{oneDoor.CURSO}} ">{{oneDoor.CURSO}}: {{oneDoor.PARALELO}} </option>
+        </select>
+      </div>
+
+      <!-------------------------------------------------- tabla del reporte de notas finales-->
+
+      <table id="consolidado" *ngIf="banderReporteExcel" class="table table-hover table-bordered table-responsive" style="margin-top: 2%; font-size: 80% ; width: 90% ; margin-left: 5%">
+
+
+
+        <thead>
+
+
+          <tr style="background-color: #343a40; align-content: center;">
+            <th style="color: white; padding-top: 2%" scope="col">#</th>
+            <th style="color: white;   align-content: center;   text-align: center" scope="col">Apellidos y Nombres</th>
+            <th *ngFor=" let listado of  listadoMateriasCurso;" style="color: white" scope="col" class="verticalText2">{{listado.NOMBRE_MATERIA}} </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor=" let listado of  listadoEstudianteMatriculas; let i = index;">
+            <th scope="row">{{i+1}}</th>
+            <td class="active">{{listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}} {{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
+            <td class="active" *ngFor=" let listad of  this.nuevo2[i]">{{listad}}</td>
+          <!-- <td class="active" *ngFor=" let listad of  this.objNotasPT">{{listad}}</td>-->
+
+          </tr>
+        </tbody>
+
+
+
+      </table>
+      <div *ngIf="banderReporteExcel" class="col-lg-12" style="text-align: center;">
+        <button (click)="generarPdf()" class="btn btn-danger" style="align-content: center">
+          Generar en PDF
+        </button>
+     &nbsp; &nbsp; &nbsp;
+        <button (click)="generarExel()" class="btn btn-success" style="align-content: center">
+          Generar en Excel
+        </button>
+      </div>
+    </div>
+
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Salir</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">¿Desea cerrar sessión?
+          </div>
+          <div class="modal-footer">
+            <!-- <button (click)='hola()'>hola</button> -->
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" (click)="logout()">Salir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================                  Modal Ingresar Paralelo =================================-->
+
+
+    <div class="modal fade " id="ModalIngresarParalelo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" style="margin-left: 30%">Crear nuevo paralelo</h5>
+
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+
+          </div>
+          <p class="modal-title" id="exampleModalLabel" style="margin-left: 22%">Seleccione el curso e ingrese el paralelo</p>
+          <div style="width: 80%; border: 0; background-color: white;  margin-left: 10%" disabled class="modal-body  row">
+            <select (change)="asignarCurso($event.target.value)" class=" custom-select col-lg-8" required>
+              <option disabled selected hidde value="" selected>Seleccione un curso</option>
+              <option value="OCTAVO AÑO DE EDUCACIÓN GENERAL BÁSICA">OCTAVO AÑO DE EDUCACIÓN GENERAL BÁSICA</option>
+              <option value="NOVENO AÑO DE EDUCACIÓN GENERAL BÁSICA">NOVENO AÑO DE EDUCACIÓN GENERAL BÁSICA</option>
+              <option value="DÉCIMO AÑO DE EDUCACIÓN GENERAL BÁSICA">DÉCIMO AÑO DE EDUCACIÓN GENERAL BÁSICA</option>
+              <option value="BÁSICO SUPERIOR INTENSIVO">BÁSICO SUPERIOR INTENSIVO</option>
+              <option value="PRIMER AÑO DE BACHILLERATO GENERAL UNIFICADO">PRIMER AÑO DE BACHILLERATO GENERAL UNIFICADO</option>
+              <option value="SEGUNDO AÑO DE BACHILLERATO GENERAL UNIFICADO">SEGUNDO AÑO DE BACHILLERATO GENERAL UNIFICADO</option>
+              <option value="TERCER AÑO DE BACHILLERATO GENERAL UNIFICADO">TERCER AÑO DE BACHILLERATO GENERAL UNIFICADO</option>
+            </select>
+
+            <input class="form-control col-lg-3 " style="margin-left: 3%" placeholder="Paralelo" type=" text" #Curso="ngModel" [(ngModel)]="curso_register.paralelo"
+              name="curso">
+          </div>
+          <div class="modal-footer">
+
+            <button (click)="onRegisterCurso()" class="btn btn-primary" type="button" data-dismiss="modal">Crear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ====================================================     Modal Eliminar Paralelo =================================-->
+
+
+    <div class="modal fade " id="ModalEliminarParalelo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" style="margin-left: 30%">Eliminar paralelo</h5>
+
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+
+          </div>
+          <p class="modal-title" id="exampleModalLabel" style="margin-left: 22%">Seleccione el curso que desea eliminar</p>
+          <div style="width: 80%; border: 0; background-color: white;  margin-left: 10%" disabled class="modal-body  row">
+
+
+            <input style="font-size: 85%" list="listadoCursosAsignacion" [(ngModel)]="selectedCursoEliminar" name="selectedCursoEliminar"
+              required type="text" class="form-control">
+            <datalist id="listadoCursosAsignacion">
+              <option *ngFor="let oneDoor of vectorListadoCursos">
+                {{oneDoor.CODIGO_CURSO}}.&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{oneDoor.CURSO}},{{oneDoor.PARALELO}}
+              </option>
+            </datalist>
+
+
+          </div>
+          <div class="modal-footer">
+
+            <button (click)="updateDatosCurso()" class="btn btn-primary" type="button" data-dismiss="modal">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ====================================================                     GUARDADO CORRECTAMENTE =================================-->
+    <!-- ====================================================                     GUARDADO CORRECTAMENTE =================================-->
+    <button id="openModalCorrecto" [hidden]="true" data-toggle="modal" data-target="#ModalCorrecto">Correcto</button>
+    <div class="modal fade" id="ModalCorrecto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Correcto</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div style="width: 100%; border: 0; background-color: white;" disabled class="modal-body">
+            <input style="width: 100%; border: 0; background-color: white;" disabled type="text" #MensajeCorrecto="ngModel" [(ngModel)]="this.mensajecorrectomodals"
+              name="mensajecorrecto">
+          </div>
+          <div class="modal-footer">
+            <!-- <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button> -->
+            <button class="btn btn-primary" type="button" data-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================                     ERROR =================================-->
+    <!-- ====================================================                     ERROR =================================-->
+
+  </div>
+
+  <button id="openModalError" [hidden]="true" data-toggle="modal" data-target="#ModalError">Error</button>
+  <div class="modal fade" id="ModalError" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input style="width: 100%; border: 0; background-color: white;" disabled type="text" #MensajeError="ngModel" [(ngModel)]="this.mensajeerrormodals"
+            name="mensajeerror">
+        </div>
+        <div class="modal-footer">
+          <!-- <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button> -->
+          <button class="btn btn-primary" type="button" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

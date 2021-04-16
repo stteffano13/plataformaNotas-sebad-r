@@ -11,82 +11,92 @@ const Insumo = db.sequelize.define('INSUMO', {
         allowNull: false,
         autoIncrement: true
     },
-    DESCINSUMO1:
+    DESCASISTENCIA1:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO2:
+    DESCASISTENCIA2:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO3:
+    DESCASISTENCIA3:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO4:
+    DESCASISTENCIA4:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO5:
+    DESCASISTENCIA5:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO6:
+    DESCASISTENCIA6:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO7:
+    DESCASISTENCIA7:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO8:
+    DESCASISTENCIA8:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO11:
+    DESCTAREA1:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO22:
+    DESCTAREA2:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO33:
+    DESCTAREA3:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO44:
+    DESCTAREA4:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO55:
+    DESCPROYECTO1:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO66:
+    DESCTAREA11:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO77:
+    DESCTAREA22:
     {
         type: Sequelize.STRING,
         allowNull: true
     },
-    DESCINSUMO88:
+    DESCTAREA33:
+    {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    DESCTAREA44:
+    {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    DESCPROYECTO2:
     {
         type: Sequelize.STRING,
         allowNull: true

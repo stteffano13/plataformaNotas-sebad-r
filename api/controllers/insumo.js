@@ -42,22 +42,27 @@ async function saveInsumos2(params, res) {
     try {
         var insumo = Insumo.build();
 
-        insumo.DESCINSUMO1 = params.Descinsumo1;
-        insumo.DESCINSUMO2 = params.Descinsumo2;
-        insumo.DESCINSUMO3 = params.Descinsumo3;
-        insumo.DESCINSUMO4 = params.Descinsumo4;
-        params.DESCINSUMO5 = insumo.Descinsumo5;
-        insumo.DESCINSUMO6 = params.Descinsumo6;
-        insumo.DESCINSUMO7 = params.Descinsumo7;
-        insumo.DESCINSUMO8 = params.Descinsumo8;
-        insumo.DESCINSUMO11 = params.Descinsumo11;
-        insumo.DESCINSUMO22 = params.Descinsumo22;
-        insumo.DESCINSUMO33 = params.Descinsumo33;
-        insumo.DESCINSUMO44 = params.Descinsumo44;
-        insumo.DESCINSUMO55 = params.Descinsumo55;
-        insumo.DESCINSUMO66 = params.Descinsumo66;
-        insumo.DESCINSUMO77 = params.Descinsumo77;
-        insumo.Descinsumo88 = params.Descinsumo88;
+        insumo.DESCASISTENCIA1 = params.DescAsistencia1;
+        insumo.DESCASISTENCIA2 = params.DescAsistencia2;
+        insumo.DESCASISTENCIA3 = params.DescAsistencia3;
+        insumo.DESCASISTENCIA4 = params.DescAsistencia4;
+        insumo.DESCASISTENCIA5 = params.DescAsistencia5;
+        insumo.DESCASISTENCIA6 = params.DescAsistencia6;
+        insumo.DESCASISTENCIA7 = params.DescAsistencia7;
+        insumo.DESCASISTENCIA8 = params.DescAsistencia8;
+
+        insumo.DESCTAREA1 = params.DescTarea1;
+        insumo.DESCTAREA2 = params.DescTarea2;
+        insumo.DESCTAREA3 = params.DescTarea3;
+        insumo.DESCTAREA4 = params.DescTarea4;
+        insumo.DESCPROYECTO1 = params.DescProyecto1;
+
+        insumo.DESCTAREA11 = params.DescTarea11;
+        insumo.DESCTAREA22 = params.DescTarea22;
+        insumo.DESCTAREA33 = params.DescTarea33;
+        insumo.DESCTAREA44 = params.DescTarea44;
+        insumo.DESCPROYECTO2 = params.DescProyecto2;
+
         insumo.PERIODO = params.periodo;
         insumo.ID_MATERIA = params.materia;
 
@@ -89,24 +94,29 @@ async function updateInsumos(insumos, params, res) {
         params._id = insumos._id;
 
         let insumoUpdate = await Insumo.update({
-            DESCINSUMO1: params.Descinsumo1,
-            DESCINSUMO2: params.Descinsumo2,
-            DESCINSUMO3: params.Descinsumo3,
-            DESCINSUMO4: params.Descinsumo4,
-            DESCINSUMO5: params.Descinsumo5,
-            DESCINSUMO6: params.Descinsumo6,
-            DESCINSUMO7: params.Descinsumo7,
-            DESCINSUMO8: params.Descinsumo8,
-            DESCINSUMO11: params.Descinsumo11,
-            DESCINSUMO22: params.Descinsumo22,
-            DESCINSUMO33: params.Descinsumo33,
-            DESCINSUMO44: params.Descinsumo44,
-            DESCINSUMO55: params.Descinsumo55,
-            DESCINSUMO66: params.Descinsumo66,
-            DESCINSUMO77: params.Descinsumo77,
-            Descinsumo88: params.Descinsumo88,
-            PERIODO: params.periodo,
-            ID_MATERIA: params.materia
+            DESCASISTENCIA1 : params.DescAsistencia1,
+            DESCASISTENCIA2 : params.DescAsistencia2,
+            DESCASISTENCIA3 : params.DescAsistencia3,
+            DESCASISTENCIA4 : params.DescAsistencia4,
+            DESCASISTENCIA5 : params.DescAsistencia5,
+            DESCASISTENCIA6 : params.DescAsistencia6,
+            DESCASISTENCIA7 : params.DescAsistencia7,
+            DESCASISTENCIA8 : params.DescAsistencia8,
+
+            DESCTAREA1 : params.DescTarea1,
+            DESCTAREA2 : params.DescTarea2,
+            DESCTAREA3 : params.DescTarea3,
+            DESCTAREA4 : params.DescTarea4,
+            DESCPROYECTO1 : params.DescProyecto1,
+
+            DESCTAREA11 : params.DescTarea11,
+            DESCTAREA22 : params.DescTarea22,
+            DESCTAREA33 : params.DescTarea33,
+            DESCTAREA44 : params.DescTarea44,
+            DESCPROYECTO2 : params.DescProyecto2,
+
+            PERIODO : params.periodo,
+            ID_MATERIA : params.materia,
         }, { where: { ID_INSUMO: insumos.ID_INSUMO } });
 
         if (!insumoUpdate) {
@@ -159,7 +169,7 @@ async function getDiscInsumo(req, res) {
 
         }
     } catch (err) {
-       
+
         res.status(500).send({
             message: 'error:' + err
         });

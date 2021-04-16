@@ -1,13 +1,20 @@
 export class Calculable {
     constructor(
 
-        public ochentaporciento1:String,
-        public veinteporciento1:String,
-        public promedio1:String,
-        public ochentaporciento2:String,
-        public veinteporciento2:String,
-        public promedio2:String,
-        public promedioPeriodo:String,
+        public promedioAsistencia:number,
+        public treintaycincoporcientotareas1:number,
+        public treintaporcientoproyecto1:number,
+        public treintaporcientoexamen1:number,
+        public totalparcial1:number,
+        
+        public treintaycincoporcientotareas2:number,
+        public treintaporcientoproyecto2:number,
+        public treintaporcientoexamen2:number,
+        public totalparcial2:number,
+        
+        public promedioPeriodo:number,
+        public EstadoNota:string,
+        
 
     ) { }
 }

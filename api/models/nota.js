@@ -11,42 +11,77 @@ const Nota = db.sequelize.define('NOTA', {
         allowNull: false,
         autoIncrement: true
     },
-   INSUMO1:
+   ASISTENCIA1:
     {
         type: Sequelize.NUMBER,
         allowNull: true
     },
-   INSUMO2:
+    ASISTENCIA2:
     {
         type: Sequelize.NUMBER,
         allowNull: true
     },
-   INSUMO3:
+    ASISTENCIA2:
     {
         type: Sequelize.NUMBER,
         allowNull: true
     },
-   INSUMO4:
+    ASISTENCIA3:
     {
         type: Sequelize.NUMBER,
         allowNull: true
     },
-    INSUMO5:
+    ASISTENCIA4:
     {
         type: Sequelize.NUMBER,
         allowNull: true
     },
-    INSUMO6:
+    ASISTENCIA5:
     {
         type: Sequelize.NUMBER,
         allowNull: true
     },
-    INSUMO7:
+    ASISTENCIA6:
     {
         type: Sequelize.NUMBER,
         allowNull: true
     },
-    INSUMO8:
+    ASISTENCIA7:
+    {
+        type: Sequelize.NUMBER,
+        allowNull: true
+    },
+    ASISTENCIA8:
+    {
+        type: Sequelize.NUMBER,
+        allowNull: true
+    },
+    PROMEDIOASISTENCIA:
+    {
+        type: Sequelize.NUMBER,
+        allowNull: true
+    },
+   TAREA1:
+    {
+        type: Sequelize.NUMBER,
+        allowNull: true
+    },
+    TAREA2:
+    {
+        type: Sequelize.NUMBER,
+        allowNull: true
+    },
+    TAREA3:
+    {
+        type: Sequelize.NUMBER,
+        allowNull: true
+    },
+    TAREA4:
+    {
+        type: Sequelize.NUMBER,
+        allowNull: true
+    },
+    PROYECTO1:
     {
         type: Sequelize.NUMBER,
         allowNull: true
@@ -56,67 +91,42 @@ const Nota = db.sequelize.define('NOTA', {
         type: Sequelize.NUMBER,
         allowNull: true
     },
-    INSUMO11:
+    TAREA11:
     {
         type: Sequelize.NUMBER,
         allowNull: true
     },
-   INSUMO22:
+    TAREA22:
     {
         type: Sequelize.NUMBER,
         allowNull: true
     },
-   INSUMO33:
+    TAREA33:
     {
         type: Sequelize.NUMBER,
         allowNull: true
     },
-    INSUMO44:
+    TAREA44:
     {
         type: Sequelize.NUMBER,
         allowNull: true
     },
-    INSUMO55:
+    PROYECTO2:
     {
         type: Sequelize.NUMBER,
         allowNull: true
     },
-   INSUMO66:
-    {
-        type: Sequelize.NUMBER,
-        allowNull: true
-    },
-    INSUMO77:
-    {
-        type: Sequelize.NUMBER,
-        allowNull: true
-    },
-    INSUMO88:
-    {
-        type: Sequelize.NUMBER,
-        allowNull: true
-    },
-    EXAMEN2:
-    {
-        type: Sequelize.NUMBER,
-        allowNull: true
-    },
-    EXAMENSUPLETORIO:
-    {
-        type: Sequelize.NUMBER,
-        allowNull: true
-    },
-    EXAMENREMEDIAL:
-    {
-        type: Sequelize.NUMBER,
-        allowNull: true
-    },
-    EXAMENGRACIA:
+   EXAMEN2:
     {
         type: Sequelize.NUMBER,
         allowNull: true
     },
     PT:
+    {
+        type: Sequelize.NUMBER,
+        allowNull: true
+    },
+    ESTADO_NOTAS:
     {
         type: Sequelize.NUMBER,
         allowNull: true

@@ -54,12 +54,12 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
   public banderTabla2 = false;
 
 
-// botones
+  // botones
   public btnFinalizar = true;
   public banderAux = false;
   public btnFinalizar2 = true;
-  public banderaHabilitar=false;
-  public banderaHabilitarB=false;
+  public banderaHabilitar = false;
+  public banderaHabilitarB = false;
   public mensajeerrormodal;
   public loading;
   public periodoLectivoActual;
@@ -100,8 +100,8 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
   public identity;
 
   public counter = 5;
-  public banderSubirNotas=true;
-  public btnHabilitarExportacion= true;
+  public banderSubirNotas = true;
+  public btnHabilitarExportacion = true;
 
   // subscribes variables
   public subscribe1;
@@ -131,8 +131,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
     this.recivir;
   }
-  ngOnDestroy()
-  {
+  ngOnDestroy() {
     console.log("chao");
     this.subscribe1.unsubscribe();
     this.subscribe2.unsubscribe();
@@ -153,11 +152,11 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     delete this.obj;
     delete this.objectCalculable;
     delete this.objC;
-    delete this.objectB; 
+    delete this.objectB;
     delete this.objB;
     delete this.objectCalculableB;
-   
-    
+
+
   }
 
   cerrarDescInsumos() {
@@ -185,53 +184,53 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
       periodo: this.periodoLectivoActual
     }
 
-      this.subscribe1= this._insumoService.getDescInsumosB(objDescInsumosB).subscribe(response => {
+    this.subscribe1 = this._insumoService.getDescInsumosB(objDescInsumosB).subscribe(response => {
 
       if (response.insumosB != undefined) {
         this.listadoInsumosB = response.insumosB;
         console.log("listado insumos de la basica", this.listadoInsumosB);
-        
+
         this.descripcionInsumoB.DescQ1P1insumo1 = this.listadoInsumosB.DescQ1P1insumo1;
         this.descripcionInsumoB.DescQ1P1insumo2 = this.listadoInsumosB.DescQ1P1insumo2;
         this.descripcionInsumoB.DescQ1P1insumo3 = this.listadoInsumosB.DescQ1P1insumo3;
         this.descripcionInsumoB.DescQ1P1insumo4 = this.listadoInsumosB.DescQ1P1insumo4;
         this.descripcionInsumoB.DescQ1P1insumo5 = this.listadoInsumosB.DescQ1P1insumo5;
         this.descripcionInsumoB.DescQ1P1insumo6 = this.listadoInsumosB.DescQ1P1insumo6;
-    
+
         this.descripcionInsumoB.DescQ1P2insumo1 = this.listadoInsumosB.DescQ1P2insumo1;
         this.descripcionInsumoB.DescQ1P2insumo2 = this.listadoInsumosB.DescQ1P2insumo2;
         this.descripcionInsumoB.DescQ1P2insumo3 = this.listadoInsumosB.DescQ1P2insumo3;
         this.descripcionInsumoB.DescQ1P2insumo4 = this.listadoInsumosB.DescQ1P2insumo4;
         this.descripcionInsumoB.DescQ1P2insumo5 = this.listadoInsumosB.DescQ1P2insumo5;
         this.descripcionInsumoB.DescQ1P2insumo6 = this.listadoInsumosB.DescQ1P2insumo6;
-    
+
         this.descripcionInsumoB.DescQ1P3insumo1 = this.listadoInsumosB.DescQ1P3insumo1;
         this.descripcionInsumoB.DescQ1P3insumo2 = this.listadoInsumosB.DescQ1P3insumo2;
-        this.descripcionInsumoB.DescQ1P3insumo3 = this.listadoInsumosB.DescQ1P3insumo3; 
-        this.descripcionInsumoB.DescQ1P3insumo4 = this.listadoInsumosB.DescQ1P3insumo4; 
-        this.descripcionInsumoB.DescQ1P3insumo5 = this.listadoInsumosB.DescQ1P3insumo5; 
-        this.descripcionInsumoB.DescQ1P3insumo6 = this.listadoInsumosB.DescQ1P3insumo6; 
-    
+        this.descripcionInsumoB.DescQ1P3insumo3 = this.listadoInsumosB.DescQ1P3insumo3;
+        this.descripcionInsumoB.DescQ1P3insumo4 = this.listadoInsumosB.DescQ1P3insumo4;
+        this.descripcionInsumoB.DescQ1P3insumo5 = this.listadoInsumosB.DescQ1P3insumo5;
+        this.descripcionInsumoB.DescQ1P3insumo6 = this.listadoInsumosB.DescQ1P3insumo6;
+
         this.descripcionInsumoB.DescQ2P1insumo1 = this.listadoInsumosB.DescQ2P1insumo1;
         this.descripcionInsumoB.DescQ2P1insumo2 = this.listadoInsumosB.DescQ2P1insumo2;
         this.descripcionInsumoB.DescQ2P1insumo3 = this.listadoInsumosB.DescQ2P1insumo3;
         this.descripcionInsumoB.DescQ2P1insumo4 = this.listadoInsumosB.DescQ2P1insumo4;
         this.descripcionInsumoB.DescQ2P1insumo5 = this.listadoInsumosB.DescQ2P1insumo5;
         this.descripcionInsumoB.DescQ2P1insumo6 = this.listadoInsumosB.DescQ2P1insumo6;
-    
+
         this.descripcionInsumoB.DescQ2P2insumo1 = this.listadoInsumosB.DescQ2P2insumo1;
         this.descripcionInsumoB.DescQ2P2insumo2 = this.listadoInsumosB.DescQ2P2insumo2;
         this.descripcionInsumoB.DescQ2P2insumo3 = this.listadoInsumosB.DescQ2P2insumo3;
         this.descripcionInsumoB.DescQ2P2insumo4 = this.listadoInsumosB.DescQ2P2insumo4;
-        this.descripcionInsumoB.DescQ2P2insumo5 =this.listadoInsumosB.DescQ2P2insumo5;
+        this.descripcionInsumoB.DescQ2P2insumo5 = this.listadoInsumosB.DescQ2P2insumo5;
         this.descripcionInsumoB.DescQ2P2insumo6 = this.listadoInsumosB.DescQ2P2insumo6;
-    
-        this.descripcionInsumoB.DescQ2P3insumo1 = this.listadoInsumosB.DescQ2P3insumo1; 
-        this.descripcionInsumoB.DescQ2P3insumo2 = this.listadoInsumosB.DescQ2P3insumo2; 
-        this.descripcionInsumoB.DescQ2P3insumo3 = this.listadoInsumosB.DescQ2P3insumo3; 
-        this.descripcionInsumoB.DescQ2P3insumo4 = this.listadoInsumosB.DescQ2P3insumo4; 
-        this.descripcionInsumoB.DescQ2P3insumo5 = this.listadoInsumosB.DescQ2P3insumo5; 
-        this.descripcionInsumoB.DescQ2P3insumo6 = this.listadoInsumosB.DescQ2P3insumo6; 
+
+        this.descripcionInsumoB.DescQ2P3insumo1 = this.listadoInsumosB.DescQ2P3insumo1;
+        this.descripcionInsumoB.DescQ2P3insumo2 = this.listadoInsumosB.DescQ2P3insumo2;
+        this.descripcionInsumoB.DescQ2P3insumo3 = this.listadoInsumosB.DescQ2P3insumo3;
+        this.descripcionInsumoB.DescQ2P3insumo4 = this.listadoInsumosB.DescQ2P3insumo4;
+        this.descripcionInsumoB.DescQ2P3insumo5 = this.listadoInsumosB.DescQ2P3insumo5;
+        this.descripcionInsumoB.DescQ2P3insumo6 = this.listadoInsumosB.DescQ2P3insumo6;
 
 
       }
@@ -245,7 +244,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
     this.caso = insumo;
     this.banderInsumoB = true;
-        
+
 
     var objDescInsumosB =
     {
@@ -253,7 +252,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
       periodo: this.periodoLectivoActual
     }
 
-    this.subscribe2=this._insumoService.getDescInsumosB(objDescInsumosB).subscribe(response => {
+    this.subscribe2 = this._insumoService.getDescInsumosB(objDescInsumosB).subscribe(response => {
 
       if (response.insumosB != undefined) {
         this.listadoInsumosB = response.insumosB;
@@ -459,7 +458,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
         break;
     }
 
-    this.subscribe3=this._insumoService.registerInsumoB(this.descripcionInsumoB).subscribe(
+    this.subscribe3 = this._insumoService.registerInsumoB(this.descripcionInsumoB).subscribe(
       response => {
         this.mensajecorrectomodals = response.message;
         console.log("satisfactoriamente");
@@ -489,7 +488,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
 
   DescripcionInsumos() {
-    this.descripcionInsumo = new Insumo("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+    this.descripcionInsumo = new Insumo("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
 
     this.descripcionInsumo.materia = this.guardarMateriaMatricula;
     this.descripcionInsumo.periodo = this.periodoLectivoActual;
@@ -514,40 +513,43 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
       materia: this.guardarMateriaMatricula,
       periodo: this.periodoLectivoActual
     }
-    
-    this.subscribe4=this._insumoService.getDescInsumos(objDescInsumos).subscribe(response => {
+
+    this.subscribe4 = this._insumoService.getDescInsumos(objDescInsumos).subscribe(response => {
 
       if (response.insumos != undefined) {
         this.listadoInsumos = response.insumos;
 
         console.log("listado de insumos", this.listadoInsumos);
-      
 
-        this.descripcionInsumo.Descinsumo1= this.listadoInsumos.Descinsumo1; 
-        this.descripcionInsumo.Descinsumo2= this.listadoInsumos.Descinsumo2; 
-        this.descripcionInsumo.Descinsumo3 =this.listadoInsumos.Descinsumo3; 
-        this.descripcionInsumo.Descinsumo4= this.listadoInsumos.Descinsumo4;
-        this.descripcionInsumo.Descinsumo5 = this.listadoInsumos.Descinsumo5; 
-        this.descripcionInsumo.Descinsumo6 = this.listadoInsumos.Descinsumo6; 
-        this.descripcionInsumo.Descinsumo7 = this.listadoInsumos.Descinsumo7; 
-        this.descripcionInsumo.Descinsumo8= this.listadoInsumos.Descinsumo8;
 
-        this.descripcionInsumo.Descinsumo11=this.listadoInsumos.Descinsumo11;
-        this.descripcionInsumo.Descinsumo22 = this.listadoInsumos.Descinsumo22; 
-        this.descripcionInsumo.Descinsumo33= this.listadoInsumos.Descinsumo33; 
-        this.descripcionInsumo.Descinsumo44= this.listadoInsumos.Descinsumo44; 
-        this.descripcionInsumo.Descinsumo55 = this.listadoInsumos.Descinsumo55;
-        this.descripcionInsumo.Descinsumo66 = this.listadoInsumos.Descinsumo66; 
-        this.descripcionInsumo.Descinsumo77= this.listadoInsumos.Descinsumo77;
-        this.descripcionInsumo.Descinsumo88= this.listadoInsumos.Descinsumo88; 
+        this.descripcionInsumo.DescAsistencia1 = this.listadoInsumos.DESCASISTENCIA1;
+        this.descripcionInsumo.DescAsistencia2 = this.listadoInsumos.DESCASISTENCIA2;
+        this.descripcionInsumo.DescAsistencia3 = this.listadoInsumos.DESCASISTENCIA3;
+        this.descripcionInsumo.DescAsistencia4 = this.listadoInsumos.DESCASISTENCIA4;
+        this.descripcionInsumo.DescAsistencia5 = this.listadoInsumos.DESCASISTENCIA5;
+        this.descripcionInsumo.DescAsistencia6 = this.listadoInsumos.DESCASISTENCIA6;
+        this.descripcionInsumo.DescAsistencia7 = this.listadoInsumos.DESCASISTENCIA7;
+        this.descripcionInsumo.DescAsistencia8 = this.listadoInsumos.DESCASISTENCIA8;
 
-        }
+        this.descripcionInsumo.DescTarea1 = this.listadoInsumos.DESCTAREA1;
+        this.descripcionInsumo.DescTarea2 = this.listadoInsumos.DESCTAREA2;
+        this.descripcionInsumo.DescTarea3 = this.listadoInsumos.DESCTAREA3;
+        this.descripcionInsumo.DescTarea4 = this.listadoInsumos.DESCTAREA4;
+        this.descripcionInsumo.DescProyecto1 = this.listadoInsumos.DESCPROYECTO1;
 
-      
+        this.descripcionInsumo.DescTarea11 = this.listadoInsumos.DESCTAREA11;
+        this.descripcionInsumo.DescTarea22 = this.listadoInsumos.DESCTAREA22;
+        this.descripcionInsumo.DescTarea33 = this.listadoInsumos.DESCTAREA33;
+        this.descripcionInsumo.DescTarea44 = this.listadoInsumos.DESCTAREA44;
+        this.descripcionInsumo.DescProyecto2 = this.listadoInsumos.DESCPROYECTO2;
+
+      }
+
+
     }, (err) => { console.log("Existen Complicaciones Intente mas tarde", err) }
     );
 
-    
+
 
 
   }
@@ -557,7 +559,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
     this.caso = insumo;
     this.banderInsumo = true;
-    this.recivir="";
+    this.recivir = "";
 
     var objDescInsumos =
     {
@@ -565,7 +567,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
       periodo: this.periodoLectivoActual
     }
 
-    this.subscribe5=this._insumoService.getDescInsumos(objDescInsumos).subscribe(response => {
+    this.subscribe5 = this._insumoService.getDescInsumos(objDescInsumos).subscribe(response => {
 
       if (response.insumos != undefined) {
         this.listadoInsumos = response.insumos;
@@ -573,23 +575,28 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
         console.log("listado de insumos", this.listadoInsumos);
         switch (insumo) {
 
-          case 1: this.recivir = this.listadoInsumos.DESCINSUMO1 ; break;
-          case 2: this.recivir = this.listadoInsumos.DESCINSUMO2; break;
-          case 3: this.recivir = this.listadoInsumos.DESCINSUMO3; break;
-          case 4: this.recivir = this.listadoInsumos.DESCINSUMO4; break;
-          case 5: this.recivir = this.listadoInsumos.DESCINSUMO5; break;
-          case 6: this.recivir = this.listadoInsumos.DESCINSUMO6; break;
-          case 7: this.recivir = this.listadoInsumos.DESCINSUMO7; break;
-          case 8: this.recivir = this.listadoInsumos.DESCINSUMO8; break;
+          case 1: this.recivir = this.listadoInsumos.DESCASISTENCIA1; break;
+          case 2: this.recivir = this.listadoInsumos.DESCASISTENCIA2; break;
+          case 3: this.recivir = this.listadoInsumos.DESCASISTENCIA3; break;
+          case 4: this.recivir = this.listadoInsumos.DESCASISTENCIA4; break;
+          case 5: this.recivir = this.listadoInsumos.DESCASISTENCIA5; break;
+          case 6: this.recivir = this.listadoInsumos.DESCASISTENCIA6; break;
+          case 7: this.recivir = this.listadoInsumos.DESCASISTENCIA7; break;
+          case 8: this.recivir = this.listadoInsumos.DESCASISTENCIA8; break;
 
-          case 11: this.recivir = this.listadoInsumos.DESCINSUMO11; break;
-          case 22: this.recivir = this.listadoInsumos.DESCINSUMO22; break;
-          case 33: this.recivir = this.listadoInsumos.DESCINSUMO33; break;
-          case 44: this.recivir = this.listadoInsumos.DESCINSUMO44; break;
-          case 55: this.recivir = this.listadoInsumos.DESCINSUMO55; break;
-          case 66: this.recivir = this.listadoInsumos.DESCINSUMO66; break;
-          case 77: this.recivir = this.listadoInsumos.DESCINSUMO77; break;
-          case 88: this.recivir = this.listadoInsumos.DESCINSUMO88; break;
+          case 11: this.recivir = this.listadoInsumos.DESCTAREA1; break;
+          case 22: this.recivir = this.listadoInsumos.DESCTAREA2; break;
+          case 33: this.recivir = this.listadoInsumos.DESCTAREA3; break;
+          case 44: this.recivir = this.listadoInsumos.DESCTAREA4; break;
+          case 55: this.recivir = this.listadoInsumos.DESCPROYECTO1; break;
+
+
+          case 111: this.recivir = this.listadoInsumos.DESCTAREA11; break;
+          case 222: this.recivir = this.listadoInsumos.DESCTAREA22; break;
+          case 333: this.recivir = this.listadoInsumos.DESCTAREA33; break;
+          case 444: this.recivir = this.listadoInsumos.DESCTAREA44; break;
+          case 555: this.recivir = this.listadoInsumos.DESCPROYECTO2; break;
+
 
         }
 
@@ -608,58 +615,66 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
     switch (this.caso) {
       case 1:
-        this.descripcionInsumo.Descinsumo1 = this.recivir;
+        this.descripcionInsumo.DescAsistencia1 = this.recivir;
         break;
 
       case 2:
-        this.descripcionInsumo.Descinsumo2 = this.recivir;
+        this.descripcionInsumo.DescAsistencia2 = this.recivir;
         break;
       case 3:
-        this.descripcionInsumo.Descinsumo3 = this.recivir;
+        this.descripcionInsumo.DescAsistencia3 = this.recivir;
         break;
       case 4:
-        this.descripcionInsumo.Descinsumo4 = this.recivir;
+        this.descripcionInsumo.DescAsistencia4 = this.recivir;
         break;
       case 5:
-        this.descripcionInsumo.Descinsumo5 = this.recivir;
+        this.descripcionInsumo.DescAsistencia5 = this.recivir;
         break;
       case 6:
-        this.descripcionInsumo.Descinsumo6 = this.recivir;
+        this.descripcionInsumo.DescAsistencia6 = this.recivir;
         break;
       case 7:
-        this.descripcionInsumo.Descinsumo7 = this.recivir;
+        this.descripcionInsumo.DescAsistencia7 = this.recivir;
         break;
       case 8:
-        this.descripcionInsumo.Descinsumo8 = this.recivir;
+        this.descripcionInsumo.DescAsistencia8 = this.recivir;
         break;
       case 11:
-        this.descripcionInsumo.Descinsumo11 = this.recivir;
+        this.descripcionInsumo.DescTarea1 = this.recivir;
         break;
       case 22:
-        this.descripcionInsumo.Descinsumo22 = this.recivir;
+        this.descripcionInsumo.DescTarea2 = this.recivir;
         break;
       case 33:
-        this.descripcionInsumo.Descinsumo33 = this.recivir;
+        this.descripcionInsumo.DescTarea3 = this.recivir;
         break;
       case 44:
-        this.descripcionInsumo.Descinsumo44 = this.recivir;
+        this.descripcionInsumo.DescTarea4 = this.recivir;
         break;
       case 55:
-        this.descripcionInsumo.Descinsumo55 = this.recivir;
+        this.descripcionInsumo.DescProyecto1 = this.recivir;
         break;
-      case 66:
-        this.descripcionInsumo.Descinsumo66 = this.recivir;
+      case 111:
+        this.descripcionInsumo.DescTarea11 = this.recivir;
         break;
-      case 77:
-        this.descripcionInsumo.Descinsumo77 = this.recivir;
+      case 222:
+        this.descripcionInsumo.DescTarea22 = this.recivir;
         break;
 
-      case 88:
-        this.descripcionInsumo.Descinsumo88 = this.recivir;
+      case 333:
+        this.descripcionInsumo.DescTarea33 = this.recivir;
         break;
+      case 444:
+        this.descripcionInsumo.DescTarea44 = this.recivir;
+        break;
+      case 555:
+        this.descripcionInsumo.DescProyecto2 = this.recivir;
+        break;
+
+
     }
 
-    this.subscribe5=this._insumoService.registerInsumo(this.descripcionInsumo).subscribe(
+    this.subscribe5 = this._insumoService.registerInsumo(this.descripcionInsumo).subscribe(
       response => {
         this.mensajecorrectomodals = response.message;
         console.log("satisfactoriamente");
@@ -694,9 +709,9 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   pruebaclick() {
-  
-    this.banderaHabilitar=false;
-    this.banderaHabilitarB=false;
+
+    this.banderaHabilitar = false;
+    this.banderaHabilitarB = false;
     this.banderAux = false;
     for (let i = 0; i < Object.keys(this.listadoEstudianteMatriculas).length; i++) {
       document.getElementById("tdbuttonGuardar" + i).click();
@@ -792,11 +807,11 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
 
       this.objectCalculableB[i].ochentaporciento1 = ochentaporciento1.toFixed(2);
-    
+
       this.objectCalculableB[i].veinteporciento1 = veinteporciento1.toFixed(2);
       this.objectCalculableB[i].promedio1 = promedio1.toFixed(2);
       this.objectCalculableB[i].ochentaporciento2 = ochentaporciento2.toFixed(2);
-      console.log("miraaaaaaaaaaaaaaaaa", ochentaporciento2,"objeto ",this.objectB[i] );
+      console.log("miraaaaaaaaaaaaaaaaa", ochentaporciento2, "objeto ", this.objectB[i]);
       this.objectCalculableB[i].veinteporciento2 = veinteporciento2.toFixed(2);
       this.objectCalculableB[i].promedio2 = promedio2.toFixed(2);
       this.objectCalculableB[i].promedioPeriodo = promedioPeriodo.toFixed(2);
@@ -1092,17 +1107,17 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
   habilitarGR() {
     this.btnFinalizar = true;
-    this.btnHabilitarExportacion=true;
+    this.btnHabilitarExportacion = true;
   }
   habilitarGRB() {
     this.btnFinalizar2 = true;
-    this.btnHabilitarExportacion=true;
+    this.btnHabilitarExportacion = true;
   }
 
   getListadoMisMaterias() {
 
     this.vectorListadoMisMaterias = [];
-   this.subscribe6= this._materiaService.getListadoMioMateria().subscribe(response => {
+    this.subscribe6 = this._materiaService.getListadoMioMateria().subscribe(response => {
 
       if (response.materias[0] != undefined) {
         this.vectorListadoMisMaterias = response.materias;
@@ -1117,15 +1132,14 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
   getSubirNotas() {
 
 
-    this.subscribe7=this._administradorService.getSubirNotas().subscribe(response => {
+    this.subscribe7 = this._administradorService.getSubirNotas().subscribe(response => {
       console.log("este es el estado de nota", response)
       if (response.subirnota.ESTADO_SUBIRNOTA != undefined) {
-        if(response.subirnota.ESTADO_SUBIRNOTA=='1')
-        {
+        if (response.subirnota.ESTADO_SUBIRNOTA == '1') {
           this.mensajeerrormodal = "Tu periodo de asignacion de notas ha finalizado espera hasta la siguiente activacion";
           document.getElementById("openModalError").click();
-          this.banderSubirNotas=false;
-        }else{this.banderSubirNotas=true}
+          this.banderSubirNotas = false;
+        } else { this.banderSubirNotas = true }
 
       }
     }, (err) => { console.log("Existen Complicaciones Intente mas tarde", err) }
@@ -1136,7 +1150,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
   getPeriodoActual() {
 
 
-    this.subscribe8=this._administradorService.getPeriodoActual().subscribe(response => {
+    this.subscribe8 = this._administradorService.getPeriodoActual().subscribe(response => {
       console.log("este es el periodo que vino", response.periodo)
       if (response.periodo != undefined) {
         this.periodoLectivoActual = response.periodo;
@@ -1148,9 +1162,9 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   asignarMateriaCurso(value) {
-    
-    this.banderInsumo=false;
-    this.recivir="";
+
+    this.banderInsumo = false;
+    this.recivir = "";
     this.object = [];
     this.objectCalculable = [];
     this.objectB = [];
@@ -1163,22 +1177,22 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     this.Titulo2 = busqueda[3];
     this.guardarMateriaMatricula = busqueda[1];
 
-   this.subscribe9= this._matriculaServices.buscarEstudianteMatricula(busqueda[0]).subscribe(
+    this.subscribe9 = this._matriculaServices.buscarEstudianteMatricula(busqueda[0]).subscribe(
       response => {
 
         this.listadoEstudianteMatriculas = this.ordenar(response.matriculas);
-         
+
 
         console.log("para habilitar  tablas", busqueda[2]);
 
         if (busqueda[2] != "BÁSICO SUPERIOR INTENSIVO") {
           this.banderTabla1 = true;
-         this.banderTabla2 = false;
+          this.banderTabla2 = false;
 
           for (let i = 0; i < Object.keys(this.listadoEstudianteMatriculas).length; i++) {
 
-            this.object.push(this.obj = new Nota("", "", "", "","0","0","0","0","0","0","0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"));
-            this.objectCalculable.push(this.objC = new Calculable("0", "0", "0", "0", "0", "0", "0"));
+            this.object.push(this.obj = new Nota("", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'R', 0));
+            this.objectCalculable.push(this.objC = new Calculable(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'R'));
 
           }
 
@@ -1204,8 +1218,8 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
           for (let i = 0; i < Object.keys(this.listadoEstudianteMatriculas).length; i++) {
 
-            this.objectB.push(this.objB = new NotaBasica("", "", "", "", "0","0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"));
-            this.objectCalculableB.push(this.objC = new Calculable("0", "0", "0", "0", "0", "0", "0"));
+            this.objectB.push(this.objB = new NotaBasica("", "", "", "", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"));
+            this.objectCalculableB.push(this.objC = new Calculable(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'R'));
 
           }
           console.log("estas es la materia a busca", busqueda[1]);
@@ -1246,7 +1260,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   ordenar(vector1) {
-     var cont;
+    var cont;
     let vector = vector1;
 
     console.log('<<<<<< MI VECTOR ANTES DE LA ORDENADA >>>>>>', vector);
@@ -1268,12 +1282,12 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
       }
     }
     console.log("<<<<<< MI VECTOR DESPUES DE LA ORDENADA >>>>>>", vector);
-   return vector;
+    return vector;
   }
   traerNotas(value) {
     console.log("value curso para nota", value);
-   
-   this.subscribe10= this._notaService.buscarNotas(value).subscribe(
+
+    this.subscribe10 = this._notaService.buscarNotas(value).subscribe(
       response => {
         this.loading = false;
         this.listadoEstudianteNotas = response.vectorNotas;
@@ -1313,7 +1327,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
                 this.object[i].examenGracia = element.EXAMENGRACIA;
 
                 this.calculosInit(i);
-                
+
 
               }
             }
@@ -1343,10 +1357,10 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
         }
         // this.loading =false;
       }
-     
-        
+
+
     );
-   
+
   }
 
 
@@ -1354,23 +1368,23 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
   traerNotasB(value) {
     console.log("value curso para notab", value);
 
-    this.subscribe11= this._notaService.buscarNotasB(value).subscribe(
+    this.subscribe11 = this._notaService.buscarNotasB(value).subscribe(
       response => {
         this.loading = false;
 
-        
+
         this.listadoEstudianteNotas = response.vectorNotas;
         debugger;
-        console.log("listado estudiantes notab",this.listadoEstudianteNotas);
+        console.log("listado estudiantes notab", this.listadoEstudianteNotas);
         //  ordenar
         let i = 0;
-      
+
         this.listadoEstudianteMatriculas.forEach(elementE => {
 
           this.listadoEstudianteNotas.forEach(element => {
 
 
-            if (element != null ) {
+            if (element != null) {
               if (elementE.ESTUDIANTE.ID_ESTUDIANTE == element.ID_ESTUDIANTE) {
                 this.objectB[i].Q1P1insumo1 = element.Q1P1INSUMO1;
                 this.objectB[i].Q1P1insumo2 = element.Q1P1INSUMO2;
@@ -1423,7 +1437,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
                 this.objectB[i].examenGracia = element.EXAMENGRACIA;
 
                 this.calculosBInit(i);
-                
+
 
               }
             }
@@ -1431,7 +1445,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
           i++;
         });
 
-      
+
 
         this.loading = false;
 
@@ -1459,120 +1473,118 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   registroNotas() {
-  console.log("bandera de subir notas", this.banderSubirNotas);
-    if(this.banderSubirNotas==true){
-    this.banderaHabilitar=true;
-    this.pruebaclick();
-    if (this.banderAux == false) {
+    console.log("bandera de subir notas", this.banderSubirNotas);
+    if (this.banderSubirNotas == true) {
+      this.banderaHabilitar = true;
+      this.pruebaclick();
+      if (this.banderAux == false) {
         let i = 0;
-     /* this.object.forEach(element => {
-        this.object[i].insumo1 =  this.object[i].insumo1.replace(',', '.');
-        this.object[i].insumo2 =  this.object[i].insumo2.replace(',', '.');
-        this.object[i].insumo3 =  this.object[i].insumo3.replace(',', '.');
-        this.object[i].insumo4 =  this.object[i].insumo4.replace(',', '.');
-        this.object[i].insumo5 =  this.object[i].insumo5.replace(',', '.');
-        this.object[i].insumo6 =  this.object[i].insumo6.replace(',', '.');
-        this.object[i].insumo7 =  this.object[i].insumo7.replace(',', '.');
-        this.object[i].insumo8 =  this.object[i].insumo8.replace(',', '.');
-        this.object[i].examen1 =  this.object[i].examen1.replace(',', '.');
-        this.object[i].insumo11 =  this.object[i].insumo11.replace(',', '.');
-        this.object[i].insumo22 =  this.object[i].insumo22.replace(',', '.');
-        this.object[i].insumo33=  this.object[i].insumo33.replace(',', '.');
-        this.object[i].insumo44 =  this.object[i].insumo44.replace(',', '.');
-        this.object[i].insumo55 =  this.object[i].insumo55.replace(',', '.');
-        this.object[i].insumo66 =  this.object[i].insumo66.replace(',', '.');
-        this.object[i].insumo77 =  this.object[i].insumo77.replace(',', '.');
-        this.object[i].insumo88 =  this.object[i].insumo88.replace(',', '.');
-        this.object[i].examen2 =  this.object[i].examen2.replace(',', '.');
-        this.object[i].examenGracia =  this.object[i].examenGracia.replace(',', '.');
-        this.object[i].examenRemedial =  this.object[i].examenRemedial.replace(',', '.');
-        this.object[i].examenSupletorio =  this.object[i].examenSupletorio.replace(',', '.');
-        i++;
-      });*/
+        /* this.object.forEach(element => {
+           this.object[i].insumo1 =  this.object[i].insumo1.replace(',', '.');
+           this.object[i].insumo2 =  this.object[i].insumo2.replace(',', '.');
+           this.object[i].insumo3 =  this.object[i].insumo3.replace(',', '.');
+           this.object[i].insumo4 =  this.object[i].insumo4.replace(',', '.');
+           this.object[i].insumo5 =  this.object[i].insumo5.replace(',', '.');
+           this.object[i].insumo6 =  this.object[i].insumo6.replace(',', '.');
+           this.object[i].insumo7 =  this.object[i].insumo7.replace(',', '.');
+           this.object[i].insumo8 =  this.object[i].insumo8.replace(',', '.');
+           this.object[i].examen1 =  this.object[i].examen1.replace(',', '.');
+           this.object[i].insumo11 =  this.object[i].insumo11.replace(',', '.');
+           this.object[i].insumo22 =  this.object[i].insumo22.replace(',', '.');
+           this.object[i].insumo33=  this.object[i].insumo33.replace(',', '.');
+           this.object[i].insumo44 =  this.object[i].insumo44.replace(',', '.');
+           this.object[i].insumo55 =  this.object[i].insumo55.replace(',', '.');
+           this.object[i].insumo66 =  this.object[i].insumo66.replace(',', '.');
+           this.object[i].insumo77 =  this.object[i].insumo77.replace(',', '.');
+           this.object[i].insumo88 =  this.object[i].insumo88.replace(',', '.');
+           this.object[i].examen2 =  this.object[i].examen2.replace(',', '.');
+           this.object[i].examenGracia =  this.object[i].examenGracia.replace(',', '.');
+           this.object[i].examenRemedial =  this.object[i].examenRemedial.replace(',', '.');
+           this.object[i].examenSupletorio =  this.object[i].examenSupletorio.replace(',', '.');
+           i++;
+         });*/
 
-      console.log("notas antes de registrarse", this.object);
+        console.log("notas antes de registrarse", this.object);
 
-      this.subscribe12= this._notaService.registerNota(this.object).subscribe(
-        response => {
-         // this.btnFinalizar=true;
-          this.banderaHabilitar=true;
-          this.mensajecorrectomodals = response.message;
-          console.log("satisfactoriamente");
-          this.loading = false;
-          document.getElementById("openModalCorrecto").click();
-          this.btnHabilitarExportacion=false;
-    
-        },
-        error => {
-          this.btnFinalizar=true;
-          this.banderaHabilitar=false;
-          var errorMessage = <any>error;
-          if (errorMessage) {
-            this.mensajeerrormodals = JSON.parse(errorMessage._body).message;
-            document.getElementById("openModalError").click();
-            try {
-              var body = JSON.parse(error._body);
-              errorMessage = body.message;
-            } catch {
-              errorMessage = "No hay conexión intentelo más tarde";
-              this.loading = false;
-              document.getElementById("openModalError").click();
-            }
+        this.subscribe12 = this._notaService.registerNota(this.object).subscribe(
+          response => {
+            // this.btnFinalizar=true;
+            this.banderaHabilitar = true;
+            this.mensajecorrectomodals = response.message;
+            console.log("satisfactoriamente");
             this.loading = false;
+            document.getElementById("openModalCorrecto").click();
+            this.btnHabilitarExportacion = false;
+
+          },
+          error => {
+            this.btnFinalizar = true;
+            this.banderaHabilitar = false;
+            var errorMessage = <any>error;
+            if (errorMessage) {
+              this.mensajeerrormodals = JSON.parse(errorMessage._body).message;
+              document.getElementById("openModalError").click();
+              try {
+                var body = JSON.parse(error._body);
+                errorMessage = body.message;
+              } catch {
+                errorMessage = "No hay conexión intentelo más tarde";
+                this.loading = false;
+                document.getElementById("openModalError").click();
+              }
+              this.loading = false;
+            }
           }
-        }
-      );
+        );
+      }
+    } else {
+      this.mensajeerrormodal = "Tu periodo de asignacion de notas ha finalizado espera hasta la siguiente activacion";
+      document.getElementById("openModalError").click();
     }
-  }else
-  {
-    this.mensajeerrormodal = "Tu periodo de asignacion de notas ha finalizado espera hasta la siguiente activacion";
-          document.getElementById("openModalError").click();
-  }
   }
 
   registroNotasB() {
     console.log("bandera de subir notas", this.banderSubirNotas);
-    if(this.banderSubirNotas==true){
-    this.banderaHabilitarB=true;
-    this.pruebaclick();
-    if (this.banderAux == false) {
+    if (this.banderSubirNotas == true) {
+      this.banderaHabilitarB = true;
+      this.pruebaclick();
+      if (this.banderAux == false) {
 
 
-      this.subscribe13=this._notaService.registerNotaB(this.objectB).subscribe(
-        response => {
-          this.mensajecorrectomodals = response.message;
-          console.log("satisfactoriamente");
-          //this.loading = false;
-          document.getElementById("openModalCorrecto").click();
-          //this.btnFinalizar2 = true;
-          this.banderaHabilitarB=true;
-          this.btnHabilitarExportacion=false;
-        },
-        error => {
-          this.btnFinalizar2 = true;
-          this.banderaHabilitarB=false;
-          var errorMessage = <any>error;
-          if (errorMessage) {
-            this.mensajeerrormodals = JSON.parse(errorMessage._body).message;
-            document.getElementById("openModalError").click();
-            try {
-              var body = JSON.parse(error._body);
-              errorMessage = body.message;
-            } catch {
-              errorMessage = "No hay conexión intentelo más tarde";
-              this.loading = false;
+        this.subscribe13 = this._notaService.registerNotaB(this.objectB).subscribe(
+          response => {
+            this.mensajecorrectomodals = response.message;
+            console.log("satisfactoriamente");
+            //this.loading = false;
+            document.getElementById("openModalCorrecto").click();
+            //this.btnFinalizar2 = true;
+            this.banderaHabilitarB = true;
+            this.btnHabilitarExportacion = false;
+          },
+          error => {
+            this.btnFinalizar2 = true;
+            this.banderaHabilitarB = false;
+            var errorMessage = <any>error;
+            if (errorMessage) {
+              this.mensajeerrormodals = JSON.parse(errorMessage._body).message;
               document.getElementById("openModalError").click();
+              try {
+                var body = JSON.parse(error._body);
+                errorMessage = body.message;
+              } catch {
+                errorMessage = "No hay conexión intentelo más tarde";
+                this.loading = false;
+                document.getElementById("openModalError").click();
+              }
+              this.loading = false;
             }
-            this.loading = false;
           }
-        }
-      );
+        );
+      }
+    } else {
+      this.mensajeerrormodal = "Tu periodo de asignacion de notas ha finalizado espera hasta la siguiente activacion";
+      document.getElementById("openModalError").click();
     }
-  }else
-  {
-    this.mensajeerrormodal = "Tu periodo de asignacion de notas ha finalizado espera hasta la siguiente activacion";
-    document.getElementById("openModalError").click();
-  }
   }
 
   logout() {
@@ -1597,23 +1609,28 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     doc.addImage(logo, 'PNG', 30, 15, 100, 80);
     doc.fromHTML("<h2>COLEGIO DE BACHILLERATO PCEI EBENEZER</h2>", 170, 2);
     doc.fromHTML("<h4>ACTA DE CALIFICACIÓN POR PERIODO" + "  " + this.periodoLectivoActual + "</h4>", 165, 28);
-    
+
     doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 230, 75);
     doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 220, 100);
     var cont = this.listadoEstudianteNotas.length;
 
 
     if (this.banderTabla1) {
-      doc.fromHTML("<h4  style='text-align: center' >" +this.Titulo1 + "</h4>",200,48);
-      doc.autoTable({ html: '#results', startY: 150,columnStyles: {10: {fillColor: [249, 247, 95]},
-      12: {fillColor: [249, 247, 95]},
-      13: {fillColor: [207, 233, 176]}, 22: {fillColor: [249, 247, 95]},  24: {fillColor: [249, 247, 95]},
-      25: {fillColor: [207, 233, 176]}, 26: {fillColor: [191, 250, 119]} } , styles: {
-        overflow: 'linebreak',
-        fontSize: 8,
-        rowHeight: 5,
-        cellWidth: 'auto',
-        cellPadding: 2}});
+      doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 200, 48);
+      doc.autoTable({
+        html: '#results', startY: 150, columnStyles: {
+          10: { fillColor: [249, 247, 95] },
+          12: { fillColor: [249, 247, 95] },
+          13: { fillColor: [207, 233, 176] }, 22: { fillColor: [249, 247, 95] }, 24: { fillColor: [249, 247, 95] },
+          25: { fillColor: [207, 233, 176] }, 26: { fillColor: [191, 250, 119] }
+        }, styles: {
+          overflow: 'linebreak',
+          fontSize: 8,
+          rowHeight: 5,
+          cellWidth: 'auto',
+          cellPadding: 2
+        }
+      });
 
       var pageHeight = doc.internal.pageSize.height;
       doc.fromHTML(" <h4 style='text-align: center'>------------------------------------------</h4>", 110, pageHeight - pageHeight / 6);
@@ -1625,26 +1642,28 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
       this.loading = false;
 
       doc.save('Reporte_Notas_Docente.pdf');
-        
+
 
 
     } else {
 
-      doc.fromHTML("<h4  style='text-align: center' >" +this.Titulo1 + "</h4>",240,48);
-      
+      doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 240, 48);
+
       doc.autoTable({
-        
-        html: '#results2', startY: 150, margin: {left: 30}, columnStyles: {20: {fillColor: [249, 247, 95]},
-        22: {fillColor: [249, 247, 95]},
-        23: {fillColor: [207, 233, 176]}, 42: {fillColor: [249, 247, 95]},  44: {fillColor: [249, 247, 95]},
-        45: {fillColor: [207, 233, 176]}, 46: {fillColor: [191, 250, 119]} },styles: {
+
+        html: '#results2', startY: 150, margin: { left: 30 }, columnStyles: {
+          20: { fillColor: [249, 247, 95] },
+          22: { fillColor: [249, 247, 95] },
+          23: { fillColor: [207, 233, 176] }, 42: { fillColor: [249, 247, 95] }, 44: { fillColor: [249, 247, 95] },
+          45: { fillColor: [207, 233, 176] }, 46: { fillColor: [191, 250, 119] }
+        }, styles: {
           overflow: 'linebreak',
           fontSize: 5,
           rowHeight: 0,
           cellWidth: 'auto',
           cellPadding: 2,
-     
-        //calculateWidths: 300
+
+          //calculateWidths: 300
 
         }
 
@@ -1659,43 +1678,42 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
       doc.save('Reporte_Notas_Docente.pdf');
 
     }
-    
+
   }
   public VreporteExcel;
-  
+
   generarExel(variable) {
-    
-    if(variable==1){
-    this.VreporteExcel=this.object;
-     for (var i in this.VreporteExcel) {
-    this.VreporteExcel[i].estudiante=this.listadoEstudianteMatriculas[i].ESTUDIANTE.APELLIDO_ESTUDIANTE+" "+this.listadoEstudianteMatriculas[i].ESTUDIANTE.NOMBRE_ESTUDIANTE;
-      delete this.VreporteExcel[i]._id;
-      delete this.VreporteExcel[i].materia;
-      delete this.VreporteExcel[i].periodo;
-      this.object[i].ochenta_p1= this.objectCalculable[i].ochentaporciento1;
-      this.object[i].veinte_p1=this.objectCalculable[i].veinteporciento1;
-      this.object[i].promedio1=this.objectCalculable[i].promedio1;
-      this.object[i].ochenta_p2=this.objectCalculable[i].ochentaporciento2;
-      this.object[i].veinte_p2=this.objectCalculable[i].veinteporciento2;
-      this.object[i].promedio2=this.objectCalculable[i].promedio2;
-     
-     }
-    }else
-    {
-      this.VreporteExcel=this.objectB;
-     for (var i in this.VreporteExcel) {
-    this.VreporteExcel[i].estudiante=this.listadoEstudianteMatriculas[i].ESTUDIANTE.APELLIDO_ESTUDIANTE+" "+this.listadoEstudianteMatriculas[i].ESTUDIANTE.NOMBRE_ESTUDIANTE;
-      delete this.VreporteExcel[i]._id;
-      delete this.VreporteExcel[i].materia;
-      delete this.VreporteExcel[i].periodo;
-     this.objectB[i].Ochenta_P1= this.objectCalculableB[i].ochentaporciento1;
-      this.objectB[i].Veinte_P1=this.objectCalculableB[i].veinteporciento1;
-      this.objectB[i].Promedio1=this.objectCalculableB[i].promedio1;
-      this.objectB[i].Ochenta_P2=this.objectCalculableB[i].ochentaporciento2;
-      this.objectB[i].Veinte_P2=this.objectCalculableB[i].veinteporciento2;
-      this.objectB[i].Promedio2=this.objectCalculableB[i].promedio2;
+
+    if (variable == 1) {
+      this.VreporteExcel = this.object;
+      for (var i in this.VreporteExcel) {
+        this.VreporteExcel[i].estudiante = this.listadoEstudianteMatriculas[i].ESTUDIANTE.APELLIDO_ESTUDIANTE + " " + this.listadoEstudianteMatriculas[i].ESTUDIANTE.NOMBRE_ESTUDIANTE;
+        delete this.VreporteExcel[i]._id;
+        delete this.VreporteExcel[i].materia;
+        delete this.VreporteExcel[i].periodo;
+        this.object[i].ochenta_p1 = this.objectCalculable[i].ochentaporciento1;
+        this.object[i].veinte_p1 = this.objectCalculable[i].veinteporciento1;
+        this.object[i].promedio1 = this.objectCalculable[i].promedio1;
+        this.object[i].ochenta_p2 = this.objectCalculable[i].ochentaporciento2;
+        this.object[i].veinte_p2 = this.objectCalculable[i].veinteporciento2;
+        this.object[i].promedio2 = this.objectCalculable[i].promedio2;
+
+      }
+    } else {
+      this.VreporteExcel = this.objectB;
+      for (var i in this.VreporteExcel) {
+        this.VreporteExcel[i].estudiante = this.listadoEstudianteMatriculas[i].ESTUDIANTE.APELLIDO_ESTUDIANTE + " " + this.listadoEstudianteMatriculas[i].ESTUDIANTE.NOMBRE_ESTUDIANTE;
+        delete this.VreporteExcel[i]._id;
+        delete this.VreporteExcel[i].materia;
+        delete this.VreporteExcel[i].periodo;
+        this.objectB[i].Ochenta_P1 = this.objectCalculableB[i].ochentaporciento1;
+        this.objectB[i].Veinte_P1 = this.objectCalculableB[i].veinteporciento1;
+        this.objectB[i].Promedio1 = this.objectCalculableB[i].promedio1;
+        this.objectB[i].Ochenta_P2 = this.objectCalculableB[i].ochentaporciento2;
+        this.objectB[i].Veinte_P2 = this.objectCalculableB[i].veinteporciento2;
+        this.objectB[i].Promedio2 = this.objectCalculableB[i].promedio2;
+      }
     }
-  }
     // var materias = [];
     // materias.push("NOMBRES Y APELLIDOS");
     // for (var i in this.listadoMateriasCurso) {

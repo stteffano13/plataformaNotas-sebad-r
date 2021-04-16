@@ -101,30 +101,32 @@ async function saveNotas2(params, res, cont, paramsi) {
     nota.ID_MATERIA = params.materia;
     nota.ID_ESTUDIANTE = params.estudiante;
     nota.PERIODO = params.periodo;
-    nota.INSUMO1 = params.insumo1;
-    nota.INSUMO2 = params.insumo2;
-    nota.INSUMO3 = params.insumo3;
-    nota.INSUMO4 = params.insumo4;
-    nota.INSUMO5 = params.insumo5;
-    nota.INSUMO6 = params.insumo6;
-    nota.INSUMO7 = params.insumo7;
-    nota.INSUMO8 = params.insumo8;
-    nota.EXAMEN1 = params.examen1;
 
+    nota.ASISTENCIA1 = params.Asistencia1;
+    nota.ASISTENCIA2 = params.Asistencia2;
+    nota.ASISTENCIA3 = params.Asistencia3;
+    nota.ASISTENCIA4 = params.Asistencia4;
+    nota.ASISTENCIA5 = params.Asistencia5;
+    nota.ASISTENCIA6 = params.Asistencia6;
+    nota.ASISTENCIA7 = params.Asistencia7;
+    nota.ASISTENCIA8 = params.Asistencia8;
+    nota.PROMEDIOASISTENCIA = params.PromedioAsistencia;
 
-    nota.INSUMO11 = params.insumo11;
-    nota.INSUMO22 = params.insumo22;
-    nota.INSUMO33 = params.insumo33;
-    nota.INSUMO44 = params.insumo44;
-    nota.INSUMO55 = params.insumo55;
-    nota.INSUMO66 = params.insumo66;
-    nota.INSUMO77 = params.insumo77;
-    nota.INSUMO88 = params.insumo88;
-    nota.EXAMEN2 = params.examen2;
+    nota.TAREA1 = params.Tarea1;
+    nota.TAREA2 = params.Tarea2;
+    nota.TAREA3 = params.Tarea3;
+    nota.TAREA4 = params.Tarea4;
+    nota.PROYECTO1 = params.Proyecto1;
+    nota.EXAMEN1 = params.Examen1;
 
-    nota.EXAMENSUPLETORIO = params.examenSupletorio;
-    nota.EXAMENREMEDIAL = params.examenRemedial;
-    nota.EXAMENGRACIA = params.examenGracia;
+    nota.TAREA11 = params.Tarea11;
+    nota.TAREA22 = params.Tarea22;
+    nota.TAREA33 = params.Tarea33;
+    nota.TAREA44 = params.Tarea44;
+    nota.PROYECTO2 = params.Proyecto2;
+    nota.EXAMEN2 = params.Examen2;
+    nota.ESTADONOTAS = params.EstadoNotas;
+
     nota.PT = params.pt;
 
     let notaStored = await nota.save();
@@ -163,29 +165,32 @@ async function updateNotasFin(notas, params, res, cont, paramsi) {
       ID_MATERIA: params.materia,
       ID_ESTUDIANTE: params.estudiante,
       PERIODO: params.periodo,
-      INSUMO1: params.insumo1,
-      INSUMO2: params.insumo2,
-      INSUMO3: params.insumo3,
-      INSUMO4: params.insumo4,
-      INSUMO5: params.insumo5,
-      INSUMO6: params.insumo6,
-      INSUMO7: params.insumo7,
-      INSUMO8: params.insumo8,
-      EXAMEN1: params.examen1,
 
-      INSUMO11: params.insumo11,
-      INSUMO22: params.insumo22,
-      INSUMO33: params.insumo33,
-      INSUMO44: params.insumo44,
-      INSUMO55: params.insumo55,
-      INSUMO66: params.insumo66,
-      INSUMO77: params.insumo77,
-      INSUMO88: params.insumo88,
-      EXAMEN2: params.examen2,
+      ASISTENCIA1: params.Asistencia1,
+      ASISTENCIA2: params.Asistencia2,
+      ASISTENCIA3: params.Asistencia3,
+      ASISTENCIA4: params.Asistencia4,
+      ASISTENCIA5: params.Asistencia5,
+      ASISTENCIA6: params.Asistencia6,
+      ASISTENCIA7: params.Asistencia7,
+      ASISTENCIA8: params.Asistencia8,
+      PROMEDIOASISTENCIA: params.PromedioAsistencia,
 
-      EXAMENSUPLETORIO: params.examenSupletorio,
-      EXAMENREMEDIAL: params.examenRemedial,
-      EXAMENGRACIA: params.examenGracia,
+      TAREA1: params.Tarea1,
+      TAREA2: params.Tarea2,
+      TAREA3: params.Tarea3,
+      TAREA4: params.Tarea4,
+      PROYECTO1: params.Proyecto1,
+      EXAMEN1: params.Examen1,
+
+      TAREA11: params.Tarea11,
+      TAREA22: params.Tarea22,
+      TAREA33: params.Tarea33,
+      TAREA44: params.Tarea44,
+      PROYECTO2: params.Proyecto2,
+      EXAMEN2: params.Examen2,
+      ESTADONOTAS: params.EstadoNotas,
+
       PT: params.pt
 
     }, { where: { ID_NOTA: notas.ID_NOTA } });
@@ -616,7 +621,7 @@ function buscarNotasMatris(req, res) {
   console.log("esta es la multiplicacion de los vectores", multi);
   paramsi.buscar.forEach(async (params) => {
     paramsi.materias.forEach(async (paramsM) => {
-      console.log("estudiante", params.ESTUDIANTE.ID_ESTUDIANTE,  "materia", paramsM.ID_MATERIA, "periodo",params.PERIODO );
+      console.log("estudiante", params.ESTUDIANTE.ID_ESTUDIANTE, "materia", paramsM.ID_MATERIA, "periodo", params.PERIODO);
       try {
         let notas = await Nota.findOne({ where: { ID_ESTUDIANTE: params.ESTUDIANTE.ID_ESTUDIANTE, PERIODO: params.PERIODO, ID_MATERIA: paramsM.ID_MATERIA } });
 
@@ -627,7 +632,7 @@ function buscarNotasMatris(req, res) {
 
           vectorNotas.push(notas);
           if (cont2 == multi) {
-                 console.log("estes es el vector de nbotas que regresa para l matris", vectorNotas);
+            console.log("estes es el vector de nbotas que regresa para l matris", vectorNotas);
             res.status(200).send({
               vectorNotas
             });

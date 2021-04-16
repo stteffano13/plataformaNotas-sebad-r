@@ -18,8 +18,8 @@
 <body  style="height:100%;">
 
   <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" (click)="recargar()" style="color: #ffffff">EBENEZER</a>
+  <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" id="mainNav" style="background-color: #0071BD;">
+    <a class="navbar-brand" (click)="recargar()" style="color: #ffffff">SEBAD-R</a>
 
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -123,7 +123,7 @@
       <!-- Division Principal-->
   
 
-<h1  style="margin-top: 5%">{{identity.NOMBRE_ESTUDIANTE}} {{identity.APELLIDO_ESTUDIANTE}} </h1>
+<h3  style="margin-top: 5%">{{identity.NOMBRE_ESTUDIANTE}} {{identity.APELLIDO_ESTUDIANTE}} </h3>
 
       <!-- tabola de insumos -->
 
@@ -147,7 +147,7 @@
             </tr>
 
 
-            <tr style="background-color: #343a40; align-content: center;">
+            <tr style="background-color: #65686b; align-content: center;">
               <th style="color: white;" scope="col">#</th>
               <th style="color: white;" scope="col">Descripcion del insumo</th>
 
@@ -193,7 +193,7 @@
               <td scope="col">{{listadoInsumos.Descinsumo8}}</td>
             </tr>
 
-            <tr style="background-color: #343a40; align-content: center;">
+            <tr style="background-color: #65686b; align-content: center;">
               <th colspan="2" style="color: white; padding-top: 3%" scope="col">Segundo Parcial</th>
 
             </tr>
@@ -265,15 +265,15 @@
             </tr>
 
 
-            <tr style="background-color: #343a40; align-content: center;">
+            <tr style="background-color: #65686b; align-content: center;">
               <th style="color: white;" scope="col">#</th>
               <th style="color: white;" scope="col">Descripcion del insumo</th>
 
             </tr>
-            <tr style="background-color: #343a40; align-content: center;">
+            <tr style="background-color: #65686b; align-content: center;">
               <th colspan="2" style="color: white;" scope="col">Primer Quimestre</th>
             </tr>
-            <tr style="background-color: #343a40; align-content: center;">
+            <tr style="background-color: #65686b; align-content: center;">
 
               <th colspan="2" style="color: white;" scope="col">Primer Parcial</th>
 
@@ -309,7 +309,7 @@
               <td scope="col">{{listadoInsumosB.DescQ1P1insumo6}}</td>
             </tr>
 
-            <tr style="background-color: #343a40; align-content: center;">
+            <tr style="background-color: #65686b; align-content: center;">
 
               <th colspan="2" style="color: white;" scope="col">Segundo Parcial</th>
 
@@ -346,7 +346,7 @@
 
            
 
-              <tr style="background-color: #343a40; align-content: center;">
+              <tr style="background-color: #65686b; align-content: center;">
 
                 <th colspan="2" style="color: white;" scope="col">Tercer Parcial</th>
 
@@ -381,10 +381,10 @@
                 <td scope="col">Insumo 6</td>
                 <td scope="col">{{listadoInsumosB.DescQ1P3insumo6}}</td>
               </tr>
-              <tr style="background-color: #343a40; align-content: center;">
+              <tr style="background-color: #65686b; align-content: center;">
                 <th colspan="2" style="color: white;" scope="col">Segundo Quimestre</th>
               </tr>
-              <tr style="background-color: #343a40; align-content: center;">
+              <tr style="background-color: #65686b; align-content: center;">
 
                 <th colspan="2" style="color: white;" scope="col">Primer Parcial</th>
 
@@ -419,7 +419,7 @@
                 <td scope="col">Insumo 6</td>
                 <td scope="col">{{listadoInsumosB.DescQ2P1insumo6}}</td>
               </tr>
-              <tr style="background-color: #343a40; align-content: center;">
+              <tr style="background-color: #65686b; align-content: center;">
 
                 <th colspan="2" style="color: white;" scope="col">Segundo Parcial</th>
 
@@ -454,7 +454,7 @@
                 <td scope="col">{{listadoInsumosB.DescQ2P2insumo6}}</td>
               </tr>
 
-              <tr style="background-color: #343a40; align-content: center;">
+              <tr style="background-color: #65686b; align-content: center;">
 
                 <th colspan="2" style="color: white;" scope="col">Tercer Parcial</th>
 
@@ -497,13 +497,13 @@
       <!-- ====================================================    Tabla para Notas 1 ============================================-->
 
 
-      <table  *ngIf="banderTabla1" class="table table-hover table-bordered table-responsive" style="margin-top: 5%; font-size: 80% ; width: 90% ; margin-left: 5%">
+      <table  *ngIf="banderTabla1" class="table table-hover table-bordered table-responsive" style=" font-size: 80% ; width: 90% ; margin-left: 5%">
 
 
 
         <thead  >
 
-          <tr style="background-color: #343a40; align-content: center;">
+          <tr style="background-color: #65686b; align-content: center;">
             <th style="color: white; padding-top: 3%" scope="col">Más</th>
             <th style="color: white; padding-top: 3%" scope="col">#</th>
 
@@ -673,7 +673,7 @@
 
       <thead  >
 
-        <tr style="background-color: #343a40; align-content: center;">
+        <tr style="background-color: #65686b; align-content: center;">
       
 
           <th style="color: white; " scope="col">Materias</th>
@@ -827,7 +827,7 @@
   <!-- FIN TABLA DE-->
     <!-- ================================================== tabla de notas basica tabla   2 =================================== -->
 
-    <table *ngIf="banderTabla2" class="table table-hover table-bordered table-responsive " style="margin-top: 5%; font-size: 80%; width: 90%; margin-left: 5%">
+    <table *ngIf="banderTabla2" class="table table-hover table-bordered table-responsive " style=" font-size: 80%; width: 90%; margin-left: 5%">
 
 
       <thead>
@@ -855,13 +855,13 @@
           <th COLSPAN="1">Nota 2Q.</th>
           <th COLSPAN="1">Nota Final</th>
         </tr>
-        <tr style="background-color: #343a40; align-content: center; font-size: 95%">
+        <tr style="background-color: #65686b; align-content: center; font-size: 95%">
           <th style="color: white; padding-top: 3%" scope="col">Más</th>
           <th style="color: white; padding-top: 3%" scope="col">#</th>
 
           <!-- parcial 1 quimestre 1-->
           <th style="color: white;  border-right: 0; ">
-            <p style="color:#343a40; ">aaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>Materias </th>
+            <p style="color:#65686b; ">aaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>Materias </th>
 
 
           <th style="color: white" scope="col" class="verticalText">Insumo 1 </th>
@@ -1156,7 +1156,7 @@
         <th COLSPAN="1"></th>
         <th COLSPAN="1"></th>
       </tr>
-      <tr style="background-color: #343a40; align-content: center; font-size: 95%">
+      <tr style="background-color: #65686b; align-content: center; font-size: 95%">
        
 
         <!-- parcial 1 quimestre 1-->

@@ -23,7 +23,7 @@
     <button style="color: #ffffff" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
       data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
       aria-label="Toggle navigation">
-      <span   class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive" style="background-color: #0071BD;">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion" style="background-color: #0071BD;">
@@ -40,7 +40,7 @@
           </ul>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" >
+        <li class="nav-item" data-toggle="tooltip" data-placement="right">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#nvChofer"
             data-parent="#exampleAccordion" style="color: #ffffff">
             <i class="fa fa-fw fa-users"></i>
@@ -324,7 +324,7 @@
 
 
         <!-- ====================================================         Listado Docentes ============================================-->
-        <div *ngIf="listadoD" class="px-5 mx-auto" >
+        <div *ngIf="listadoD" class="px-5 mx-auto">
           <br>
           <br>
           <br>
@@ -334,7 +334,7 @@
                 <hr>
               </h4>
             </div>
-            
+
           </div>
           <table class="table  text-center  ">
             <thead>
@@ -350,10 +350,10 @@
             <tbody>
               <tr *ngFor=" let listado of  listadoDocentes">
                 <th scope="row">1</th>
-                <td >{{listado.NOMBRE_DOCENTE}} {{ listado.APELLIDO_DOCENTE}}</td>
-                <td >{{listado.CEDULA_DOCENTE}}</td>
-                <td >{{ listado.CORREO_DOCENTE}}</td>
-                <td >{{listado.CELULAR_DOCENTE }}</td>
+                <td>{{listado.NOMBRE_DOCENTE}} {{ listado.APELLIDO_DOCENTE}}</td>
+                <td>{{listado.CEDULA_DOCENTE}}</td>
+                <td>{{ listado.CORREO_DOCENTE}}</td>
+                <td>{{listado.CELULAR_DOCENTE }}</td>
                 <td>
                   <input class="btn btn-primary " type="button" value="ver"
                     (click)="aparecerUpdateDatosDocentes(listado)">
@@ -372,7 +372,7 @@
                 <hr>
               </h4>
             </div>
-           
+
           </div>
           <table class="table  text-center">
             <thead>
@@ -389,9 +389,9 @@
               <tr *ngFor=" let listado of  listadoEstudiantes">
                 <th scope="row">1</th>
 
-                <td >{{listado.NOMBRE_ESTUDIANTE}} {{ listado.APELLIDO_ESTUDIANTE}}</td>
-                <td >{{listado.CEDULA_ESTUDIANTE}}</td>
-                <td >{{ listado.CORREO_ESTUDIANTE}}</td>
+                <td>{{listado.NOMBRE_ESTUDIANTE}} {{ listado.APELLIDO_ESTUDIANTE}}</td>
+                <td>{{listado.CEDULA_ESTUDIANTE}}</td>
+                <td>{{ listado.CORREO_ESTUDIANTE}}</td>
                 <td>{{listado.CELULAR_ESTUDIANTE }}</td>
                 <td>
                   <input class="btn btn-primary " type="button" value="ver"
@@ -452,7 +452,7 @@
                 <hr>
               </h4>
             </div>
-            
+
           </div>
           <table class="table  text-center ">
             <thead>
@@ -470,11 +470,11 @@
               <tr *ngFor=" let listado of  listadoMatriculasNueva;let i = index">
                 <th scope="row">{{i+1}}</th>
 
-                <td >{{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
-                <td > {{ listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}}</td>
-                <td >{{listado.ESTUDIANTE.CEDULA_ESTUDIANTE}}</td>
-                <td >{{listado.CURSO.CURSO }} "{{listado.CURSO.PARALELO }}"</td>
-                <td >{{listado.PERIODO }}</td>
+                <td>{{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
+                <td> {{ listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}}</td>
+                <td>{{listado.ESTUDIANTE.CEDULA_ESTUDIANTE}}</td>
+                <td>{{listado.CURSO.CURSO }} "{{listado.CURSO.PARALELO }}"</td>
+                <td>{{listado.PERIODO }}</td>
                 <td>
                   <input class="btn btn-primary " type="button" value="Eliminar"
                     (click)="updateDatosMatricula(listado)">
@@ -489,7 +489,7 @@
       <!-- ====================================================  Listado Asignacion ============================================-->
       <div class="pre-scrollable" style="max-height: 100%; " *ngIf="listadosMostrarAsignacion">
         <br>
-        <div class="row mx-auto">
+        <div class="row mx-auto px-5">
 
           <div class="col-md-4 ">
             <label for="apellido">Seleccione el Docente</label>
@@ -532,7 +532,7 @@
           <div class="col-lg-1">
             <label style="color: white"> hola</label>
 
-            <input style="align-content: center" class=" btn btn-primary form-control" value="Buscar" type="button"
+            <input style="align-content: center" class=" btn btn-primary form-control w-100" value="Buscar" type="button"
               (click)="busquedaAsignacionFiltrado()">
           </div>
 
@@ -541,19 +541,18 @@
         <br>
         <br>
         <br>
-        <div *ngIf="listadoA">
+        <div *ngIf="listadoA" class="px-5">
           <div class="row">
             <div class="col-md-12" style="text-align: center; color: #2863a9">
-              <h3>LISTADO ASIGNACIONES
-              </h3>
+              <h4>LISTADO ASIGNACIONES
+                <hr>
+              </h4>
             </div>
-            <div class="col-md-12">
-              <hr style="background-color: #e9ecef; width: 50%;">
-            </div>
+           
           </div>
           <table class="table  text-center">
             <thead>
-              <tr style="background-color: #343a40; align-content: center">
+              <tr style="background-color: #4c4f52; align-content: center">
                 <th style="color: white" scope="col">#</th>
                 <th style="color: white" scope="col">Curso</th>
                 <th style="color: white" scope="col">Docente</th>
@@ -567,11 +566,11 @@
               <tr *ngFor=" let listado of  listadoAsignacionNueva; let i = index">
                 <th scope="row">{{i+1}}</th>
 
-                <td style="font-size: 130%">{{listado.CURSO.CURSO}} "{{listado.CURSO.PARALELO}}"</td>
-                <td style="font-size: 130%"> {{ listado.DOCENTE.NOMBRE_DOCENTE}} {{ listado.DOCENTE.APELLIDO_DOCENTE}}
+                <td>{{listado.CURSO.CURSO}} "{{listado.CURSO.PARALELO}}"</td>
+                <td> {{ listado.DOCENTE.NOMBRE_DOCENTE}} {{ listado.DOCENTE.APELLIDO_DOCENTE}}
                 </td>
-                <td style="font-size: 130%">{{listado.PERIODO}}</td>
-                <td style="font-size: 130%">{{listado.NOMBRE_MATERIA}}</td>
+                <td>{{listado.PERIODO}}</td>
+                <td>{{listado.NOMBRE_MATERIA}}</td>
 
                 <td>
                   <input class="btn btn-primary " type="button" value="Eliminar"
@@ -594,7 +593,7 @@
               <img src="../../assets/imgs/IngresarAsignacion.png">
             </div>
           </div>
-         
+
           <div class="form-group">
 
             <label for="apellido">Seleccione el Docente que Impartira la materia</label>
@@ -744,10 +743,10 @@
         <form #IngresarDocente="ngForm" (ngSubmit)="onRegisterDocente()" novalidate>
           <div class="row mx-auto">
             <div class="col-12 col-md-3 mx-auto">
-              <img src="../../assets/imgs/IngresarDocente.png"  class="txt-center">
+              <img src="../../assets/imgs/IngresarDocente.png" class="txt-center">
             </div>
           </div>
-      
+
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group">
@@ -966,11 +965,11 @@
           <div class="row">
 
             <div class="col-6 col-md-3 mx-auto">
-              <img [src]="url2"   class=" txt-center" >
+              <img [src]="url2" class=" txt-center">
             </div>
 
           </div>
-   
+
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group">
@@ -1228,7 +1227,7 @@
           <tr *ngFor=" let listado of  listadoEstudianteMatriculas; let i = index;">
             <th scope="row">{{i+1}}</th>
             <td class="active">{{listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}} {{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
-           
+
             <td class="active" *ngFor=" let listad of  this.objNotasPT[i]">{{listad}}</td>
 
           </tr>
@@ -1295,15 +1294,15 @@
           <div style="width: 80%; border: 0; background-color: white;  margin-left: 10%" disabled
             class="modal-body  row">
             <select (change)="asignarCurso($event.target.value)" class=" custom-select col-lg-8" required>
-              <option disabled selected hidde value="" selected>Seleccione el nivel</option>
-              <option value="Nivel I">Nivel I</option>
-              <option value="Nivel II">Nivel II </option>
-              <option value="Nivel III">Nivel III</option>
-              <option value="Nivel IV">Nivel IV</option>
-              <option value="Nivel V">Nivel V
+              <option disabled selected hidde value="" selected>Seleccione el semestre</option>
+              <option value="SEMESTRE I">SEMESTRE I</option>
+              <option value="SEMESTRE II">SEMESTRE II </option>
+              <option value="SEMESTRE III">SEMESTRE III</option>
+              <option value="SEMESTRE IV">SEMESTRE IV</option>
+              <option value="SEMESTRE V">SEMESTRE V
               </option>
-              <option value="Nivel VI">Nivel VI</option>
-             
+              <option value="SEMESTRE VI">SEMESTRE VI</option>
+
             </select>
 
             <input class="form-control col-lg-3 " style="margin-left: 3%" placeholder="Paralelo" type=" text"

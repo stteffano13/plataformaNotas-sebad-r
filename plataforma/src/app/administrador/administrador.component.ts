@@ -101,48 +101,61 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
   public listadoEstudianteNotas;
   // vectores de materias
 
-  public arrayOctavo = [
-    "CIENCIAS SOCIALES",
-    "INFORMATICA",
-    'MATEMATICAS',
-    'LENGUAJE Y COMUNICACIÓN',
-    "EDUCACIÓN PARA LA CIUDADANÍA"];
+  public arrayNivelI = [
+    "COMUNICACIÓN ORAL Y ESCRITA",
+    "INVESTIGACIÓN CIENTIFICA",
+    'MATERIA INTEGRADORA: INTRODUCCIÓN A LA BIBLIA',
+    'USO Y MANEJO DE HERRAMIENTAS INFORMÁTICAS',
+    "PENSAMIENTO CRITICO",
+    "PEDAGOGÍA Y DIDACTICA GENERAL (OPTATIVA)",
+    "MATERIA EFECTIVA I"];
 
 
-  public array1Bach = [
-    "FÍSICA",
-    "QUIMICA",
-    "EDUCACIÓN PARA LA CIUDADANÍA",
-    "INGLÉS",
-    "BIOLOGÍA",
-    "LENGUA Y LITERATURA",
-    "HISTORIA",
-    "EMPRENDIMIENTO Y GESTIÓN"
-  ];
+  public arrayNivelII = [
+    "INTRODUCCIÓN AL HEBREO BIBLICO",
+    "GEOGRAFÍA DEL ANTIGUO Y NUEVO TESTAMENTO",
+    'PENTATEUCO',
+    'MATERIA INTEGRADORA: LIDERAZGO ADMINISTRACIÓN ECLESIAL I',
+    "LIBROS HISTORICOS POÉTICOS",
+    "HERMANÉUTICA",
+    "MATERIA EFECTIVA II"];
 
 
-  public array2Bach = [
-    "FÍSICA",
-    "QUÍMICA",
-    "EDUCACIÓN PARA LA CIUDADANÍA",
-    "INGLÉS",
-    "BIOLOGÍA",
-    "LENGUA Y LITERATURA",
-    "HISTORIA",
-    "EMPRENDIMIENTO Y GESTIÓN"
-  ];
+  public arrayNivelIII = [
+    "INTRODUCCIÓN AL GRIEGO BIBLICO",
+    "HISTORIA DE LA IGLESIA I",
+    'ADMINSITRACIÓN Y FILOSOFÍA DE LA EDUCACIÓN',
+    'MATERIA INTEGRADORA: CONSEJERÍA FAMILIAR Y MINISTERIO PASTORAL',
+    "PROFETAS MENORES Y MAYORES",
+    "LIDERAZGO Y ADMINISTRACIÓN ECLESIAL II",
+    "MATERIA EFECTIVA III"];
 
-  public array3Bach = [
-    "FÍSICA",
-    "QUÍMICA",
-    "EDUCACIÓN PARA LA CIUDADANÍA",
-    "INGLÉS",
-    "BIOLOGÍA",
-    "LENGUA Y LITERATURA",
-    "HISTORIA",
-    "EMPRENDIMIENTO Y GESTIÓN"
+  public arrayNivelIV = [
+    "TEOLOGIA SISTEMÁTICA",
+    "HISTORIA DE LA IGLESIA II",
+    'HISTORIA EN AMÉRICA LATINA I',
+    'MATERIA INTEGRADORA: PROYECTO DE MISIONES Y EVANGELIZACIÓN / PLANTACIÓN DE IGLESIAS I ',
+    "EVANGELIOS Y HECHOS",
+    "EXÉGESIS BÍBLICA",
+    "MATERIA EFECTIVA IV"];
 
-  ];
+  public arrayNivelV = [
+    "HISTORIA COMPARADA DE LAS RELIGIONES",
+    "TEOLOGÍA SISTEMÁTICA II",
+    'METODOLOGÍA DEL TRABAJO DE TITULACIÓN',
+    'MATERIA INTEGRADORA: IGLECRECIMIENTO PLANTACIÓN DE IGLESIAS II',
+    "EPÍSTOLAS PAULINAS",
+    "EPÍSTOLAS GENERALES Y APOCALIPSIS",
+    "MATERIA EFECTIVA V"];
+
+  public arrayNivelVI = [
+    "MISIONES (COMUNICACIÓN TRANSCULTURAL)",
+    "TALLER DE GRADUACIÓN",
+    'TEOLOGÍA CONTEMPORÁNEA',
+    'MATERIA INTEGRADORA: HOMILETICA',
+    "PNEUMATOLOGÍA",
+    "APOLOGÉTICA BÍBLICA Y ÉTICA MINISTERIAL",
+    "MATERIA EFECTIVA VI"];
 
   // objetos
   public docente_register: Docente;
@@ -1817,28 +1830,30 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
   selectedCursoA(value) {
     console.log("value", value);
-    let curso: String[] = new Array();
-    curso = value.split(" ");
-    this.disabledMateriaImpartir = false;
-    console.log("value[1]", curso[1]);
-    if (curso[2].indexOf("SUPERIOR") != -1 || curso[2].indexOf("OCTAVO") != -1 || curso[2].indexOf("NOVENO") != -1 || curso[2].indexOf("DECIMO") != -1) {
-      this.vectorlistadoMaterias = this.arrayOctavo;
-      console.log("entre basico");
-    } else {
-      if (curso[1].indexOf("PRIMER") != -1) {
-        this.vectorlistadoMaterias = this.array1Bach;
-        console.log("entre 1er");
-      } else {
-        if (curso[1].indexOf("SEGUNDO") != -1) {
-          this.vectorlistadoMaterias = this.array2Bach;
-        } else {
-          if (curso[1].indexOf("TERCER") != -1) {
-            this.vectorlistadoMaterias = this.array3Bach;
-          }
-        }
-      }
-    }
 
+
+
+    switch (value) {
+      case 'SEMESTRE I':
+        this.vectorlistadoMaterias = this.arrayNivelI;
+        break;
+      case 'SEMESTRE II':
+        this.vectorlistadoMaterias = this.arrayNivelII;
+        break;
+      case 'SEMESTRE III':
+        this.vectorlistadoMaterias = this.arrayNivelIII;
+        break;
+      case 'SEMESTRE IV':
+        this.vectorlistadoMaterias = this.arrayNivelIV;
+        break;
+      case 'SEMESTRE V':
+        this.vectorlistadoMaterias = this.arrayNivelV;
+        break;
+      case 'SEMESTRE VI':
+        this.vectorlistadoMaterias = this.arrayNivelVI;
+        break;
+
+    }
   }
 
 

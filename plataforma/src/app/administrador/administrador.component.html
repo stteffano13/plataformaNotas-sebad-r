@@ -623,8 +623,7 @@
                   class="form-control">
                 <datalist id="listadoCursosAsignacion">
                   <option *ngFor="let oneDoor of vectorListadoCursos">
-                    {{oneDoor.CODIGO_CURSO}}.&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;{{oneDoor.CURSO}},{{oneDoor.PARALELO}}
+                    {{oneDoor.CODIGO_CURSO}}.{{oneDoor.CURSO}}.{{oneDoor.PARALELO}}
                   </option>
                 </datalist>
               </div>

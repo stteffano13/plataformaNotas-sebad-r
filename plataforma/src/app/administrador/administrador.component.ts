@@ -1831,9 +1831,11 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
   selectedCursoA(value) {
     console.log("value", value);
 
-
-
-    switch (value) {
+    this.disabledMateriaImpartir = false;
+    let curso: String[] = new Array();
+    curso = value.split(".");
+    console.log("carga materias", curso);
+    switch (curso[1]) {
       case 'SEMESTRE I':
         this.vectorlistadoMaterias = this.arrayNivelI;
         break;

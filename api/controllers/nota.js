@@ -78,6 +78,7 @@ async function saveNotas(req, res) {
 
       }
     } catch (err) {
+      console.log("err",err);
       cont3++;
       if (cont3 == Object.keys(paramsi).length) {
         res.status(500).send({
@@ -144,7 +145,7 @@ async function saveNotas2(params, res, cont, paramsi) {
     }
 
   } catch (err) {
-
+   console.log("err",err);
     if (cont == Object.keys(paramsi).length) {
       res.status(500).send({
         message: 'Error al guardar notas'

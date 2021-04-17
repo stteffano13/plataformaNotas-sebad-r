@@ -19,7 +19,7 @@ import { DocenteComponent } from './docente/docente.component';
 import { EstudianteComponent } from './estudiante/estudiante.component';
 import { ComboBoxModule } from '@progress/kendo-angular-dropdowns';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NuuComponent } from './nuu/nuu.component';
+
 import { ExcelService } from '../app/services/excel.service'
 
 
@@ -30,7 +30,7 @@ import { ExcelService } from '../app/services/excel.service'
     AdministradorComponent,
     DocenteComponent,
     EstudianteComponent,
-    NuuComponent
+    
   ],
   imports: [
     BrowserModule,

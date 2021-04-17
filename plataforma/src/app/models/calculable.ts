@@ -1,18 +1,18 @@
 export class Calculable {
     constructor(
 
-        public promedioAsistencia:number,
-        public treintaycincoporcientotareas1:number,
-        public treintaporcientoproyecto1:number,
-        public treintaporcientoexamen1:number,
-        public totalparcial1:number,
+        public PromedioAsistencia:Number,
+        public treintaycincoporcientotareas1:Number,
+        public treintaporcientoproyecto1:Number,
+        public treintaycincoporcientoexamen1:Number,
+        public totalparcial1:Number,
         
-        public treintaycincoporcientotareas2:number,
-        public treintaporcientoproyecto2:number,
-        public treintaporcientoexamen2:number,
-        public totalparcial2:number,
+        public treintaycincoporcientotareas2:Number,
+        public treintaporcientoproyecto2:Number,
+        public treintaycincoporcientoexamen2:Number,
+        public totalparcial2:Number,
         
-        public promedioPeriodo:number,
+        public promedioPeriodo:Number,
         public EstadoNota:string,
         
 

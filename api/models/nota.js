@@ -126,7 +126,7 @@ const Nota = db.sequelize.define('NOTA', {
         type: Sequelize.NUMBER,
         allowNull: true
     },
-    ESTADO_NOTAS:
+    ESTADONOTAS:
     {
         type: Sequelize.NUMBER,
         allowNull: true

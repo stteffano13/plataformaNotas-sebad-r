@@ -13,7 +13,7 @@ export class Calculable {
         public totalparcial2:Number,
         
         public promedioPeriodo:Number,
-        public EstadoNota:string,
+        public EstadoNotas:string,
         
 
     ) { }

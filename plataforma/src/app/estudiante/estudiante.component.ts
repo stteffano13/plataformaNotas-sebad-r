@@ -139,8 +139,8 @@ export class EstudianteComponent implements OnInit, DoCheck {
 
           for (let i = 0; i <= Object.keys(this.vectorListadoMisMaterias).length; i++) {
 
-            this.object.push(this.obj = new Nota("", "", "", "","0","0","0","0","0","0","0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"));
-            this.objectCalculable.push(this.objC = new Calculable("0", "0", "0", "0", "0", "0", "0"));
+            this.object.push(this.obj = new Nota("", "", "","",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"",0));
+            this.objectCalculable.push(this.objC = new Calculable(0,0,0,0,0,0,0,0,0,0,""));
             console.log("estos son los seros del objeto", this.object);
           }
         
@@ -155,7 +155,7 @@ export class EstudianteComponent implements OnInit, DoCheck {
           for (let i = 0; i < Object.keys(this.vectorListadoMisMaterias).length; i++) {
 
             this.objectB.push(this.objB = new NotaBasica("", "", "", "", "0", "0", "0", "0", "0", "0", "0", "0","0", "0", "0", "0", "0", "0" ,"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"));
-            this.objectCalculableB.push(this.objC = new Calculable("0", "0", "0", "0", "0", "0", "0"));
+            this.objectCalculableB.push(this.objC = new Calculable(0,0,0,0,0,0,0,0,0,0,""));
 
           }
 

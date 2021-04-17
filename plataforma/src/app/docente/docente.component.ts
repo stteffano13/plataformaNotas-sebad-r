@@ -404,12 +404,10 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     this.object[i].periodo = this.periodoLectivoActual;
     this.object[i].pt = this.objectCalculable[i].promedioPeriodo;
     this.object[i].PromedioAsistencia = this.objectCalculable[i].PromedioAsistencia;
+    this.object[i].EstadoNotas = this.objectCalculable[i].EstadoNotas;
     this.calculos(i);
 
   }
-
-
-
 
 
 
@@ -462,9 +460,6 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
 
 
-
-
-
       this.objectCalculable[i].PromedioAsistencia = PromedioAsistencia.toFixed(2);
       this.objectCalculable[i].treintaycincoporcientotareas1 = treintaycincoporcientotareas1.toFixed(2);
       this.objectCalculable[i].treintaporcientoproyecto1 = treintaporcientoproyecto1.toFixed(2);
@@ -481,22 +476,16 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
       // calculo para examenes complementarios
 
-      if (this.object[i].examenSupletorio >= 7) {
-        this.objectCalculable[i].promedioPeriodo = 7;
+      if (PromedioAsistencia >= 6 && promedioPeriodo > 7) {
+        this.objectCalculable[i].EstadoNotas = "A";
+
+      } else {
+        this.objectCalculable[i].EstadoNotas = "R"
 
       }
 
 
-      if (this.object[i].examenRemedial >= 7) {
-        this.objectCalculable[i].promedioPeriodo = 7;
 
-      }
-
-
-      if (this.object[i].examenGracia >= 7) {
-        this.objectCalculable[i].promedioPeriodo = 7;
-
-      }
 
     }
   }
@@ -564,20 +553,11 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
       this.objectCalculable[i].promedioPeriodo = promedioPeriodo.toFixed(2);
 
 
-      if (this.object[i].examenSupletorio >= 7) {
-        this.objectCalculable[i].promedioPeriodo = 7;
+      if (PromedioAsistencia >= 6 && promedioPeriodo > 7) {
+        this.objectCalculable[i].EstadoNotas = "A";
 
-      }
-
-
-      if (this.object[i].examenRemedial >= 7) {
-        this.objectCalculable[i].promedioPeriodo = 7;
-
-      }
-
-
-      if (this.object[i].examenGracia >= 7) {
-        this.objectCalculable[i].promedioPeriodo = 7;
+      } else {
+        this.objectCalculable[i].EstadoNotas = "R"
 
       }
 
@@ -929,29 +909,31 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     }
     this.loading = true;
     var logo = new Image();
-    logo.src = '../../assets/imgs/logo.png';
+    logo.src = '../../assets/imgs/logo.jpeg';
 
 
     const doc = new jsPDF('l', 'px', 'a4') as jsPDFWithPlugin;;
 
     var pageWidth = doc.internal.pageSize.width
-    doc.addImage(logo, 'PNG', 30, 15, 100, 80);
-    doc.fromHTML("<h2>COLEGIO DE BACHILLERATO PCEI EBENEZER</h2>", 170, 2);
-    doc.fromHTML("<h4>ACTA DE CALIFICACIÓN POR PERIODO" + "  " + this.periodoLectivoActual + "</h4>", 165, 28);
+    doc.addImage(logo, 'PNG', 30, 15, 120, 100);
+    doc.fromHTML("<h4>SEMINARIO BÍBLICO</h4>", 170, 2);
+    doc.fromHTML("<h4>ASAMBLEA DE DIOS EN ECUADOR</h4>", 170, 20);
+    doc.fromHTML("<h4>ACTA DE CALIFICACIONES PERIODO:" + "  " + this.periodoLectivoActual + "</h4>", 170, 40);
 
-    doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 230, 75);
-    doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 220, 100);
+    doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 170, 60);
+    doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 80);
     var cont = this.listadoEstudianteNotas.length;
 
 
     if (this.banderTabla1) {
-      doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 200, 48);
+      doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 170, 100);
       doc.autoTable({
         html: '#results', startY: 150, columnStyles: {
-          10: { fillColor: [249, 247, 95] },
-          12: { fillColor: [249, 247, 95] },
-          13: { fillColor: [207, 233, 176] }, 22: { fillColor: [249, 247, 95] }, 24: { fillColor: [249, 247, 95] },
-          25: { fillColor: [207, 233, 176] }, 26: { fillColor: [191, 250, 119] }
+          7: { fillColor: [249, 247, 95] },
+          9: { fillColor: [249, 247, 95] },
+          11: { fillColor: [249, 247, 95] },
+          12: { fillColor: [207, 233, 176] }, 17: { fillColor: [249, 247, 95] }, 19: { fillColor: [249, 247, 95] },
+          21: { fillColor: [249, 247, 95] }, 22: { fillColor: [207, 233, 176] }, 24: { fillColor: [191, 250, 119] }
         }, styles: {
           overflow: 'linebreak',
           fontSize: 8,
@@ -962,49 +944,20 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
       });
 
       var pageHeight = doc.internal.pageSize.height;
-      doc.fromHTML(" <h4 style='text-align: center'>------------------------------------------</h4>", 110, pageHeight - pageHeight / 6);
-      doc.fromHTML(" <h4 style='text-align: center'>------------------------------------------</h4>", 260, pageHeight - pageHeight / 6);
-      doc.fromHTML(" <h4 style='text-align: center'>------------------------------------------</h4>", 400, pageHeight - pageHeight / 6);
-      doc.fromHTML(" <p style='text-align: center'>DOCENTE</p>", 150, pageHeight - pageHeight / 8);
-      doc.fromHTML(" <p style='text-align: center'>SECRETARIA</p>", 300, pageHeight - pageHeight / 8);
-      doc.fromHTML(" <p style='text-align: center'>RECTOR(A)</p>", 445, pageHeight - pageHeight / 8);
+      doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 75, pageHeight - pageHeight / 6);
+      doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 265, pageHeight - pageHeight / 6);
+      doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 455, pageHeight - pageHeight / 6);
+      doc.fromHTML(" <p style='text-align: center'>PROFESOR(A)</p>", 100, pageHeight - pageHeight / 8);
+      doc.fromHTML(" <p style='text-align: center'>ACADEMICO</p>", 290, pageHeight - pageHeight / 8);
+      doc.fromHTML(" <p style='text-align: center'>SECRETARIO</p>", 480, pageHeight - pageHeight / 8);
+
+      doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 280, pageHeight - pageHeight / 10);
+      doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 470, pageHeight - pageHeight / 10);
       this.loading = false;
 
       doc.save('Reporte_Notas_Docente.pdf');
 
 
-
-    } else {
-
-      doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 240, 48);
-
-      doc.autoTable({
-
-        html: '#results2', startY: 150, margin: { left: 30 }, columnStyles: {
-          20: { fillColor: [249, 247, 95] },
-          22: { fillColor: [249, 247, 95] },
-          23: { fillColor: [207, 233, 176] }, 42: { fillColor: [249, 247, 95] }, 44: { fillColor: [249, 247, 95] },
-          45: { fillColor: [207, 233, 176] }, 46: { fillColor: [191, 250, 119] }
-        }, styles: {
-          overflow: 'linebreak',
-          fontSize: 5,
-          rowHeight: 0,
-          cellWidth: 'auto',
-          cellPadding: 2,
-
-          //calculateWidths: 300
-
-        }
-
-      });
-      var pageHeight = doc.internal.pageSize.height;
-      doc.fromHTML(" <h4 style='text-align: center'>------------------------------------------</h4>", 130, pageHeight - pageHeight / 6);
-      doc.fromHTML(" <h4 style='text-align: center'>------------------------------------------</h4>", 380, pageHeight - pageHeight / 6);
-      doc.fromHTML(" <h4 style='text-align: center'>DOCENTE</h4>", 170, pageHeight - pageHeight / 8);
-      doc.fromHTML(" <h4 style='text-align: center'>RECTOR</h4>", 425, pageHeight - pageHeight / 8);
-      this.loading = false;
-
-      doc.save('Reporte_Notas_Docente.pdf');
 
     }
 
@@ -1020,12 +973,15 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
         delete this.VreporteExcel[i]._id;
         delete this.VreporteExcel[i].materia;
         delete this.VreporteExcel[i].periodo;
-        this.object[i].ochenta_p1 = this.objectCalculable[i].ochentaporciento1;
-        this.object[i].veinte_p1 = this.objectCalculable[i].veinteporciento1;
-        this.object[i].promedio1 = this.objectCalculable[i].promedio1;
-        this.object[i].ochenta_p2 = this.objectCalculable[i].ochentaporciento2;
-        this.object[i].veinte_p2 = this.objectCalculable[i].veinteporciento2;
-        this.object[i].promedio2 = this.objectCalculable[i].promedio2;
+        this.object[i].treintaycincoporcientotareas1 = this.objectCalculable[i].treintaycincoporcientotareas1;
+        this.object[i].treintaporcientoproyecto1 = this.objectCalculable[i].treintaporcientoproyecto1;
+        this.object[i].treintaycincoporcientoexamen1 = this.objectCalculable[i].treintaycincoporcientoexamen1;
+        this.object[i].totalparcial1 = this.objectCalculable[i].totalparcial1;
+
+        this.object[i].treintaycincoporcientotareas2 = this.objectCalculable[i].treintaycincoporcientotareas2;
+        this.object[i].treintaporcientoproyecto2 = this.objectCalculable[i].treintaporcientoproyecto2;
+        this.object[i].treintaycincoporcientoexamen2 = this.objectCalculable[i].treintaycincoporcientoexamen2;
+        this.object[i].totalparcial2 = this.objectCalculable[i].totalparcial2;
 
       }
     }

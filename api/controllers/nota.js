@@ -111,7 +111,7 @@ async function saveNotas2(params, res, cont, paramsi) {
     nota.ASISTENCIA6 = params.Asistencia6;
     nota.ASISTENCIA7 = params.Asistencia7;
     nota.ASISTENCIA8 = params.Asistencia8;
-    nota.PROMEDIOASISTENCIA = params.PromedioAsistencia;
+    nota.PROMEDIOASISTENCIA = params.promedioAsistencia;
 
     nota.TAREA1 = params.Tarea1;
     nota.TAREA2 = params.Tarea2;
@@ -175,7 +175,7 @@ async function updateNotasFin(notas, params, res, cont, paramsi) {
       ASISTENCIA6: params.Asistencia6,
       ASISTENCIA7: params.Asistencia7,
       ASISTENCIA8: params.Asistencia8,
-      PROMEDIOASISTENCIA: params.PromedioAsistencia,
+      PROMEDIOASISTENCIA: params.promedioAsistencia,
 
       TAREA1: params.Tarea1,
       TAREA2: params.Tarea2,

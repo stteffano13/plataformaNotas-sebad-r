@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Montecarlo VIP</title>
+  <title>SEBAD-R</title>
 </head>
 
 <div class="my-container">
@@ -122,14 +122,20 @@
 
       <!-- Division Principal-->
   
+<br><br><br><br>
+<div class="px-5">
+<h3 >{{identity.NOMBRE_ESTUDIANTE}} {{identity.APELLIDO_ESTUDIANTE}} </h3>
+</div>
 
-<h3  style="margin-top: 5%">{{identity.NOMBRE_ESTUDIANTE}} {{identity.APELLIDO_ESTUDIANTE}} </h3>
-
+<div class="px-5 ">
+  <h4 class="text-center " >LIBRETA DE CALIFICACIONES</h4>
+  </div>
+<br>
       <!-- tabola de insumos -->
 
-      <div *ngIf="banderInsumo" id="formContent">
-        <button (click)="cerrarDescInsumos()" class="btn btn-light">
-          <i class="fa fa-window-close fa-lg"></i>
+      <div *ngIf="banderInsumo" id="formContent" class="w-50">
+        <button (click)="cerrarDescInsumos()" class="btn btn-light ">
+          <i class="fa fa-close fa-md"></i>
         </button>
         <table *ngIf="banderInsumo" class="table table-hover table-bordered table-responsive" style="margin-top: 0%; font-size: 80% ; width: 90% ; height: 40%; margin-left: 5%">
 
@@ -140,8 +146,8 @@
 
             <tr style=" align-content: center;">
               <th colspan="2" style="padding-top: 3%" scope="col">
-                <h6>Descripción de insumos de la materia de: {{recivir}}</h6>
-                <p style="color: #ffffff">holaaaaaaaaaaaaaaaaaammmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</p>
+                <h6>DESCRIPCIÓN DE EVENTOS DE LA AMTERIA DE: {{recivir}}</h6>
+               
               </th>
 
             </tr>
@@ -149,7 +155,7 @@
 
             <tr style="background-color: #65686b; align-content: center;">
               <th style="color: white;" scope="col">#</th>
-              <th style="color: white;" scope="col">Descripcion del insumo</th>
+              <th style="color: white;" scope="col">Descripción</th>
 
             </tr>
 
@@ -157,84 +163,97 @@
           </thead>
           <tbody>
             <tr style=" align-content: center;">
-              <td scope="col">Insumo 1</td>
-              <td scope="col">{{listadoInsumos.DESCINSUMO1}}</td>
+              <td scope="col">Asistencia 1</td>
+              <td scope="col">{{listadoInsumos.DESCASISTENCIA1}}</td>
 
             </tr>
             <tr style=" align-content: center;">
-              <td scope="col">Insumo 2</td>
-              <td scope="col">{{listadoInsumos.DESCINSUMO2}}</td>
+              <td scope="col">Asistencia 2</td>
+              <td scope="col">{{listadoInsumos.DESCASISTENCIA2}}</td>
             </tr>
 
             <tr style=" align-content: center;">
-              <td scope="col">Insumo 3</td>
-              <td scope="col">{{listadoInsumos.DESCINSUMO3}}</td>
+              <td scope="col">Asistencia 3</td>
+              <td scope="col">{{listadoInsumos.DESCASISTENCIA3}}</td>
             </tr>
 
             <tr style=" align-content: center;">
-              <td scope="col">Insumo 4</td>
-              <td scope="col">{{listadoInsumos.DESCINSUMO4}}</td>
+              <td scope="col">Asistencia 4</td>
+              <td scope="col">{{listadoInsumos.DESCASISTENCIA4}}</td>
             </tr>
 
             <tr style=" align-content: center;">
-              <td scope="col">Insumo 5</td>
-              <td scope="col">{{listadoInsumos.DESCINSUMO5}}</td>
+              <td scope="col">Asistencia 5</td>
+              <td scope="col">{{listadoInsumos.DESCASISTENCIA5}}</td>
             </tr>
             <tr style=" align-content: center;">
-              <td scope="col">Insumo 6</td>
-              <td scope="col">{{listadoInsumos.DESCINSUMO6}}</td>
+              <td scope="col">Asistencia 6</td>
+              <td scope="col">{{listadoInsumos.DESCASISTENCIA6}}</td>
             </tr>
             <tr style=" align-content: center;">
-              <td scope="col">Insumo 7</td>
-              <td scope="col">{{listadoInsumos.DESCINSUMO7}}</td>
+              <td scope="col">Asistencia 7</td>
+              <td scope="col">{{listadoInsumos.DESCASISTENCIA7}}</td>
             </tr>
             <tr style=" align-content: center;">
-              <td scope="col">Insumo 8</td>
-              <td scope="col">{{listadoInsumos.Descinsumo8}}</td>
+              <td scope="col">Asistencia  8</td>
+              <td scope="col">{{listadoInsumos.DESCASISTENCIA8}}</td>
             </tr>
 
             <tr style="background-color: #65686b; align-content: center;">
-              <th colspan="2" style="color: white; padding-top: 3%" scope="col">Segundo Parcial</th>
+              <th colspan="2" style="color: white; padding-top: 3%" scope="col">Primer periodo</th>
 
             </tr>
 
             <tr style=" align-content: center;">
-              <td scope="col">Insumo 1</td>
-              <td scope="col">{{listadoInsumos.DESCINSUMO11}}</td>
+              <td scope="col">Tarea 1</td>
+              <td scope="col">{{listadoInsumos.DESCTAREA1}}</td>
 
               <tr style=" align-content: center;">
-                <td scope="col">Insumo 2</td>
-                <td scope="col">{{listadoInsumos.DESCINSUMO22}}</td>
+                <td scope="col">Tarea 2</td>
+                <td scope="col">{{listadoInsumos.DESCTAREA2}}</td>
               </tr>
 
               <tr style=" align-content: center;">
-                <td scope="col">Insumo 3</td>
-                <td scope="col">{{listadoInsumos.DESCINSUMO33}}</td>
+                <td scope="col">Tarea 3</td>
+                <td scope="col">{{listadoInsumos.DESCTAREA3}}</td>
               </tr>
 
               <tr style=" align-content: center;">
-                <td scope="col">Insumo 4</td>
-                <td scope="col">{{listadoInsumos.DESCINSUMO44}}</td>
+                <td scope="col">Tarea 4</td>
+                <td scope="col">{{listadoInsumos.DESCTAREA4}}</td>
               </tr>
 
               <tr style=" align-content: center;">
-                <td scope="col">Insumo 5</td>
-                <td style="padding-top: 3%" scope="col">{{listadoInsumos.DESCINSUMO55}}</td>
+                <td scope="col">Proyecto</td>
+                <td style="padding-top: 3%" scope="col">{{listadoInsumos.DESCPROYECTO1}}</td>
+              </tr>
+
+              <tr style="background-color: #65686b; align-content: center;">
+                <th colspan="2" style="color: white; padding-top: 3%" scope="col">Segundo periodo</th>
+  
+              </tr>
+              <tr style=" align-content: center;">
+                <td scope="col">Tarea 1</td>
+                <td scope="col">{{listadoInsumos.DESCTAREA11}}</td>
               </tr>
 
               <tr style=" align-content: center;">
-                <td scope="col">Insumo 6</td>
-                <td scope="col">{{listadoInsumos.DESCINSUMO66}}</td>
+                <td scope="col">Tarea 2</td>
+                <td scope="col">{{listadoInsumos.DESCTAREA22}}</td>
               </tr>
 
               <tr style=" align-content: center;">
-                <td scope="col">Insumo 7</td>
-                <td scope="col">{{listadoInsumos.DESCINSUMO77}}</td>
+                <td scope="col">Tarea 3</td>
+                <td scope="col">{{listadoInsumos.DESCTAREA33}}</td>
+              </tr>
+              <tr style=" align-content: center;">
+                <td scope="col">Tarea 4</td>
+                <td scope="col">{{listadoInsumos.DESCTAREA44}}</td>
               </tr>
 
               <tr style=" align-content: center;">
-                <td scope="col">Insumo 8</td>
-                <td scope="col">{{listadoInsumos.DESCINSUMO88}}</td>
+                <td scope="col">Proyecto</td>
+                <td scope="col">{{listadoInsumos.DESCPROYECTO2}}</td>
               </tr>
 
           </tbody>
@@ -504,39 +523,41 @@
         <thead  >
 
           <tr style="background-color: #65686b; align-content: center;">
-            <th style="color: white; padding-top: 3%" scope="col">Más</th>
-            <th style="color: white; padding-top: 3%" scope="col">#</th>
+            <th style="color: white; " scope="col">Más</th>
+            <th style="color: white; " scope="col">#</th>
 
             <th style="color: white; " scope="col">Materias</th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 1 </th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 2 </th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 3 </th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 4 </th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 5 </th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 6 </th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 7 </th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 8 </th>
-            <th style="color: white" scope="col" class="verticalText">80% </th>
-            <th style="color: white" scope="col" class="verticalText">Examen</th>
-            <th style="color: white" scope="col" class="verticalText">20%</th>
-            <th style="color: white" scope="col" class="verticalText">Promedio</th>
-
-            <th style="color: white" scope="col" class="verticalText">Insumo 1 </th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 2 </th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 3 </th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 4 </th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 5 </th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 6 </th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 7 </th>
-            <th style="color: white" scope="col" class="verticalText">Insumo 8 </th>
-            <th style="color: white" scope="col" class="verticalText">80% </th>
-            <th style="color: white" scope="col" class="verticalText">Examen</th>
-            <th style="color: white" scope="col" class="verticalText">20%</th>
-            <th style="color: white" scope="col" class="verticalText">Promedio</th>
-            <th style="color: white" scope="col" class="verticalText">Promedio periodo</th>
-            <th style="color: white" scope="col" class="verticalText">Examen Supletorio</th>
-            <th style="color: white" scope="col" class="verticalText">Examen Remedial</th>
-            <th style="color: white" scope="col" class="verticalText">Examen Gracia</th>
+            <th style="color: white" scope="col" class="verticalText">Asistencia 1 </th>
+            <th style="color: white" scope="col" class="verticalText">Asistencia 2 </th>
+            <th style="color: white" scope="col" class="verticalText">Asistencia 3</th>
+            <th style="color: white" scope="col" class="verticalText">Asistencia 4</th>
+            <th style="color: white" scope="col" class="verticalText">Asistencia 5 </th>
+            <th style="color: white" scope="col" class="verticalText">Asistencia 6</th>
+            <th style="color: white" scope="col" class="verticalText">Asistencia 7 </th>
+            <th style="color: white" scope="col" class="verticalText">Asistencia 8 </th>
+            <th style="color: white" scope="col" class="verticalText">Promedio Asistencia </th>
+            <th style="color: white" scope="col" class="verticalText">Tarea 1</th>
+            <th style="color: white" scope="col" class="verticalText">Tarea 2</th>
+            <th style="color: white" scope="col" class="verticalText">Tarea 3</th>
+            <th style="color: white" scope="col" class="verticalText">Tarea 4</th>
+            <th style="color: white" scope="col" class="verticalText">35% </th>
+            <th style="color: white" scope="col" class="verticalText">Proyecto 1 </th>
+            <th style="color: white" scope="col" class="verticalText">30% </th>
+            <th style="color: white" scope="col" class="verticalText">Examen 1</th>
+            <th style="color: white" scope="col" class="verticalText">35% </th>
+            <th style="color: white" scope="col" class="verticalText">Total Parcial 1</th>
+            <th style="color: white" scope="col" class="verticalText">Tarea 1</th>
+            <th style="color: white" scope="col" class="verticalText">Tarea 2</th>
+            <th style="color: white" scope="col" class="verticalText">Tarea 3</th>
+            <th style="color: white" scope="col" class="verticalText">Tarea 4</th>
+            <th style="color: white" scope="col" class="verticalText">35% </th>
+            <th style="color: white" scope="col" class="verticalText">Proyecto 2</th>
+            <th style="color: white" scope="col" class="verticalText">30%</th>
+            <th style="color: white" scope="col" class="verticalText">Examen 2</th>
+            <th style="color: white" scope="col" class="verticalText">35%</th>
+            <th style="color: white" scope="col" class="verticalText">Total Parcial 2</th>
+            <th style="color: white" scope="col" class="verticalText">Total Final</th>
+            <th style="color: white" scope="col" class="verticalText">Estado</th>
           </tr>
         </thead>
         <tbody>
@@ -548,102 +569,147 @@
               </button>
             </th>
 
-            <th scope="row">{{i}}</th>
+            <th scope="row">{{i+1}}</th>
             <td class="active">{{listado.NOMBRE_MATERIA}} </td>
             <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo1" name="isumo1{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia1" name="Asistencia1{{i}}">
             </td>
             <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo2" name="insumo2{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia2" name="Asistencia2{{i}}">
             </td>
             <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo3" name="insumo3{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia3" name="Asistencia3{{i}}">
             </td>
             <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo4" name="insumo4{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia4" name="Asistencia4{{i}}">
             </td>
             <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo5" name="insumo5{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia5" name="Asistencia5{{i}}">
             </td>
             <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo6" name="insumo6{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia6" name="Asistencia6{{i}}">
             </td>
             <td id="tdfila">
-              <input  disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo7" name="insumo7{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia7" name="Asistencia7{{i}}">
             </td>
             <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo8" name="insumo8{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia8" name="Asistencia8{{i}}">
             </td>
             <td id="tdfila" style="background-color:yellow">
-              <input  disabled style="background-color: yellow" id="tdboton" type="text" [(ngModel)]="  this.objectCalculable[i].ochentaporciento1"
-                name="ochentaporciento1{{i}}">
+              <input disabled style="background-color: yellow" id="tdboton" type="text"
+                [(ngModel)]="  this.objectCalculable[i].PromedioAsistencia" name="PromedioAsistencia{{i}}">
+            </td>
+
+
+            <td id="tdfila">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea1" name="Tarea1{{i}}">
             </td>
             <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].examen1" name="examen1{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea2" name="Tarea2{{i}}">
+            </td>
+            <td id="tdfila">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea3" name="Tarea3{{i}}">
+            </td>
+            <td id="tdfila">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea4" name="Tarea4{{i}}">
             </td>
 
             <td id="tdfila" style="background-color:yellow">
-              <input disabled id="tdboton" style="background-color:yellow" [(ngModel)]="this.objectCalculable[i].veinteporciento1" name="veinteporciento1{{i}}"
+              <input disabled id="tdboton" style="background-color:yellow"
+                [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas1"
+                name="treintaycincoporcientotareas1{{i}}" type="text">
+            </td>
+
+            <td id="tdfila">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Proyecto1" name="Proyecto1{{i}}">
+            </td>
+
+
+            <td id="tdfila" style="background-color:yellow">
+              <input disabled id="tdboton" style="background-color:yellow"
+                [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto1" name="treintaporcientoproyecto1{{i}}"
                 type="text">
             </td>
+
+            <td id="tdfila">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Examen1" name="Examen1{{i}}">
+            </td>
+
+            <td id="tdfila" style="background-color:yellow">
+              <input disabled id="tdboton" style="background-color:yellow"
+                [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen1" name="treintaporcientoexamen1{{i}}"
+                type="text">
+            </td>
+
             <td id="tdfila" style="background-color:rgb(215, 253, 138)">
-              <input disabled id="tdboton" style="background-color:rgb(215, 253, 138)" [(ngModel)]="this.objectCalculable[i].promedio1" name="promedio1{{i}}"
-                type="text">
+              <input disabled id="tdboton" style="background-color:rgb(215, 253, 138)"
+                [(ngModel)]="this.objectCalculable[i].totalparcial1" name="totalparcial1{{i}}" type="text">
             </td>
 
+
+
+
             <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo11" name="insumo11{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea11" name="Tarea11{{i}}">
             </td>
             <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo22" name="insumo22{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea22" name="Tarea22{{i}}">
             </td>
             <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo33" name="insumo33{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea33" name="Tarea33{{i}}">
             </td>
             <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo44" name="insumo44{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea44" name="Tarea44{{i}}">
             </td>
-            <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo55" name="insumo55{{i}}">
-            </td>
-            <td id="tdfila">
-              <input  disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo66" name="insumo66{{i}}">
-            </td>
-            <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo77" name="insumo77{{i}}">
-            </td>
-            <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].insumo88" name="insumo88{{i}}">
-            </td>
+
+
+
             <td id="tdfila" style="background-color:yellow">
-              <input disabled id="tdboton" style="background-color:yellow" [(ngModel)]=" this.objectCalculable[i].ochentaporciento2" name="ochentaporciento2{{i}}"
-                type="text">
+              <input disabled id="tdboton" style="background-color:yellow"
+                [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas2"
+                name="treintaycincoporcientotareas2{{i}}" type="text">
             </td>
+
             <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].examen2" name="examen2{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Proyecto2" name="Proyecto2{{i}}">
             </td>
+
+
             <td id="tdfila" style="background-color:yellow">
-              <input disabled id="tdboton" style="background-color:yellow" [(ngModel)]="this.objectCalculable[i].veinteporciento2" name="veinteporciento2{{i}}"
-                type="text">
-            </td>
-            <td  disabled id="tdfila" style="background-color:rgb(215, 253, 138)">
-              <input id="tdboton" style="background-color:rgb(215, 253, 138)" [(ngModel)]="this.objectCalculable[i].promedio2" name="promedio2{{i}}"
-                type="text">
-            </td>
-            <td disabled id="tdfila" style="background-color: lawngreen">
-              <input id="tdboton" style="background-color:lawngreen" [(ngModel)]=" this.objectCalculable[i].promedioPeriodo" name="promedioPeriodo{{i}}"
+              <input disabled id="tdboton" style="background-color:yellow"
+                [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto2" name="treintaporcientoproyecto2{{i}}"
                 type="text">
             </td>
 
+            <td id="tdfila">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Examen2" name="Examen2{{i}}">
+            </td>
 
-            <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].examenSupletorio" name="examenSupletorio{{i}}">
+            <td id="tdfila" style="background-color:yellow">
+              <input disabled id="tdboton" style="background-color:yellow"
+                [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen2" name="treintaporcientoexamen2{{i}}"
+                type="text">
             </td>
-            <td id="tdfila">
-              <input disabled id="tdboton" type="text" [(ngModel)]="this.object[i].examenRemedial" name="examenRemedial{{i}}">
+
+            <td id="tdfila" style="background-color:rgb(215, 253, 138)">
+              <input disabled id="tdboton" style="background-color:rgb(215, 253, 138)"
+                [(ngModel)]="this.objectCalculable[i].totalparcial2" name="totalparcial2{{i}}" type="text">
             </td>
-            <td id="tdfila">
-              <input  disabled id="tdboton" type="text" [(ngModel)]="this.object[i].examenGracia" name="examenGracia{{i}}">
+
+
+
+
+
+
+
+            <td id="tdfila" style="background-color: lawngreen">
+              <input disabled id="tdboton" style="background-color:lawngreen"
+                [(ngModel)]="this.objectCalculable[i].promedioPeriodo" name="promedioPeriodo{{i}}" type="text">
+            </td>
+
+            <td id="tdfila" style="background-color: lawngreen">
+              <input disabled id="tdboton" style="background-color:lawngreen"
+                [(ngModel)]="this.objectCalculable[i].EstadoNotas" name="EstadoNotas{{i}}" type="text">
             </td>
 
 
@@ -824,596 +890,11 @@
  
 
 
-  <!-- FIN TABLA DE-->
-    <!-- ================================================== tabla de notas basica tabla   2 =================================== -->
 
-    <table *ngIf="banderTabla2" class="table table-hover table-bordered table-responsive " style=" font-size: 80%; width: 90%; margin-left: 5%">
-
-
-      <thead>
-        <tr>
-          <th COLSPAN="2"></th>
-          <th COLSPAN="23">Primer Quimestre</th>
-          <th COLSPAN="23">Segundo Quimestre</th>
-        </tr>
-        <tr>
-          <th COLSPAN="3">Listado de Materias</th>
-          <th COLSPAN="6">1er Parcial</th>
-          <th COLSPAN="6">2do Parcial</th>
-          <th COLSPAN="6">3er Parcial</th>
-          <th COLSPAN="1">Ftva</th>
-          <th COLSPAN="1">E.Q</th>
-          <th COLSPAN="1">Stva</th>
-          <th COLSPAN="1">Nota 1Q.</th>
-
-          <th COLSPAN="6">1er Parcial</th>
-          <th COLSPAN="6">2do Parcial</th>
-          <th COLSPAN="6">3er Parcial</th>
-          <th COLSPAN="1">Ftva</th>
-          <th COLSPAN="1">E.Q</th>
-          <th COLSPAN="1">Stva</th>
-          <th COLSPAN="1">Nota 2Q.</th>
-          <th COLSPAN="1">Nota Final</th>
-        </tr>
-        <tr style="background-color: #65686b; align-content: center; font-size: 95%">
-          <th style="color: white; padding-top: 3%" scope="col">Más</th>
-          <th style="color: white; padding-top: 3%" scope="col">#</th>
-
-          <!-- parcial 1 quimestre 1-->
-          <th style="color: white;  border-right: 0; ">
-            <p style="color:#65686b; ">aaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>Materias </th>
-
-
-          <th style="color: white" scope="col" class="verticalText">Insumo 1 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 2 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 3 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 4 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 5 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 6 </th>
-
-
-          <!-- parcial 2 quimestre 1-->
-          <th style="color: white" scope="col" class="verticalText">Insumo 1 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 2 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 3 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 4 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 5 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 6 </th>
-
-          <!-- parcial 3 quimestre 1-->
-          <th style="color: white" scope="col" class="verticalText">Insumo 1 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 2 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 3 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 4 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 5 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 6 </th>
-
-          <th style="color: white" scope="col" class="verticalText">80%</th>
-          <th style="color: white" scope="col" class="verticalText">Examen</th>
-          <th style="color: white" scope="col" class="verticalText">20%</th>
-          <th style="color: white" scope="col" class="verticalText">Promedio</th>
-
-          <!-- parcial 1 quimestre 2-->
-          <th style="color: white" scope="col" class="verticalText">Insumo 1 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 2 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 3 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 4 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 5 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 6 </th>
-
-          <!-- parcial 2 quimestre 2-->
-          <th style="color: white" scope="col" class="verticalText">Insumo 1 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 2 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 3 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 4 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 5 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 6 </th>
-
-          <!-- parcial 3 quimestre 2-->
-          <th style="color: white" scope="col" class="verticalText">Insumo 1 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 2 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 3 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 4 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 5 </th>
-          <th style="color: white" scope="col" class="verticalText">Insumo 6 </th>
-
-          <th style="color: white" scope="col" class="verticalText">80% </th>
-          <th style="color: white" scope="col" class="verticalText">Examen</th>
-          <th style="color: white" scope="col" class="verticalText">20%</th>
-          <th style="color: white" scope="col" class="verticalText">Promedio</th>
-          <th style="color: white" scope="col" class="verticalText">Promedio total</th>
-          <th style="color: white" scope="col" class="verticalText">Examen Supletorio</th>
-          <th style="color: white" scope="col" class="verticalText">Examen Remedial</th>
-          <th style="color: white" scope="col" class="verticalText">Examen Gracia</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor=" let listado of  vectorListadoMisMaterias; let i = index; let listadoN of listadoEstudianteNotas">
-
-          <th>
-            <button  (click)="actualizacionInsumosB(listado.ID_MATERIA, listado.NOMBRE_MATERIA)" class="btn btn-light">
-              <i class="fa fa-plus fa-xs"></i>
-            </button>
-          </th>
-          <th scope="row">{{i}}</th>
-          <td valign="middle" style="padding-right: 0.5%;  padding-left: 0.5%; border-right: 0px;">{{listado.NOMBRE_MATERIA}} </td>
-
-
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P1insumo1" name="Q1P1insumo1{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P1insumo2" name="insumo2{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P1insumo3" name="insumo3{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P1insumo4" name="insumo4{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P1insumo5" name="insumo5{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P1insumo6" name="insumo6{{i}}">
-          </td>
-
-
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P2insumo1" name="insumo11{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P2insumo2" name="insumo22{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P2insumo3" name="insumo33{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P2insumo4" name="insumo44{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P2insumo5" name="insumo55{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P2insumo6" name="insumo66{{i}}">
-          </td>
-
-
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P3insumo1" name="insumo11{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P3insumo2" name="insumo22{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P3insumo3" name="insumo33{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P3insumo4" name="insumo44{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P3insumo5" name="insumo55{{i}}">
-          </td>
-          <td id="tdfila">
-            <input  disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P3insumo6" name="insumo66{{i}}">
-          </td>
-
-          <td id="tdfila" style="background-color:yellow">
-            <input  disabled style="background-color: yellow" id="tdboton" type="text" [(ngModel)]="  this.objectCalculableB[i].ochentaporciento1"
-              name="ochentaporcientoB1{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].examen1" name="examen1{{i}}">
-          </td>
-
-          <td id="tdfila" style="background-color:yellow">
-            <input disabled  id="tdboton" style="background-color:yellow" [(ngModel)]="this.objectCalculableB[i].veinteporciento1" name="veinteporciento1{{i}}"
-              type="text">
-          </td>
-          <td id="tdfila" style="background-color:rgb(215, 253, 138)">
-            <input disabled  id="tdboton" style="background-color:rgb(215, 253, 138)" [(ngModel)]="this.objectCalculableB[i].promedio1" name="promedio1{{i}}"
-              type="text">
-          </td>
-
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P1insumo1" name="insumo11{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P1insumo2" name="insumo22{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P1insumo3" name="insumo33{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P1insumo4" name="insumo44{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P1insumo5" name="insumo55{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P1insumo6" name="insumo66{{i}}">
-          </td>
-
-
-
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P2insumo1" name="insumo11{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P2insumo2" name="insumo22{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P2insumo3" name="insumo33{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P2insumo4" name="insumo44{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P2insumo5" name="insumo55{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P2insumo6" name="insumo66{{i}}">
-          </td>
-
-
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P3insumo1" name="insumo11{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P3insumo2" name="insumo22{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P3insumo3" name="insumo33{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P3insumo4" name="insumo44{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P3insumo5" name="insumo55{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P3insumo6" name="insumo66{{i}}">
-          </td>
-
-          <td id="tdfila" style="background-color:yellow">
-            <input disabled  id="tdboton" style="background-color:yellow" [(ngModel)]=" this.objectCalculableB[i].ochentaporciento2" name="ochentaporciento2{{i}}"
-              type="text">
-          </td>
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].examen2" name="examen2{{i}}">
-          </td>
-          <td id="tdfila" style="background-color:yellow">
-            <input id="tdboton" style="background-color:yellow" [(ngModel)]="this.objectCalculableB[i].veinteporciento2" name="veinteporciento2{{i}}"
-              type="text">
-          </td>
-          <td id="tdfila" style="background-color:rgb(215, 253, 138)">
-            <input disabled  id="tdboton" style="background-color:rgb(215, 253, 138)" [(ngModel)]="this.objectCalculableB[i].promedio2" name="promedio2{{i}}"
-              type="text">
-          </td>
-          <td id="tdfila" style="background-color: lawngreen">
-            <input disabled  id="tdboton" style="background-color:lawngreen" [(ngModel)]=" this.objectCalculableB[i].promedioPeriodo" name="promedioPeriodo{{i}}"
-              type="text">
-          </td>
-
-
-          <td id="tdfila">
-            <input disabled  id="tdboton" type="text" [(ngModel)]="this.objectB[i].examenSupletorio" name="examenSupletorio{{i}}">
-          </td>
-          <td id="tdfila">
-            <input  disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].examenRemedial" name="examenRemedial{{i}}">
-          </td>
-          <td id="tdfila">
-            <input disabled id="tdboton" type="text" [(ngModel)]="this.objectB[i].examenGracia" name="examenGracia{{i}}">
-          </td>
-
-
-
-          <td id="tdfila">
-            <button id="tdbuttonGuardar{{i}}" type="button" (click)="pruebaB(listado,i)" style="border: none;" hidden></button>
-          </td>
-
-
-
-        </tr>
-      </tbody>
-
-    </table>
-    <br>
-      
-    <div    *ngIf="banderTabla2" class="col-md-12" style="text-align: center;">
-    <button class="btn btn-primary" (click)="generarPdf()">Generar reporte en PDF de las calificaciones</button>
-</div>
     
 <!--------------------------------- TTABLA DE EMERGENCIA dos------------------------------------- -->
   
 
-<table  id="results2" *ngIf="banderTabla2" class="table table-hover table-bordered table-responsive " style="margin-top: -1000%; font-size: 80%; width: 100%; margin-left: 0%">
-
-
-    <thead>
-      <tr>
-        <th COLSPAN="1"></th>
-        <th COLSPAN="22">Primer Quimestre</th>
-        <th COLSPAN="22">Segundo Quimestre</th>
-      </tr>
-      <tr>
-        <th COLSPAN="1">Listado de Materias</th>
-        <th COLSPAN="6">1er Parcial</th>
-        <th COLSPAN="6">2do Parcial</th>
-        <th COLSPAN="6">3er Parcial</th>
-        <th COLSPAN="1"></th>
-        <th COLSPAN="1"></th>
-        <th COLSPAN="1"></th>
-        <th COLSPAN="1"></th>
-
-        <th COLSPAN="6">1er Parcial</th>
-        <th COLSPAN="6">2do Parcial</th>
-        <th COLSPAN="6">3er Parcial</th>
-        <th COLSPAN="1"></th>
-        <th COLSPAN="1"></th>
-        <th COLSPAN="1"></th>
-        <th COLSPAN="1"></th>
-        <th COLSPAN="1"></th>
-      </tr>
-      <tr style="background-color: #65686b; align-content: center; font-size: 95%">
-       
-
-        <!-- parcial 1 quimestre 1-->
-        <th style="color: white;  border-right: 0; ">Materias </th>
-
-
-        <th style="color: white; padding-left:0.3%; " >I1 </th>
-        <th style="color: white; padding-left:0.3%;" >I2 </th>
-        <th style="color: white; padding-left:0.3%;">I3 </th>
-        <th style="color: white; padding-left:0.3%;">I4 </th>
-        <th style="color: white; padding-left:0.3%;">I5 </th>
-        <th style="color: white; padding-left:0.3%;" >I6 </th>
-
-
-        <!-- parcial 2 quimestre 1-->
-        <th style="color: white; padding-left:0.3%;" >I1 </th>
-        <th style="color: white; padding-left:0.3%;">I2 </th>
-        <th style="color: white; padding-left:0.3%;" >I3 </th>
-        <th style="color: white; padding-left:0.3%;" >I4 </th>
-        <th style="color: white; padding-left:0.3%;" >I5 </th>
-        <th style="color: white; padding-left:0.3%;" >I6 </th>
-
-        <!-- parcial 3 quimestre 1-->
-        <th style="color: white; padding-left:0.3%;" >I1</th>
-        <th style="color: white; padding-left:0.3%;" >I2</th>
-        <th style="color: white; padding-left:0.3%;" >I3</th>
-        <th style="color: white; padding-left:0.3%;" >I4</th>
-        <th style="color: white; padding-left:0.3%;">I5</th>
-        <th style="color: white; padding-left:0.3%;" >I6</th>
-
-        <th style="color: white;padding-left:0.3%;">80%</th>
-        <th style="color: white;padding-left:0.3%;" >Ex</th>
-        <th style="color: white;padding-left:0.3%; ">20%</th>
-        <th style="color: white;padding-left:0.3%; ">P1</th>
-
-        <!-- parcial 1 quimestre 2-->
-        <th style="color: white; padding-left:0.3%;">I1 </th>
-        <th style="color: white; padding-left:0.3%;">I2 </th>
-        <th style="color: white; padding-left:0.3%;" >I3 </th>
-        <th style="color: white; padding-left:0.3%;">I4 </th>
-        <th style="color: white; padding-left:0.3%;" >I5 </th>
-        <th style="color: white; padding-left:0.3%;">I6 </th>
-
-        <!-- parcial 2 quimestre 2-->
-        <th style="color: white; padding-left:0.3%;" >I1 </th>
-        <th style="color: white; padding-left:0.3%;" >I2 </th>
-        <th style="color: white; padding-left:0.3%;" >I3 </th>
-        <th style="color: white; padding-left:0.3%;" >I4 </th>
-        <th style="color: white; padding-left:0.3%;" >I5 </th>
-        <th style="color: white; padding-left:0.3%;" >I6 </th>
-
-        <!-- parcial 3 quimestre 2-->
-        <th style="color: white; padding-left:0.3%;">I1 </th>
-        <th style="color: white; padding-left:0.3%;" >I2 </th>
-        <th style="color: white; padding-left:0.3%;" >I3 </th>
-        <th style="color: white; padding-left:0.3%;" >I4 </th>
-        <th style="color: white; padding-left:0.3%;" >I5 </th>
-        <th style="color: white; padding-left:0.3%;">I6 </th>
-
-        <th style="color: white; padding-left:0.3%; ">80% </th>
-        <th style="color: white ;  padding-left:0.3%;" >Ex</th>
-        <th style="color: white ;  padding-left:0.3%;" >20%</th>
-        <th style="color: white; padding-left:0.3%;" >P2</th>
-        <th style="color: white; padding-left:0.3%;" >PT</th>
-        <th style="color: white; padding-left:0.3%;" >ExS</th>
-        <th style="color: white; padding-left:0.3%;" >ExR</th>
-        <th style="color: white; padding-left:0.3%;" >ExG</th>
-
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor=" let listado of  vectorListadoMisMaterias; let i = index; let listadoN of listadoEstudianteNotas">
-
-    
-        <td valign="middle" style="padding-right: 0.5%;  padding-left: 0.5%; border-right: 0px;">{{listado.nombre}} </td>
-
-
-        <td id="tdfila">{{this.objectB[i].Q1P1insumo1}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P1insumo1" name="Q1P1insumo1{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P1insumo2}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P1insumo2" name="insumo2{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P1insumo3}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P1insumo3" name="insumo3{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P1insumo4}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P1insumo4" name="insumo4{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P1insumo5}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P1insumo5" name="insumo5{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P1insumo6}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P1insumo6" name="insumo6{{i}}">
-        </td>
-
-
-        <td id="tdfila">{{this.objectB[i].Q1P2insumo1}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P2insumo1" name="insumo11{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P2insumo2}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P2insumo2" name="insumo22{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P2insumo3}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P2insumo3" name="insumo33{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P2insumo4}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P2insumo4" name="insumo44{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P2insumo5}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P2insumo5" name="insumo55{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P2insumo6}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P2insumo6" name="insumo66{{i}}">
-        </td>
-
-
-        <td id="tdfila">{{this.objectB[i].Q1P3insumo1}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P3insumo1" name="insumo11{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P3insumo2}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P3insumo2" name="insumo22{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P3insumo3}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P3insumo3" name="insumo33{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P3insumo4}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P3insumo4" name="insumo44{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P3insumo5}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P3insumo5" name="insumo55{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q1P3insumo6}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q1P3insumo6" name="insumo66{{i}}">
-        </td>
-
-        <td id="tdfila" style="background-color:yellow">{{this.objectCalculableB[i].ochentaporciento1}}
-          <input style="background-color: yellow" id="tdboton" type="text" [(ngModel)]="  this.objectCalculableB[i].ochentaporciento1"
-            name="ochentaporcientoB1{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].examen1}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].examen1" name="examen1{{i}}">
-        </td>
-
-        <td id="tdfila" style="background-color:yellow">{{this.objectCalculableB[i].veinteporciento1}}
-          <input id="tdboton" style="background-color:yellow" [(ngModel)]="this.objectCalculableB[i].veinteporciento1" name="veinteporciento1{{i}}"
-            type="text">
-        </td>
-        <td id="tdfila" style="background-color:rgb(215, 253, 138)">{{this.objectCalculableB[i].promedio1}}
-          <input id="tdboton" style="background-color:rgb(215, 253, 138)" [(ngModel)]="this.objectCalculableB[i].promedio1" name="promedio1{{i}}"
-            type="text">
-        </td>
-
-        <td id="tdfila">{{this.objectB[i].Q2P1insumo1}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P1insumo1" name="insumo11{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P1insumo2}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P1insumo2" name="insumo22{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P1insumo3}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P1insumo3" name="insumo33{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P1insumo4}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P1insumo4" name="insumo44{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P1insumo5}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P1insumo5" name="insumo55{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P1insumo6}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P1insumo6" name="insumo66{{i}}">
-        </td>
-
-
-
-        <td id="tdfila">{{this.objectB[i].Q2P2insumo1}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P2insumo1" name="insumo11{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P2insumo2}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P2insumo2" name="insumo22{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P2insumo3}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P2insumo3" name="insumo33{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P2insumo4}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P2insumo4" name="insumo44{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P2insumo5}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P2insumo5" name="insumo55{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P2insumo6}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P2insumo6" name="insumo66{{i}}">
-        </td>
-
-
-        <td id="tdfila">{{this.objectB[i].Q2P3insumo1}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P3insumo1" name="insumo11{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P3insumo2}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P3insumo2" name="insumo22{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P3insumo3}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P3insumo3" name="insumo33{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P3insumo4}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P3insumo4" name="insumo44{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P3insumo5}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P3insumo5" name="insumo55{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].Q2P3insumo6}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].Q2P3insumo6" name="insumo66{{i}}">
-        </td>
-
-        <td id="tdfila" style="background-color:yellow">{{this.objectCalculableB[i].ochentaporciento2}}
-          <input id="tdboton" style="background-color:yellow" [(ngModel)]=" this.objectCalculableB[i].ochentaporciento2" name="ochentaporciento2{{i}}"
-            type="text">
-        </td>
-        <td id="tdfila">{{this.objectB[i].examen2}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].examen2" name="examen2{{i}}">
-        </td>
-        <td id="tdfila" style="background-color:yellow">{{this.objectCalculableB[i].veinteporciento2}}
-          <input id="tdboton" style="background-color:yellow" [(ngModel)]="this.objectCalculableB[i].veinteporciento2" name="veinteporciento2{{i}}"
-            type="text">
-        </td>
-        <td id="tdfila" style="background-color:rgb(215, 253, 138)">{{this.objectCalculableB[i].promedio2}}
-          <input id="tdboton" style="background-color:rgb(215, 253, 138)" [(ngModel)]="this.objectCalculableB[i].promedio2" name="promedio2{{i}}"
-            type="text">
-        </td>
-        <td id="tdfila" style="background-color: lawngreen">{{this.objectCalculableB[i].promedioPeriodo}}
-          <input id="tdboton" style="background-color:lawngreen" [(ngModel)]=" this.objectCalculableB[i].promedioPeriodo" name="promedioPeriodo{{i}}"
-            type="text">
-        </td>
-
-
-        <td id="tdfila">{{this.objectB[i].examenSupletorio}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].examenSupletorio" name="examenSupletorio{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].examenRemedial}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].examenRemedial" name="examenRemedial{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectB[i].examenGracia}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectB[i].examenGracia" name="examenGracia{{i}}">
-        </td>
-
-
-
-        <td id="tdfila">
-          <button id="tdbuttonGuardar{{i}}" type="button" (click)="pruebaB(listado,i)" style="border: none;" hidden></button>
-        </td>
-
-
-
-      </tr>
-    </tbody>
-
-
-  </table>
 
 
 

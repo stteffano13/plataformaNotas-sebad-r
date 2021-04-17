@@ -493,15 +493,17 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
 
   calculosInit(i) {
-    this.btnFinalizar = true;
+    
+    this.banderaHabilitar = true;
+    this.banderAux = true;
     if (this.object[i].Asistencia1 > 10 || this.object[i].Asistencia2 > 10 || this.object[i].Asistencia3 > 10 || this.object[i].Asistencia4 > 10
       || this.object[i].Asistencia5 > 10 || this.object[i].Asistencia6 > 10 || this.object[i].Asistencia7 > 10 || this.object[i].Asistencia8 > 10
       || this.object[i].Tarea1 > 10 || this.object[i].Tarea2 > 10 || this.object[i].Tarea3 > 10 || this.object[i].Tarea4 > 10
       || this.object[i].Proyecto1 > 10 || this.object[i].Examen1 > 10 || this.object[i].Tarea11 > 10 || this.object[i].Tarea22 > 10
       || this.object[i].Tarea33 > 10 || this.object[i].Tarea44 > 10 || this.object[i].Proyecto2 > 10
       || this.object[i].Examen2 > 10) {
-      this.btnFinalizar = true;
-      this.banderAux = true;
+      this.btnFinalizar = false;
+
       this.mensajeerrormodal = "Alguna de las notas es mayor a 10 reviselas nuevamente";
 
       document.getElementById("openModalError").click();
@@ -612,10 +614,6 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
   habilitarGR() {
     this.btnFinalizar = true;
-    this.btnHabilitarExportacion = true;
-  }
-  habilitarGRB() {
-    this.btnFinalizar2 = true;
     this.btnHabilitarExportacion = true;
   }
 
@@ -901,7 +899,113 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     location.reload(true);
   }
 
+  generarPdfAsistencias(){
+    interface jsPDFWithPlugin extends jsPDF {
+      autoTable: (options: UserOptions) => jsPDF;
+    }
+    this.loading = true;
+    var logo = new Image();
+    logo.src = '../../assets/imgs/logo.jpeg';
 
+
+    const doc = new jsPDF('l', 'px', 'a4') as jsPDFWithPlugin;;
+
+    var pageWidth = doc.internal.pageSize.width
+    doc.addImage(logo, 'PNG', 30, 15, 120, 100);
+    doc.fromHTML("<h4>SEMINARIO BÍBLICO</h4>", 170, 2);
+    doc.fromHTML("<h4>ASAMBLEA DE DIOS EN ECUADOR</h4>", 170, 20);
+    doc.fromHTML("<h4>ACTA DE CALIFICACIÓN DE ASISTENCIAS </h4>", 170, 40);
+    doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoLectivoActual + "</h4>", 170, 60);
+    doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 170, 80);
+    doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 100);
+
+    doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 170, 120);
+    doc.autoTable({
+      html: '#resultsAsistencias', startY: 150, columnStyles: {
+        7: { fillColor: [249, 247, 95] },
+        9: { fillColor: [249, 247, 95] },
+        11: { fillColor: [249, 247, 95] },
+        12: { fillColor: [207, 233, 176] }, 17: { fillColor: [249, 247, 95] }, 19: { fillColor: [249, 247, 95] },
+        21: { fillColor: [249, 247, 95] }, 22: { fillColor: [207, 233, 176] }, 24: { fillColor: [191, 250, 119] }
+      }, styles: {
+        overflow: 'linebreak',
+        fontSize: 10,
+        rowHeight: 5,
+        cellWidth: 'auto',
+        cellPadding: 2
+      }
+    });
+
+    var pageHeight = doc.internal.pageSize.height;
+    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 75, pageHeight - pageHeight / 6);
+    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 265, pageHeight - pageHeight / 6);
+    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 455, pageHeight - pageHeight / 6);
+    doc.fromHTML(" <p style='text-align: center'>PROFESOR(A)</p>", 100, pageHeight - pageHeight / 8);
+    doc.fromHTML(" <p style='text-align: center'>ACADEMICO</p>", 290, pageHeight - pageHeight / 8);
+    doc.fromHTML(" <p style='text-align: center'>SECRETARIO</p>", 480, pageHeight - pageHeight / 8);
+
+    doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 280, pageHeight - pageHeight / 10);
+    doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 470, pageHeight - pageHeight / 10);
+    this.loading = false;
+
+    doc.save('Reporte_Asistencias_Docente.pdf');
+
+
+  }
+
+  generarPdfPromedios(){
+    interface jsPDFWithPlugin extends jsPDF {
+      autoTable: (options: UserOptions) => jsPDF;
+    }
+    this.loading = true;
+    var logo = new Image();
+    logo.src = '../../assets/imgs/logo.jpeg';
+
+
+    const doc = new jsPDF('l', 'px', 'a4') as jsPDFWithPlugin;;
+
+    var pageWidth = doc.internal.pageSize.width
+    doc.addImage(logo, 'PNG', 30, 15, 120, 100);
+    doc.fromHTML("<h4>SEMINARIO BÍBLICO</h4>", 170, 2);
+    doc.fromHTML("<h4>ASAMBLEA DE DIOS EN ECUADOR</h4>", 170, 20);
+    doc.fromHTML("<h4>ACTA DE CALIFICACIONES PERIODO:" + "  " + this.periodoLectivoActual + "</h4>", 170, 40);
+
+    doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 170, 60);
+    doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 80);
+
+    doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 170, 100);
+    doc.autoTable({
+      html: '#resultsPromedios', startY: 150, columnStyles: {
+        7: { fillColor: [249, 247, 95] },
+        9: { fillColor: [249, 247, 95] },
+        11: { fillColor: [249, 247, 95] },
+        12: { fillColor: [207, 233, 176] }, 17: { fillColor: [249, 247, 95] }, 19: { fillColor: [249, 247, 95] },
+        21: { fillColor: [249, 247, 95] }, 22: { fillColor: [207, 233, 176] }, 24: { fillColor: [191, 250, 119] }
+      }, styles: {
+        overflow: 'linebreak',
+        fontSize: 8,
+        rowHeight: 5,
+        cellWidth: 'auto',
+        cellPadding: 2
+      }
+    });
+
+    var pageHeight = doc.internal.pageSize.height;
+    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 75, pageHeight - pageHeight / 6);
+    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 265, pageHeight - pageHeight / 6);
+    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 455, pageHeight - pageHeight / 6);
+    doc.fromHTML(" <p style='text-align: center'>PROFESOR(A)</p>", 100, pageHeight - pageHeight / 8);
+    doc.fromHTML(" <p style='text-align: center'>ACADEMICO</p>", 290, pageHeight - pageHeight / 8);
+    doc.fromHTML(" <p style='text-align: center'>SECRETARIO</p>", 480, pageHeight - pageHeight / 8);
+
+    doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 280, pageHeight - pageHeight / 10);
+    doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 470, pageHeight - pageHeight / 10);
+    this.loading = false;
+
+    doc.save('Reporte_Promedios_Docente.pdf');
+
+
+  }
   generarPdf() {
 
     interface jsPDFWithPlugin extends jsPDF {
@@ -955,7 +1059,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
       doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 470, pageHeight - pageHeight / 10);
       this.loading = false;
 
-      doc.save('Reporte_Notas_Docente.pdf');
+      doc.save('Reporte_Promedios_Docente.pdf');
 
 
 

@@ -14,33 +14,36 @@
   <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
 </div>
 
-<body  style="height:100%;">
+<body style="height:100%;">
 
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" id="mainNav" style="background-color: #0071BD;">
     <a class="navbar-brand" (click)="recargar()" style="color: #ffffff">SEBAD-R</a>
 
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
 
 
       <ul class="navbar-nav ml-auto">
-          
+
 
         <li>
-          <p style="color: #ffffff">Periodo Actual {{this.periodoLectivoActual}} 
-              &nbsp;&nbsp;
-              &nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p style="color: #ffffff">Periodo Actual {{this.periodoLectivoActual}}
+            &nbsp;&nbsp;
+            &nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </p>
         </li>
         <li>
           <select (change)="asignarMateriaCurso($event.target.value)" class=" custom-select " required>
             <option [value]="" selected>Selecciona materia y curso</option>
-            <option *ngFor="let oneDoor of vectorListadoMisMaterias" value="{{oneDoor.CURSO.ID_CURSO}},{{oneDoor.ID_MATERIA}},{{oneDoor.CURSO.CURSO}},{{oneDoor.NOMBRE_MATERIA}},{{oneDoor.CURSO.PARALELO}} ">{{oneDoor.NOMBRE_MATERIA}}: {{oneDoor.CURSO.CURSO}}  {{oneDoor.CURSO.PARALELO}}</option>
+            <option *ngFor="let oneDoor of vectorListadoMisMaterias"
+              value="{{oneDoor.CURSO.ID_CURSO}},{{oneDoor.ID_MATERIA}},{{oneDoor.CURSO.CURSO}},{{oneDoor.NOMBRE_MATERIA}},{{oneDoor.CURSO.PARALELO}} ">
+              {{oneDoor.NOMBRE_MATERIA}}: {{oneDoor.CURSO.CURSO}} {{oneDoor.CURSO.PARALELO}}</option>
           </select>
 
 
@@ -86,33 +89,34 @@
 
       </div>
 
-      
 
-          <!-- cuadro agregar comentario insumos-->
-          <div *ngIf="banderInsumo" id="formContent">
-              <p>
-                <b>DESCRIPCIÓN DEL INSUMO</b>
-              </p>
-      
-      
-      
-              <textarea [(ngModel)]="recivir" id="comentarios" name="comentarios" rows="5" cols="45"></textarea>
-      
-              <button (click)="saveDescripcionInsumos()" class="btn btn-light">
-                <i class="fa fa-save fa-lg"></i>
-      
-              </button> &nbsp;&nbsp;&nbsp;&nbsp;
-              <button (click)="cerrarDescInsumos()" class="btn btn-light">
-                <i class="fa fa-window-close fa-lg"></i>
-              </button>
-            </div>
-      
+
+      <!-- cuadro agregar comentario insumos-->
+      <div *ngIf="banderInsumo" id="formContent">
+        <p>
+          <b>DESCRIPCIÓN DEL INSUMO</b>
+        </p>
+
+
+
+        <textarea [(ngModel)]="recivir" id="comentarios" name="comentarios" rows="5" cols="45"></textarea>
+
+        <button (click)="saveDescripcionInsumos()" class="btn btn-light">
+          <i class="fa fa-save fa-lg"></i>
+
+        </button> &nbsp;&nbsp;&nbsp;&nbsp;
+        <button (click)="cerrarDescInsumos()" class="btn btn-light">
+          <i class="fa fa-window-close fa-lg"></i>
+        </button>
+      </div>
+
 
 
       <!-- ====================================================    Tabla para Notas 1 ============================================-->
 
 
-      <table *ngIf="banderTabla1" class="table table-hover table-bordered table-responsive" style="margin-top: 0%; font-size: 80% ; width: 90% ; margin-left: 5%">
+      <table *ngIf="banderTabla1" class="table table-hover table-bordered table-responsive"
+        style="margin-top: 0%; font-size: 80% ; width: 90% ; margin-left: 5%">
 
         <div class="form-control ">
           <h4>{{this.Titulo2}} </h4>
@@ -174,7 +178,7 @@
             </th>
 
             <th style="color: white" scope="col" class="verticalText2"> Promedio Asistencia </th>
-           
+
 
             <th>
               <button (click)="actualizacionInsumos(11)" class="btn btn-light">
@@ -202,7 +206,7 @@
               </button>
             </th>
             <th style="color: white" scope="col" class="verticalText2">35%%%%</th>
-           
+
 
             <th>
               <button (click)="actualizacionInsumos(55)" class="btn btn-light">
@@ -256,7 +260,8 @@
 
           <tr style="background-color: #65686b; align-content: center;">
             <th style="color: white; padding-top: 2%" scope="col">#</th>
-            <th style="color: white;   align-content: center;  padding-bottom: 1.2%; text-align: center" scope="col">Apellidos y Nombres</th>
+            <th style="color: white;   align-content: center;  padding-bottom: 1.2%; text-align: center" scope="col">
+              Apellidos y Nombres</th>
             <th style="color: white" scope="col" class="verticalText2">Asistencia 1 </th>
             <th style="color: white" scope="col" class="verticalText2">Asistencia 2 </th>
             <th style="color: white" scope="col" class="verticalText2">Asistencia 3 </th>
@@ -291,11 +296,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor=" let listado of  listadoEstudianteMatriculas; let i = index; let listadoN of listadoEstudianteNotas">
+          <tr
+            *ngFor=" let listado of  listadoEstudianteMatriculas; let i = index; let listadoN of listadoEstudianteNotas">
             <th scope="row">{{i+1}}</th>
             <td class="active">{{listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}} {{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
             <td id="tdfila">
-              <input id="tdboton" type="text"  [(ngModel)]="this.object[i].Asistencia1"  name="Asistencia1{{i}}">
+              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia1" name="Asistencia1{{i}}">
             </td>
             <td id="tdfila">
               <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia2" name="Asistencia2{{i}}">
@@ -319,10 +325,10 @@
               <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia8" name="Asistencia8{{i}}">
             </td>
             <td id="tdfila" style="background-color:yellow">
-              <input disabled style="background-color: yellow" id="tdboton" type="text" [(ngModel)]="  this.objectCalculable[i].PromedioAsistencia"
-                name="PromedioAsistencia{{i}}">
+              <input disabled style="background-color: yellow" id="tdboton" type="text"
+                [(ngModel)]="  this.objectCalculable[i].PromedioAsistencia" name="PromedioAsistencia{{i}}">
             </td>
-           
+
 
             <td id="tdfila">
               <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea1" name="Tarea1{{i}}">
@@ -338,17 +344,19 @@
             </td>
 
             <td id="tdfila" style="background-color:yellow">
-              <input disabled id="tdboton" style="background-color:yellow" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas1" name="treintaycincoporcientotareas1{{i}}"
-                type="text">
+              <input disabled id="tdboton" style="background-color:yellow"
+                [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas1"
+                name="treintaycincoporcientotareas1{{i}}" type="text">
             </td>
 
             <td id="tdfila">
               <input id="tdboton" type="text" [(ngModel)]="this.object[i].Proyecto1" name="Proyecto1{{i}}">
             </td>
 
-           
+
             <td id="tdfila" style="background-color:yellow">
-              <input disabled id="tdboton" style="background-color:yellow" [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto1" name="treintaporcientoproyecto1{{i}}"
+              <input disabled id="tdboton" style="background-color:yellow"
+                [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto1" name="treintaporcientoproyecto1{{i}}"
                 type="text">
             </td>
 
@@ -357,13 +365,14 @@
             </td>
 
             <td id="tdfila" style="background-color:yellow">
-              <input disabled id="tdboton" style="background-color:yellow" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen1" name="treintaporcientoexamen1{{i}}"
+              <input disabled id="tdboton" style="background-color:yellow"
+                [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen1" name="treintaporcientoexamen1{{i}}"
                 type="text">
             </td>
 
             <td id="tdfila" style="background-color:rgb(215, 253, 138)">
-              <input disabled id="tdboton" style="background-color:rgb(215, 253, 138)" [(ngModel)]="this.objectCalculable[i].totalparcial1" name="totalparcial1{{i}}"
-                type="text">
+              <input disabled id="tdboton" style="background-color:rgb(215, 253, 138)"
+                [(ngModel)]="this.objectCalculable[i].totalparcial1" name="totalparcial1{{i}}" type="text">
             </td>
 
 
@@ -381,21 +390,23 @@
             <td id="tdfila">
               <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea44" name="Tarea44{{i}}">
             </td>
-            
+
 
 
             <td id="tdfila" style="background-color:yellow">
-              <input disabled id="tdboton" style="background-color:yellow" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas2" name="treintaycincoporcientotareas2{{i}}"
-                type="text">
+              <input disabled id="tdboton" style="background-color:yellow"
+                [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas2"
+                name="treintaycincoporcientotareas2{{i}}" type="text">
             </td>
 
             <td id="tdfila">
               <input id="tdboton" type="text" [(ngModel)]="this.object[i].Proyecto2" name="Proyecto2{{i}}">
             </td>
 
-           
+
             <td id="tdfila" style="background-color:yellow">
-              <input disabled id="tdboton" style="background-color:yellow" [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto2" name="treintaporcientoproyecto2{{i}}"
+              <input disabled id="tdboton" style="background-color:yellow"
+                [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto2" name="treintaporcientoproyecto2{{i}}"
                 type="text">
             </td>
 
@@ -404,13 +415,14 @@
             </td>
 
             <td id="tdfila" style="background-color:yellow">
-              <input disabled id="tdboton" style="background-color:yellow" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen2" name="treintaporcientoexamen2{{i}}"
+              <input disabled id="tdboton" style="background-color:yellow"
+                [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen2" name="treintaporcientoexamen2{{i}}"
                 type="text">
             </td>
 
             <td id="tdfila" style="background-color:rgb(215, 253, 138)">
-              <input disabled id="tdboton" style="background-color:rgb(215, 253, 138)" [(ngModel)]="this.objectCalculable[i].totalparcial2" name="totalparcial2{{i}}"
-                type="text">
+              <input disabled id="tdboton" style="background-color:rgb(215, 253, 138)"
+                [(ngModel)]="this.objectCalculable[i].totalparcial2" name="totalparcial2{{i}}" type="text">
             </td>
 
 
@@ -420,13 +432,13 @@
 
 
             <td id="tdfila" style="background-color: lawngreen">
-              <input disabled id="tdboton" style="background-color:lawngreen" [(ngModel)]="this.objectCalculable[i].promedioPeriodo" name="promedioPeriodo{{i}}"
-                type="text">
+              <input disabled id="tdboton" style="background-color:lawngreen"
+                [(ngModel)]="this.objectCalculable[i].promedioPeriodo" name="promedioPeriodo{{i}}" type="text">
             </td>
 
             <td id="tdfila" style="background-color: lawngreen">
-              <input disabled id="tdboton" style="background-color:lawngreen" [(ngModel)]="this.objectCalculable[i].EstadoNotas" name="EstadoNotas{{i}}"
-                type="text">
+              <input disabled id="tdboton" style="background-color:lawngreen"
+                [(ngModel)]="this.objectCalculable[i].EstadoNotas" name="EstadoNotas{{i}}" type="text">
             </td>
 
 
@@ -435,7 +447,8 @@
 
 
             <td id="tdfila">
-              <button id="tdbuttonGuardar{{i}}" type="button" (click)="prueba(listado,i)" style="border: none;" hidden></button>
+              <button id="tdbuttonGuardar{{i}}" type="button" (click)="prueba(listado,i)" style="border: none;"
+                hidden></button>
             </td>
 
 
@@ -444,165 +457,348 @@
         </tbody>
       </table>
       <div *ngIf="banderTabla1" class="col-md-12" style="text-align: center;">
-        <button class="btn btn-primary" (click)="pruebaclick()" [hidden]="!btnFinalizar"> Calcular el registro de notas</button>
-       <br>
-        <button class="btn btn-secondary" style=" padding-right: 3%; padding-left: 3%" [hidden]="btnFinalizar" (click)="habilitarGR()">
-          Cancelar</button> &nbsp;&nbsp;&nbsp;
-          
-        <button class="btn btn-success" style=" padding-right: 3%; padding-left: 3%" [disabled]="banderaHabilitar" [hidden]="btnFinalizar" (click)="registroNotas()">
+        <button class="btn btn-primary" (click)="pruebaclick()" [hidden]="!btnFinalizar"> Calcular el registro de
+          notas</button>
+        <br>
+
+
+        <button class="btn btn-success" [disabled]="banderaHabilitar" [hidden]="btnFinalizar" (click)="registroNotas()">
           Guardar Registros</button>&nbsp;&nbsp;&nbsp;
 
-          <button  style=" padding-right: 3%; padding-left: 3%" [disabled]="btnHabilitarExportacion"  [hidden]="btnFinalizar" class="btn btn-danger" (click)="generarPdf()">Exportar pdf</button>
-          &nbsp;&nbsp;&nbsp;
-          <button  style=" padding-right: 3%; padding-left: 3%" [disabled]="btnHabilitarExportacion" [hidden]="btnFinalizar" (click)="generarExel(1)" class="btn btn-success" style="align-content: center">
+        <button [disabled]="btnHabilitarExportacion" [hidden]="btnFinalizar" class="btn btn-danger"
+          (click)="generarPdf()"><i class="fa fa-save"></i> &nbsp; PDF Reporte Completo </button>
+        &nbsp;&nbsp;&nbsp;
+
+        <button [disabled]="btnHabilitarExportacion" [hidden]="btnFinalizar" class="btn btn-danger"
+          (click)="generarPdfAsistencias()"><i class="fa fa-save"></i> &nbsp; PDF Reporte Asistencias </button>
+        &nbsp;&nbsp;&nbsp;
+        <button [disabled]="btnHabilitarExportacion" [hidden]="btnFinalizar" class="btn btn-danger"
+          (click)="generarPdfPromedios()"><i class="fa fa-save"></i> &nbsp; PDF Reporte Promedios </button>
+        &nbsp;&nbsp;&nbsp;
+        <button class="btn btn-secondary" [hidden]="btnFinalizar" (click)="habilitarGR()">
+          Cancelar</button>
+        <!--<button  style=" padding-right: 3%; padding-left: 3%" [disabled]="btnHabilitarExportacion" [hidden]="btnFinalizar" (click)="generarExel(1)" class="btn btn-success" style="align-content: center">
             Exportar en Excel
-          </button>
-          <br><br><br>
-        </div>
+          </button>-->
+        <br><br><br>
+      </div>
     </div>
-<!-- ====================================================   Tabla  Auxiliar para reporte para Notas 1 ============================================-->
+    <!-- ====================================================   Tabla  Auxiliar para reporte para Notas 1 ============================================-->
 
-<table  id="results" *ngIf="banderTabla1" class="table table-hover table-bordered table-responsive" style="margin-top: -1000%; font-size: 60% ; width: 95% ; margin-left: 3%">
+    <table id="results" *ngIf="banderTabla1" class="table table-hover table-bordered table-responsive"
+      style="margin-top: -1000%; font-size: 60% ; width: 95% ; margin-left: 3%">
 
-    <div class="  form-control ">
-      <h4>{{this.Titulo2}} </h4>
-    </div>
+      <div class="  form-control ">
+        <h4>{{this.Titulo2}} </h4>
+      </div>
 
-    <thead>
-
-
-      <tr style="background-color: #65686b; align-content: center;">
-        <th style="color: white; padding-top: 2%" scope="col">#</th>
-        <th style="color: white;   align-content: center;  text-align: center" scope="col">Apellidos y Nombres</th>
-        <th style="color: white" >PA </th>
-        <th style="color: white">T1 </th>
-        <th style="color: white" >T2 </th>
-        <th style="color: white" >T3 </th>
-        <th style="color: white" >T4 </th>
-        <th style="color: white" >35% </th>
-        <th style="color: white" >PR1 </th>
-        <th style="color: white" >30% </th>
-        <th style="color: white" >EX1</th>
-        <th style="color: white" >35%</th>
-        <th style="color: white" >TPC1</th>
-
-        <th style="color: white">T1 </th>
-        <th style="color: white" >T2 </th>
-        <th style="color: white" >T3 </th>
-        <th style="color: white" >T4 </th>
-        <th style="color: white" >35% </th>
-        <th style="color: white" >PR2 </th>
-        <th style="color: white" >30% </th>
-        <th style="color: white" >EX2</th>
-        <th style="color: white" >35%</th>
-        <th style="color: white" >TPC2</th>
-        <th style="color: white" >TF</th>
-        <th style="color: white" >ESTADO</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor=" let listado of  listadoEstudianteMatriculas; let i = index; let listadoN of listadoEstudianteNotas">
-        <th scope="row">{{i+1}}</th>
-        <td class="active">{{listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}} {{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
-        <td id="tdfila">{{this.objectCalculable[i].PromedioAsistencia}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].PromedioAsistencia" name="isumo1{{i}}">
-        </td>
-        <td id="tdfila">{{this.object[i].Tarea1}}
-          <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea1" name="insumo2{{i}}">
-        </td>
-        <td id="tdfila"> {{this.object[i].Tarea2}}
-          <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea2" name="insumo3{{i}}">
-        </td>
-        <td id="tdfila"> {{this.object[i].Tarea3}}
-          <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea3" name="insumo3{{i}}">
-        </td>
-        <td id="tdfila"> {{this.object[i].Tarea4}}
-          <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea4" name="insumo4{{i}}">
-        </td>
-
-        <td id="tdfila" style="background-color:yellow"> {{this.objectCalculable[i].treintaycincoporcientotareas1}}
-          <input id="tdboton" type="text" style="background-color:yellow" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas1" name="treintaycincoporcientotareas1{{i}}">
-        </td>
-
-    
-        <td id="tdfila">{{this.object[i].Proyecto1}}
-          <input id="tdboton" type="text" [(ngModel)]="this.object[i].Proyecto1" name="insumo5{{i}}">
-        </td>
-        <td id="tdfila" > {{this.objectCalculable[i].treintaporcientoproyecto1}}
-          <input id="tdboton" type="text"  [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto1" name="insumo6{{i}}">
-        </td>
-        <td id="tdfila">{{this.object[i].Examen1}}
-          <input id="tdboton" type="text" [(ngModel)]="this.object[i].Examen1" name="insumo7{{i}}">
-        </td>
-        <td id="tdfila" > {{this.objectCalculable[i].treintaycincoporcientoexamen1}}
-          <input id="tdboton" type="text"  [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen1" name="insumo8{{i}}">
-        </td>
-        <td id="tdfila"  >{{this.objectCalculable[i].totalparcial1}}
-          <input  id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].totalparcial1"
-            name="ochentaporciento1{{i}}">
-        </td>
-        <td id="tdfila"> {{this.object[i].Tarea11}}
-          <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea11" name="examen1{{i}}">
-        </td>
-
-        <td id="tdfila" > {{this.object[i].Tarea22}}
-          <input id="tdboton"  [(ngModel)]="this.object[i].Tarea22" name="veinteporciento1{{i}}"
-            type="text">
-        </td>
-        <td id="tdfila" >{{this.object[i].Tarea33}}
-          <input id="tdboton"  [(ngModel)]="this.object[i].Tarea33" name="promedio1{{i}}"
-            type="text">
-        </td>
-
-        <td id="tdfila"> {{this.object[i].Tarea44}}
-          <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea44" name="insumo11{{i}}">
-        </td>
-        <td id="tdfila">{{this.objectCalculable[i].treintaycincoporcientotareas2}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas2" name="insumo22{{i}}">
-        </td>
-        <td id="tdfila">{{this.object[i].Proyecto2}}
-          <input id="tdboton" type="text" [(ngModel)]="this.object[i].Proyecto2" name="insumo33{{i}}">
-        </td>
-        <td id="tdfila"  >{{this.objectCalculable[i].treintaporcientoproyecto2}}
-          <input   id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto2" name="insumo44{{i}}">
-        </td>
-        <td id="tdfila"> {{this.object[i].Examen2}}
-          <input id="tdboton" type="text" [(ngModel)]="this.object[i].Examen2" name="insumo55{{i}}">
-        </td>
-        <td id="tdfila" > {{this.objectCalculable[i].treintaycincoporcientoexamen2}}
-          <input  id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen2" name="insumo66{{i}}">
-        </td>
-        <td id="tdfila" > {{this.objectCalculable[i].totalparcial2}}
-          <input id="tdboton" type="text" style="background-color:rgb(215, 253, 138)"  [(ngModel)]="this.objectCalculable[i].totalparcial2" name="insumo77{{i}}">
-        </td>
-        <td id="tdfila"  > {{this.objectCalculable[i].promedioPeriodo}}
-          <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].promedioPeriodo" name="insumo88{{i}}">
-        </td>
-        <td id="tdfila" >{{this.objectCalculable[i].EstadoNotas}}
-          <input id="tdboton"  [(ngModel)]=" this.objectCalculable[i].EstadoNotas" name="ochentaporciento2{{i}}"
-            type="text">
-        </td>
+      <thead>
 
 
+        <tr style="background-color: #65686b; align-content: center;">
+          <th style="color: white; padding-top: 2%" scope="col">#</th>
+          <th style="color: white;   align-content: center;  text-align: center" scope="col">Apellidos y Nombres</th>
+          <th style="color: white">PA </th>
+          <th style="color: white">T1 </th>
+          <th style="color: white">T2 </th>
+          <th style="color: white">T3 </th>
+          <th style="color: white">T4 </th>
+          <th style="color: white">35% </th>
+          <th style="color: white">PR1 </th>
+          <th style="color: white">30% </th>
+          <th style="color: white">EX1</th>
+          <th style="color: white">35%</th>
+          <th style="color: white">TPC1</th>
+
+          <th style="color: white">T1 </th>
+          <th style="color: white">T2 </th>
+          <th style="color: white">T3 </th>
+          <th style="color: white">T4 </th>
+          <th style="color: white">35% </th>
+          <th style="color: white">PR2 </th>
+          <th style="color: white">30% </th>
+          <th style="color: white">EX2</th>
+          <th style="color: white">35%</th>
+          <th style="color: white">TPC2</th>
+          <th style="color: white">TF</th>
+          <th style="color: white">ESTADO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor=" let listado of  listadoEstudianteMatriculas; let i = index; let listadoN of listadoEstudianteNotas">
+          <th scope="row">{{i+1}}</th>
+          <td class="active">{{listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}} {{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
+          <td id="tdfila">{{this.objectCalculable[i].PromedioAsistencia}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].PromedioAsistencia"
+              name="isumo1{{i}}">
+          </td>
+          <td id="tdfila">{{this.object[i].Tarea1}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea1" name="insumo2{{i}}">
+          </td>
+          <td id="tdfila"> {{this.object[i].Tarea2}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea2" name="insumo3{{i}}">
+          </td>
+          <td id="tdfila"> {{this.object[i].Tarea3}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea3" name="insumo3{{i}}">
+          </td>
+          <td id="tdfila"> {{this.object[i].Tarea4}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea4" name="insumo4{{i}}">
+          </td>
+
+          <td id="tdfila" style="background-color:yellow"> {{this.objectCalculable[i].treintaycincoporcientotareas1}}
+            <input id="tdboton" type="text" style="background-color:yellow"
+              [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas1"
+              name="treintaycincoporcientotareas1{{i}}">
+          </td>
 
 
-      
-    </tbody>
+          <td id="tdfila">{{this.object[i].Proyecto1}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Proyecto1" name="insumo5{{i}}">
+          </td>
+          <td id="tdfila"> {{this.objectCalculable[i].treintaporcientoproyecto1}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto1"
+              name="insumo6{{i}}">
+          </td>
+          <td id="tdfila">{{this.object[i].Examen1}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Examen1" name="insumo7{{i}}">
+          </td>
+          <td id="tdfila"> {{this.objectCalculable[i].treintaycincoporcientoexamen1}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen1"
+              name="insumo8{{i}}">
+          </td>
+          <td id="tdfila">{{this.objectCalculable[i].totalparcial1}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].totalparcial1"
+              name="ochentaporciento1{{i}}">
+          </td>
+          <td id="tdfila"> {{this.object[i].Tarea11}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea11" name="examen1{{i}}">
+          </td>
 
-  </table>
+          <td id="tdfila"> {{this.object[i].Tarea22}}
+            <input id="tdboton" [(ngModel)]="this.object[i].Tarea22" name="veinteporciento1{{i}}" type="text">
+          </td>
+          <td id="tdfila">{{this.object[i].Tarea33}}
+            <input id="tdboton" [(ngModel)]="this.object[i].Tarea33" name="promedio1{{i}}" type="text">
+          </td>
+
+          <td id="tdfila"> {{this.object[i].Tarea44}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea44" name="insumo11{{i}}">
+          </td>
+          <td id="tdfila">{{this.objectCalculable[i].treintaycincoporcientotareas2}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas2"
+              name="insumo22{{i}}">
+          </td>
+          <td id="tdfila">{{this.object[i].Proyecto2}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Proyecto2" name="insumo33{{i}}">
+          </td>
+          <td id="tdfila">{{this.objectCalculable[i].treintaporcientoproyecto2}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto2"
+              name="insumo44{{i}}">
+          </td>
+          <td id="tdfila"> {{this.object[i].Examen2}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Examen2" name="insumo55{{i}}">
+          </td>
+          <td id="tdfila"> {{this.objectCalculable[i].treintaycincoporcientoexamen2}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen2"
+              name="insumo66{{i}}">
+          </td>
+          <td id="tdfila"> {{this.objectCalculable[i].totalparcial2}}
+            <input id="tdboton" type="text" style="background-color:rgb(215, 253, 138)"
+              [(ngModel)]="this.objectCalculable[i].totalparcial2" name="insumo77{{i}}">
+          </td>
+          <td id="tdfila"> {{this.objectCalculable[i].promedioPeriodo}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].promedioPeriodo" name="insumo88{{i}}">
+          </td>
+          <td id="tdfila">{{this.objectCalculable[i].EstadoNotas}}
+            <input id="tdboton" [(ngModel)]=" this.objectCalculable[i].EstadoNotas" name="ochentaporciento2{{i}}"
+              type="text">
+          </td>
 
 
 
 
-  
-  
+
+      </tbody>
+
+    </table>
+
+
+
+    <!-- ====================================================   Tabla  Auxiliar para reporte proemdios ============================================-->
+
+    <table id="resultsPromedios" *ngIf="banderTabla1" class="table table-hover table-bordered table-responsive"
+      style="margin-top: -1000%; font-size: 60% ; width: 95% ; margin-left: 3%">
+
+      <div class="  form-control ">
+        <h4>{{this.Titulo2}} </h4>
+      </div>
+
+      <thead>
+
+
+        <tr style="background-color: #65686b; align-content: center;">
+          <th style="color: white; padding-top: 2%" scope="col">#</th>
+          <th style="color: white;   align-content: center;  text-align: center" scope="col">Apellidos y Nombres</th>
+          <th style="color: white">Prom Tareas 1 35% </th>
+          <th style="color: white">Proyecto 1 30% </th>
+          <th style="color: white">Esamen 1 35%</th>
+          <th style="color: white">Parcial 1</th>
+
+          <th style="color: white">Prom Tareas 2 35% </th>
+          <th style="color: white">Proyecto 2 30% </th>
+          <th style="color: white">Esamen 2 35%</th>
+          <th style="color: white">Parcial 2</th>
+
+          <th style="color: white">Total Parcial</th>
+          <th style="color: white">Estado </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor=" let listado of  listadoEstudianteMatriculas; let i = index; let listadoN of listadoEstudianteNotas">
+          <th scope="row">{{i+1}}</th>
+          <td class="active">{{listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}} {{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
+
+
+          <td id="tdfila" style="background-color:yellow"> {{this.objectCalculable[i].treintaycincoporcientotareas1}}
+            <input id="tdboton" type="text" style="background-color:yellow"
+              [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas1"
+              name="treintaycincoporcientotareas1{{i}}">
+          </td>
+
+
+          <td id="tdfila"> {{this.objectCalculable[i].treintaporcientoproyecto1}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto1"
+              name="insumo6{{i}}">
+          </td>
+
+          <td id="tdfila"> {{this.objectCalculable[i].treintaycincoporcientoexamen1}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen1"
+              name="insumo8{{i}}">
+          </td>
+          <td id="tdfila">{{this.objectCalculable[i].totalparcial1}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].totalparcial1"
+              name="ochentaporciento1{{i}}">
+          </td>
+
+          <td id="tdfila">{{this.objectCalculable[i].treintaycincoporcientotareas2}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas2"
+              name="insumo22{{i}}">
+          </td>
+
+          <td id="tdfila">{{this.objectCalculable[i].treintaporcientoproyecto2}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto2"
+              name="insumo44{{i}}">
+          </td>
+
+          <td id="tdfila"> {{this.objectCalculable[i].treintaycincoporcientoexamen2}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen2"
+              name="insumo66{{i}}">
+          </td>
+          <td id="tdfila"> {{this.objectCalculable[i].totalparcial2}}
+            <input id="tdboton" type="text" style="background-color:rgb(215, 253, 138)"
+              [(ngModel)]="this.objectCalculable[i].totalparcial2" name="insumo77{{i}}">
+          </td>
+          <td id="tdfila"> {{this.objectCalculable[i].promedioPeriodo}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].promedioPeriodo" name="insumo88{{i}}">
+          </td>
+          <td id="tdfila">{{this.objectCalculable[i].EstadoNotas}}
+            <input id="tdboton" [(ngModel)]=" this.objectCalculable[i].EstadoNotas" name="ochentaporciento2{{i}}"
+              type="text">
+          </td>
+
+
+
+
+
+      </tbody>
+
+    </table>
+
+
+    <!-- ====================================================   Tabla  Auxiliar para reporte Asistencias ============================================-->
+    <table id="resultsAsistencias" *ngIf="banderTabla1" class="table table-hover table-bordered table-responsive"
+      style="margin-top: -1000%; font-size: 60% ; width: 95% ; margin-left: 3%">
+
+      <div class="  form-control ">
+        <h4>{{this.Titulo2}} </h4>
+      </div>
+
+      <thead>
+
+
+        <tr style="background-color: #65686b; align-content: center;">
+          <th style="color: white; padding-top: 2%" scope="col">#</th>
+          <th style="color: white;   align-content: center;  text-align: center" scope="col">Apellidos y Nombres</th>
+          <th style="color: white">A1</th>
+          <th style="color: white">A2 </th>
+          <th style="color: white">A3 </th>
+          <th style="color: white">A4 </th>
+          <th style="color: white">A5 </th>
+          <th style="color: white">A6 </th>
+          <th style="color: white">A7 </th>
+          <th style="color: white">A8 </th>
+          <th style="color: white">Promedio Asistencias</th>
+          <th style="color: white">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor=" let listado of  listadoEstudianteMatriculas; let i = index; let listadoN of listadoEstudianteNotas">
+          <th scope="row">{{i+1}}</th>
+          <td class="active">{{listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}} {{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
+          <td id="tdfila">{{this.object[i].Asistencia1}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia1" name="insumo2{{i}}">
+          </td>
+          <td id="tdfila"> {{this.object[i].Asistencia2}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia2" name="insumo3{{i}}">
+          </td>
+          <td id="tdfila"> {{this.object[i].Asistencia3}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia3" name="insumo3{{i}}">
+          </td>
+          <td id="tdfila"> {{this.object[i].Asistencia4}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia4" name="insumo4{{i}}">
+          </td>
+          <td id="tdfila">{{this.object[i].Asistencia5}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia5" name="insumo5{{i}}">
+          </td>
+          <td id="tdfila"> {{this.object[i].Asistencia6}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].Asistencia6" name="insumo6{{i}}">
+          </td>
+          <td id="tdfila">{{this.object[i].Asistencia7}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia7" name="insumo7{{i}}">
+          </td>
+
+          <td id="tdfila"> {{this.object[i].Asistencia8}}
+            <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia8" name="examen1{{i}}">
+          </td>
+
+
+          <td id="tdfila">{{this.objectCalculable[i].PromedioAsistencia}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].PromedioAsistencia"
+              name="isumo1{{i}}">
+          </td>
+
+          <td id="tdfila">{{this.objectCalculable[i].EstadoNotas}}
+            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].PromedioAsistencia"
+              name="isumo1{{i}}">
+          </td>
+
+
+
+      </tbody>
+
+    </table>
+
   </div>
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fa fa-angle-up"></i>
   </a>
   <!-- Logout Modal-->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -626,7 +822,8 @@
   <!-- ====================================================                     GUARDADO CORRECTAMENTE =================================-->
   <!-- ====================================================                     GUARDADO CORRECTAMENTE =================================-->
   <button id="openModalCorrecto" [hidden]="true" data-toggle="modal" data-target="#ModalCorrecto">Correcto</button>
-  <div class="modal fade" id="ModalCorrecto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="ModalCorrecto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -636,8 +833,8 @@
           </button>
         </div>
         <div style="width: 100%; border: 0; background-color: white;" disabled class="modal-body">
-          <input style="width: 100%; border: 0; background-color: white;" disabled type="text" #MensajeCorrecto="ngModel" [(ngModel)]="this.mensajecorrectomodals"
-            name="mensajecorrecto">
+          <input style="width: 100%; border: 0; background-color: white;" disabled type="text"
+            #MensajeCorrecto="ngModel" [(ngModel)]="this.mensajecorrectomodals" name="mensajecorrecto">
         </div>
         <div class="modal-footer">
           <!-- <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button> -->
@@ -650,7 +847,8 @@
   <!-- ====================================================                     ERROR =================================-->
   <!-- ====================================================                     ERROR =================================-->
   <button id="openModalError" [hidden]="true" data-toggle="modal" data-target="#ModalError">Error</button>
-  <div class="modal fade" id="ModalError" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="ModalError" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -660,8 +858,8 @@
           </button>
         </div>
         <div class="modal-body">
-          <input style="width: 100%; border: 0; background-color: white;" disabled type="text" #MensajeError="ngModel" [(ngModel)]="this.mensajeerrormodal"
-            name="mensajeerror">
+          <input style="width: 100%; border: 0; background-color: white;" disabled type="text" #MensajeError="ngModel"
+            [(ngModel)]="this.mensajeerrormodal" name="mensajeerror">
         </div>
         <div class="modal-footer">
           <!-- <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button> -->

@@ -224,7 +224,7 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
   };
 
   // para los reportes
-
+  public Nivel;
   public listadoEstudianteMatriculas;
   public listadoMateriasCurso;
   public listadoNotas;
@@ -1494,7 +1494,8 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
 
   asignarMateriaCurso(value) {
-
+    console.log("value de nivel", value);
+   this.Nivel=value;
     var busqueda = value.split(",");
     this.loading = true;
 
@@ -1904,22 +1905,22 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
     }
     this.loading = true;
     var logo = new Image();
-    logo.src = '../../assets/imgs/logo.png';
+    logo.src = '../../assets/imgs/logo.jpeg';
 
 
     const doc = new jsPDF('l', 'px', 'a4') as jsPDFWithPlugin;;
 
 
-    doc.addImage(logo, 'PNG', 30, 15, 100, 80);
-    doc.fromHTML("<h2>COLEGIO DE BACHILLERATO PCEI EBENEZER</h2>", 170, 2);
-    doc.fromHTML("<h4>ACTA CONSOLIDADA DE NOTAS </h4>", 255, 28);
-    doc.fromHTML("<h4> PERIODO:" + "  " + this.opcionPeriodoLectivo + "</h4>", 250, 48);
-
-
+    doc.addImage(logo, 'PNG', 30, 15, 120, 100);
+    doc.fromHTML("<h4>SEMINARIO BÍBLICO</h4>", 170, 2);
+    doc.fromHTML("<h4>ASAMBLEA DE DIOS EN ECUADOR</h4>", 170, 20);
+    doc.fromHTML("<h4>ACTA CONSOLIDADA DE NOTAS </h4>", 170, 40);
+    doc.fromHTML("<h4>PERIODO:" + "  " + this.opcionPeriodoLectivo + "</h4>", 170, 60);
+    doc.fromHTML("<h4>"+this.listadoEstudianteMatriculas[0].CURSO.CURSO +"  "+this.listadoEstudianteMatriculas[0].CURSO.PARALELO+ "</h4>", 170, 80);
 
 
     doc.autoTable({
-      html: '#consolidado', startY: 110, styles: {
+      html: '#consolidado', startY: 120, styles: {
         overflow: 'linebreak',
         fontSize: 8,
 
@@ -1938,7 +1939,7 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
   private VreporteExcel;
 
   generarExel() {
-    this.VreporteExcel = this.nuevo2;
+    this.VreporteExcel = this.objNotasPT;
     var materias = [];
     materias.push("NOMBRES Y APELLIDOS");
     for (var i in this.listadoMateriasCurso) {
@@ -1950,9 +1951,9 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
     this.VreporteExcel.unshift(materias);
     console.log("esto es antes de generar excel", this.VreporteExcel);
     this.excelService.exportAsExcelFile(this.VreporteExcel, 'Consolidado_Final', this.listadoMateriasCurso);
-    this.nuevo2.shift();
+      this.objNotasPT.shift();
     for (var i in this.listadoEstudianteMatriculas) {
-      this.nuevo2[i].shift();
+      this.objNotasPT[i].shift();
     }
   }
 

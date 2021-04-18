@@ -371,27 +371,39 @@ export class EstudianteComponent implements OnInit, DoCheck {
 
 
     var logo = new Image();
-    logo.src = '../../assets/imgs/logo.png';
+    logo.src = '../../assets/imgs/logo.jpeg';
 
 
     const doc = new jsPDF('l', 'px', 'a4') as jsPDFWithPlugin;
 
-    doc.addImage(logo, 'PNG', 30, 15, 100, 80);
-    doc.fromHTML("<h2>COLEGIO DE BACHILLERATO PCEI EBENEZER</h2>", 170, 2);
-    doc.fromHTML("<h4>ACTA DE CALIFICACIÓN POR PERIODO" + "  " + this.periodoLectivoActual + "</h4>", 170, 28);
-    doc.fromHTML("<h4>" + this.vectorListadoMisMaterias[0].CURSO.CURSO + " " + this.vectorListadoMisMaterias[0].CURSO.PARALELO + "</h4>", 250, 48);
-    doc.fromHTML("<h4>ESTUDIANTE: " + this.identity.APELLIDO_ESTUDIANTE + "  " + this.identity.NOMBRE_ESTUDIANTE + "</h4>", 200, 68);
+    doc.addImage(logo, 'PNG', 30, 15, 120, 100);
+    doc.fromHTML("<h4>SEMINARIO BÍBLICO</h4>", 170, 2);
+    doc.fromHTML("<h4>ASAMBLEA DE DIOS EN ECUADOR</h4>", 170, 20);
+    doc.fromHTML("<h4>ACTA DE CALIFICACIÓN</h4>", 170, 40);
+    doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoLectivoActual + "</h4>", 170, 60);
+    doc.fromHTML("<h4>" + this.vectorListadoMisMaterias[0].CURSO.CURSO + " " + this.vectorListadoMisMaterias[0].CURSO.PARALELO + "</h4>", 170, 80);
+    doc.fromHTML("<h4>ESTUDIANTE: " + this.identity.APELLIDO_ESTUDIANTE + "  " + this.identity.NOMBRE_ESTUDIANTE + "</h4>", 170, 100);
 
     var cont = this.vectorListadoMisMaterias.length;
 
     if (this.banderTabla1) {
 
-      doc.autoTable({ html: '#results', startY: 120 ,columnStyles: {9: {fillColor: [249, 247, 95]},
-       11: {fillColor: [249, 247, 95]},
-       12: {fillColor: [207, 233, 176]}, 21: {fillColor: [249, 247, 95]},  23: {fillColor: [249, 247, 95]},
-       24: {fillColor: [207, 233, 176]}, 25: {fillColor: [191, 250, 119]} },
-      styles: { overflow: 'linebreak',  fontSize: 6} });
-
+    
+      doc.autoTable({
+        html: '#results', startY: 130, columnStyles: {
+          6: { fillColor: [249, 247, 95] },
+          8: { fillColor: [249, 247, 95] },
+          10: { fillColor: [249, 247, 95] },
+          11: { fillColor: [207, 233, 176] }, 16: { fillColor: [249, 247, 95] }, 18: { fillColor: [249, 247, 95] },
+          20: { fillColor: [249, 247, 95] }, 21: { fillColor: [207, 233, 176] }, 23: { fillColor: [191, 250, 119] }
+        }, styles: {
+          overflow: 'linebreak',
+          fontSize: 8,
+          rowHeight: 5,
+          cellWidth: 'auto',
+          cellPadding: 2
+        }
+      });
     
       this.loading = false;
 
@@ -400,30 +412,7 @@ export class EstudianteComponent implements OnInit, DoCheck {
 
 
 
-    } else {
-      doc.autoTable({
-        html: '#results2', startY: 120,columnStyles: {19: {fillColor: [249, 247, 95]},
-        21: {fillColor: [249, 247, 95]},
-        22: {fillColor: [207, 233, 176]}, 41: {fillColor: [249, 247, 95]},  43: {fillColor: [249, 247, 95]},
-        44: {fillColor: [207, 233, 176]}, 45: {fillColor: [191, 250, 119]} }, margin: {left: 30}, styles: {
-         
-          overflow: 'linebreak',
-          fontSize: 5,
-          //rowHeight: 0,
-          cellWidth: 'auto',
-          cellPadding: 3,
-     
-       // calculateWidths: 300
-
-        }
-
-      });
-     
-      this.loading = false;
-
-      doc.save('Reporte_Notas_Alumno.pdf');
-    }
-
+    } 
 /* html2canvas(document.getElementById('results2'), { scale: 5 }).then(function (canvas) {
         var img = canvas.toDataURL("image/png");
         var context = canvas.getContext("2d");

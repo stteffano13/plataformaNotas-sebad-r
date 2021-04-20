@@ -1883,12 +1883,12 @@ try{
 
 
     doc.addImage(logo, 'PNG', 30, 15, 120, 100);
-    doc.fromHTML("<h4>SEMINARIO BÍBLICO RIOBAMBA</h4>", 170, 2);
-    doc.fromHTML("<h4>ASAMBLEAS DE DIOS DEL ECUADOR</h4>", 170, 20);
-    doc.fromHTML("<h4>REPORTE CONSOLIDADO DE NOTAS </h4>", 170, 40);
-    doc.fromHTML("<h4>PERIODO:" + "  " + this.opcionPeriodoLectivo + "</h4>", 170, 60);
-    doc.fromHTML("<h4>"+this.listadoEstudianteMatriculas[0].CURSO.CURSO +"  "+this.listadoEstudianteMatriculas[0].CURSO.PARALELO+ "</h4>", 170, 80);
-    doc.fromHTML("<h4>NÚMERO DE ESTUDIANTES"+this.listadoEstudianteMatriculas.length+ "</h4>", 170, 100);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>SEMINARIO BÍBLICO RIOBAMBA</h5>", 170, 2);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ASAMBLEAS DE DIOS DEL ECUADOR</h5>", 170, 20);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>REPORTE CONSOLIDADO DE NOTAS </h5>", 170, 40);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>PERIODO:" + "  " + this.opcionPeriodoLectivo + "</h5>", 170, 60);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>"+this.listadoEstudianteMatriculas[0].CURSO.CURSO +"  "+this.listadoEstudianteMatriculas[0].CURSO.PARALELO+ "</h5>", 170, 80);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>NÚMERO DE ESTUDIANTES"+this.listadoEstudianteMatriculas.length+ "</h5>", 170, 100);
 
     doc.autoTable({
       html: '#consolidado', startY: 130, styles: {

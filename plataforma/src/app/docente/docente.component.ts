@@ -910,17 +910,17 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
 
     const doc = new jsPDF('l', 'px', 'a4') as jsPDFWithPlugin;;
-
+   
     var pageWidth = doc.internal.pageSize.width
     doc.addImage(logo, 'PNG', 30, 15, 120, 100);
-    doc.fromHTML("<h4>SEMINARIO BÍBLICO RIOBAMBA</h4>", 170, 2);
-    doc.fromHTML("<h4>ASAMBLEAS DE DIOS DEL ECUADOR</h4>", 170, 20);
-    doc.fromHTML("<h4>ACTA DE  ASISTENCIAS </h4>", 170, 40);
-    doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoAuxiliar + "</h4>", 170, 60);
-    doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 170, 80);
-    doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 100);
-    doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 170, 120);
-    doc.fromHTML("<h4>NÚMERO DE ESTUDIANTES: "+this.listadoEstudianteMatriculas.length+ "</h4>", 170, 140);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>SEMINARIO BÍBLICO RIOBAMBA</h5>", 170, 2);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ASAMBLEAS DE DIOS DEL ECUADOR</h5>", 170, 20);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ACTA DE ASISTENCIAS</h5>", 170, 40);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>PERIODO:" + "  " + this.periodoAuxiliar + "</h5>", 170, 60);
+    doc.fromHTML("<h5  style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>MATERIA: " + this.Titulo2 + "</h5>", 170, 80);
+    doc.fromHTML("<h5  style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 100);
+    doc.fromHTML("<h5  style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; ' >" + this.Titulo1 + "</h5>", 170, 120);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ESTUDIANTES: "+this.listadoEstudianteMatriculas.length+ "</h5>", 170, 140);
     
    
     doc.autoTable({
@@ -969,24 +969,21 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
     var pageWidth = doc.internal.pageSize.width
     doc.addImage(logo, 'PNG', 30, 15, 120, 100);
-    doc.fromHTML("<h4>SEMINARIO BÍBLICO RIOBAMBA</h4>", 170, 2);
-    doc.fromHTML("<h4>ASAMBLEAS DE DIOS DEL ECUADOR</h4>", 170, 20);
-    doc.fromHTML("<h4>REPORTE DE PROMEDIOS GENERALES</h4>", 170, 40);
-    doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoAuxiliar + "</h4>", 170, 60);
-    doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 170, 80);
-    doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 100);
-    doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 170, 120);
-    doc.fromHTML("<h4>NÚMERO DE ESTUDIANTES: "+this.listadoEstudianteMatriculas.length+ "</h4>", 170, 140);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>SEMINARIO BÍBLICO RIOBAMBA</h5>", 170, 2);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ASAMBLEAS DE DIOS DEL ECUADOR</h5>", 170, 20);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ACTA FINAL DE CALIFICACIONES</h5>", 170, 40);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>PERIODO:" + "  " + this.periodoAuxiliar + "</h5>", 170, 60);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; ' >MATERIA: " + this.Titulo2 + "</h5>", 170, 80);
+    doc.fromHTML("<h5  style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h5>", 170, 100);
+    doc.fromHTML("<h5  style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; ' >" + this.Titulo1 + "</h5>", 170, 120);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ESTUDIANTES: "+this.listadoEstudianteMatriculas.length+ "</h5>", 170, 140);
     doc.autoTable({
       html: '#resultsPromedios', startY: 170, columnStyles: {
-        7: { fillColor: [249, 247, 95] },
-        9: { fillColor: [249, 247, 95] },
-        11: { fillColor: [249, 247, 95] },
-        12: { fillColor: [207, 233, 176] }, 17: { fillColor: [249, 247, 95] }, 19: { fillColor: [249, 247, 95] },
-        21: { fillColor: [249, 247, 95] }, 22: { fillColor: [207, 233, 176] }, 24: { fillColor: [191, 250, 119] }
+        2: { fillColor: [249, 247, 95] },
+        3: { fillColor: [207, 233, 176] }
       }, styles: {
         overflow: 'linebreak',
-        fontSize: 8,
+        fontSize: 12,
         rowHeight: 5,
         cellWidth: 'auto',
         cellPadding: 2
@@ -1023,13 +1020,13 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
     var pageWidth = doc.internal.pageSize.width
     doc.addImage(logo, 'PNG', 30, 15, 120, 100);
-    doc.fromHTML("<h4>SEMINARIO BÍBLICO RIOBAMBA</h4>", 170, 2);
-    doc.fromHTML("<h4>ASAMBLEAS DE DIOS DEL ECUADOR</h4>", 170, 20);
-    doc.fromHTML("<h4>REPORTE GENERAL DE CALIFICACIONES</h4>", 170, 40);
-    doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoAuxiliar + "</h4>", 170, 60);
-    doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 170, 80);
-    doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 100);
-    doc.fromHTML("<h4>NÚMERO DE ESTUDIANTES: "+this.listadoEstudianteMatriculas.length+ "</h4>", 170, 120);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>SEMINARIO BÍBLICO RIOBAMBA</h5", 170, 2);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ASAMBLEAS DE DIOS DEL ECUADOR</h5>", 170, 20);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>REPORTE GENERAL DE CALIFICACIONES</h5>", 170, 40);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>PERIODO:" + "  " + this.periodoAuxiliar + "</h5>", 170, 60);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>MATERIA: " + this.Titulo2 + "</h5>", 170, 80);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h5>", 170, 100);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ESTUDIANTES: "+this.listadoEstudianteMatriculas.length+ "</h5>", 170, 120);
     var cont = this.listadoEstudianteNotas.length;
 
 
@@ -1044,7 +1041,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
           21: { fillColor: [249, 247, 95] }, 22: { fillColor: [207, 233, 176] }, 24: { fillColor: [191, 250, 119] }
         }, styles: {
           overflow: 'linebreak',
-          fontSize: 8,
+          fontSize: 10,
           rowHeight: 5,
           cellWidth: 'auto',
           cellPadding: 2

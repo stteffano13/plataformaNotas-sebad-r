@@ -377,12 +377,12 @@ export class EstudianteComponent implements OnInit, DoCheck {
     const doc = new jsPDF('l', 'px', 'a4') as jsPDFWithPlugin;
 
     doc.addImage(logo, 'PNG', 30, 15, 120, 100);
-    doc.fromHTML("<h4>SEMINARIO BÍBLICO RIOBAMBA</h4>", 170, 2);
-    doc.fromHTML("<h4>ASAMBLEAS DE DIOS DEL ECUADOR</h4>", 170, 20);
-    doc.fromHTML("<h4>REPORTE GENERAL DE CALIFICACIONES</h4>", 170, 40);
-    doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoLectivoActual + "</h4>", 170, 60);
-    doc.fromHTML("<h4>" + this.vectorListadoMisMaterias[0].CURSO.CURSO + " " + this.vectorListadoMisMaterias[0].CURSO.PARALELO + "</h4>", 170, 80);
-    doc.fromHTML("<h4>ESTUDIANTE: " + this.identity.APELLIDO_ESTUDIANTE + "  " + this.identity.NOMBRE_ESTUDIANTE + "</h4>", 170, 100);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>SEMINARIO BÍBLICO RIOBAMBA</h5>", 170, 2);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ASAMBLEAS DE DIOS DEL ECUADOR</h5>", 170, 20);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>REPORTE GENERAL DE CALIFICACIONES</h5>", 170, 40);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>PERIODO:" + "  " + this.periodoLectivoActual + "</h5>", 170, 60);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>" + this.vectorListadoMisMaterias[0].CURSO.CURSO + " " + this.vectorListadoMisMaterias[0].CURSO.PARALELO + "</h5>", 170, 80);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ESTUDIANTE: " + this.identity.APELLIDO_ESTUDIANTE + "  " + this.identity.NOMBRE_ESTUDIANTE + "</h5>", 170, 100);
 
     var cont = this.vectorListadoMisMaterias.length;
 

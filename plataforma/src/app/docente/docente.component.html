@@ -22,7 +22,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header text-center ">
-          <h5 class="modal-title text-center " id="exampleModalLabel">Asignar periodo para los Reportes</h5>
+          <h5 class="modal-title text-center " id="exampleModalLabel">Asignar periodo de Reportes</h5>
 
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
@@ -171,8 +171,19 @@
 
 
       <ul class="navbar-nav ml-auto">
+       
+
+        <li>
+          <p style="color: #ffffff">Periodo Actual {{this.periodoAuxiliar}}
+            &nbsp;&nbsp;
+            &nbsp;&nbsp;
+          
+          </p>
+        </li>
+
+
         <li class="nav-item dropdown">
-          <a title="Crear paralelo" class="nav-link dropdown-toggle " id="openModalIngresarParalelo" data-toggle="modal"
+          <a title="Asignar periodo" class="nav-link dropdown-toggle " id="openModalIngresarParalelo" data-toggle="modal"
             aria-haspopup="true" aria-expanded="false" data-target="#ModalIngresarParalelo">
             <i class="fa  fa-list-alt"></i>
             <span class="d-lg-none">Paralelo
@@ -185,15 +196,6 @@
           </a>
         </li>
 
-
-
-        <li>
-          <p style="color: #ffffff">Periodo Actual {{this.periodoAuxiliar}}
-            &nbsp;&nbsp;
-            &nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          </p>
-        </li>
         <li>
           <select (change)="asignarMateriaCurso($event.target.value)" class=" custom-select " required>
             <option [value]="" selected>Selecciona Materia y Semestre</option>
@@ -268,7 +270,12 @@
         </div>
 
         <thead>
-
+          <tr>
+            <th COLSPAN="2" style="color: white;" scope="col">################################</th>
+            <th colspan="9"><h5 class="text-center mx-auto">ASISTENCIA</h5></th>
+            <th colspan="10"><h5 class="text-center mx-auto">PARCIAL 1 </h5></th>
+            <th colspan="11"><h5 class="text-center mx-auto">PARCIAL 2</h5></th>
+          </tr>
 
           <tr style="align-content: center;">
 
@@ -638,7 +645,11 @@
       </div>
 
       <thead>
-
+        <tr>
+          <th COLSPAN="3" style="color: white;" scope="col">ASISTENCIA</th>
+          <th colspan="10"><h5 class="text-center mx-auto">PARCIAL 1 </h5></th>
+          <th colspan="11"><h5 class="text-center mx-auto">PARCIAL 2</h5></th>
+        </tr>
 
         <tr style="background-color: #65686b; align-content: center;">
           <th style="color: white; padding-top: 2%" scope="col">#</th>
@@ -785,17 +796,7 @@
         <tr style="background-color: #65686b; align-content: center;">
           <th style="color: white; padding-top: 2%" scope="col">#</th>
           <th style="color: white;   align-content: center;  text-align: center" scope="col">Apellidos y Nombres</th>
-          <th style="color: white">Prom Tareas 1 35% </th>
-          <th style="color: white">Proyecto 1 30% </th>
-          <th style="color: white">Esamen 1 35%</th>
-          <th style="color: white">Parcial 1</th>
-
-          <th style="color: white">Prom Tareas 2 35% </th>
-          <th style="color: white">Proyecto 2 30% </th>
-          <th style="color: white">Esamen 2 35%</th>
-          <th style="color: white">Parcial 2</th>
-
-          <th style="color: white">Total Parcial</th>
+          <th style="color: white">Promedio Final</th>
           <th style="color: white">Estado </th>
         </tr>
       </thead>
@@ -805,46 +806,6 @@
           <th scope="row">{{i+1}}</th>
           <td class="active">{{listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}} {{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
 
-
-          <td id="tdfila" style="background-color:yellow"> {{this.objectCalculable[i].treintaycincoporcientotareas1}}
-            <input id="tdboton" type="text" style="background-color:yellow"
-              [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas1"
-              name="treintaycincoporcientotareas1{{i}}">
-          </td>
-
-
-          <td id="tdfila"> {{this.objectCalculable[i].treintaporcientoproyecto1}}
-            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto1"
-              name="insumo6{{i}}">
-          </td>
-
-          <td id="tdfila"> {{this.objectCalculable[i].treintaycincoporcientoexamen1}}
-            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen1"
-              name="insumo8{{i}}">
-          </td>
-          <td id="tdfila">{{this.objectCalculable[i].totalparcial1}}
-            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].totalparcial1"
-              name="ochentaporciento1{{i}}">
-          </td>
-
-          <td id="tdfila">{{this.objectCalculable[i].treintaycincoporcientotareas2}}
-            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas2"
-              name="insumo22{{i}}">
-          </td>
-
-          <td id="tdfila">{{this.objectCalculable[i].treintaporcientoproyecto2}}
-            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto2"
-              name="insumo44{{i}}">
-          </td>
-
-          <td id="tdfila"> {{this.objectCalculable[i].treintaycincoporcientoexamen2}}
-            <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen2"
-              name="insumo66{{i}}">
-          </td>
-          <td id="tdfila"> {{this.objectCalculable[i].totalparcial2}}
-            <input id="tdboton" type="text" style="background-color:rgb(215, 253, 138)"
-              [(ngModel)]="this.objectCalculable[i].totalparcial2" name="insumo77{{i}}">
-          </td>
           <td id="tdfila"> {{this.objectCalculable[i].promedioPeriodo}}
             <input id="tdboton" type="text" [(ngModel)]="this.objectCalculable[i].promedioPeriodo" name="insumo88{{i}}">
           </td>

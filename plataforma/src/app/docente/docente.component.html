@@ -40,7 +40,7 @@
         </li>
         <li>
           <select (change)="asignarMateriaCurso($event.target.value)" class=" custom-select " required>
-            <option [value]="" selected>Selecciona materia y curso</option>
+            <option [value]="" selected>Selecciona Materia y Semestre</option>
             <option *ngFor="let oneDoor of vectorListadoMisMaterias"
               value="{{oneDoor.CURSO.ID_CURSO}},{{oneDoor.ID_MATERIA}},{{oneDoor.CURSO.CURSO}},{{oneDoor.NOMBRE_MATERIA}},{{oneDoor.CURSO.PARALELO}} ">
               {{oneDoor.NOMBRE_MATERIA}}: {{oneDoor.CURSO.CURSO}} {{oneDoor.CURSO.PARALELO}}</option>

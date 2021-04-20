@@ -292,10 +292,10 @@ export class EstudianteComponent implements OnInit, DoCheck {
 
 
     if (PromedioAsistencia >= 6 && promedioPeriodo > 7) {
-      this.objectCalculable[i].EstadoNotas = "A";
+      this.objectCalculable[i].EstadoNotas = "Aprobado";
 
     } else {
-      this.objectCalculable[i].EstadoNotas = "R"
+      this.objectCalculable[i].EstadoNotas = "Reprobado"
 
     }
 
@@ -377,9 +377,9 @@ export class EstudianteComponent implements OnInit, DoCheck {
     const doc = new jsPDF('l', 'px', 'a4') as jsPDFWithPlugin;
 
     doc.addImage(logo, 'PNG', 30, 15, 120, 100);
-    doc.fromHTML("<h4>SEMINARIO BÍBLICO</h4>", 170, 2);
-    doc.fromHTML("<h4>ASAMBLEA DE DIOS EN ECUADOR</h4>", 170, 20);
-    doc.fromHTML("<h4>ACTA DE CALIFICACIÓN</h4>", 170, 40);
+    doc.fromHTML("<h4>SEMINARIO BÍBLICO RIOBAMBA</h4>", 170, 2);
+    doc.fromHTML("<h4>ASAMBLEAS DE DIOS DEL ECUADOR</h4>", 170, 20);
+    doc.fromHTML("<h4>REPORTE GENERAL DE CALIFICACIONES</h4>", 170, 40);
     doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoLectivoActual + "</h4>", 170, 60);
     doc.fromHTML("<h4>" + this.vectorListadoMisMaterias[0].CURSO.CURSO + " " + this.vectorListadoMisMaterias[0].CURSO.PARALELO + "</h4>", 170, 80);
     doc.fromHTML("<h4>ESTUDIANTE: " + this.identity.APELLIDO_ESTUDIANTE + "  " + this.identity.NOMBRE_ESTUDIANTE + "</h4>", 170, 100);

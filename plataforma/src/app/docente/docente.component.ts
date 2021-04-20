@@ -477,10 +477,10 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
       // calculo para examenes complementarios
 
       if (PromedioAsistencia >= 6 && promedioPeriodo > 7) {
-        this.objectCalculable[i].EstadoNotas = "A";
+        this.objectCalculable[i].EstadoNotas = "Aprobado";
 
       } else {
-        this.objectCalculable[i].EstadoNotas = "R"
+        this.objectCalculable[i].EstadoNotas = "Reprobado"
 
       }
 
@@ -556,10 +556,10 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
 
       if (PromedioAsistencia >= 6 && promedioPeriodo > 7) {
-        this.objectCalculable[i].EstadoNotas = "A";
+        this.objectCalculable[i].EstadoNotas = "Aprobado";
 
       } else {
-        this.objectCalculable[i].EstadoNotas = "R"
+        this.objectCalculable[i].EstadoNotas = "Reprobado"
 
       }
 
@@ -912,16 +912,18 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
     var pageWidth = doc.internal.pageSize.width
     doc.addImage(logo, 'PNG', 30, 15, 120, 100);
-    doc.fromHTML("<h4>SEMINARIO BÍBLICO</h4>", 170, 2);
-    doc.fromHTML("<h4>ASAMBLEA DE DIOS EN ECUADOR</h4>", 170, 20);
-    doc.fromHTML("<h4>ACTA DE CALIFICACIÓN DE ASISTENCIAS </h4>", 170, 40);
+    doc.fromHTML("<h4>SEMINARIO BÍBLICO RIOBAMBA</h4>", 170, 2);
+    doc.fromHTML("<h4>ASAMBLEAS DE DIOS DEL ECUADOR</h4>", 170, 20);
+    doc.fromHTML("<h4>ACTA DE  ASISTENCIAS </h4>", 170, 40);
     doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoLectivoActual + "</h4>", 170, 60);
     doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 170, 80);
     doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 100);
-
     doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 170, 120);
+    doc.fromHTML("<h4>NÚMERO DE ESTUDIANTES: "+this.listadoEstudianteMatriculas.length+ "</h4>", 170, 140);
+    
+   
     doc.autoTable({
-      html: '#resultsAsistencias', startY: 150, columnStyles: {
+      html: '#resultsAsistencias', startY: 170, columnStyles: {
         7: { fillColor: [249, 247, 95] },
         9: { fillColor: [249, 247, 95] },
         11: { fillColor: [249, 247, 95] },
@@ -966,16 +968,16 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
     var pageWidth = doc.internal.pageSize.width
     doc.addImage(logo, 'PNG', 30, 15, 120, 100);
-    doc.fromHTML("<h4>SEMINARIO BÍBLICO</h4>", 170, 2);
-    doc.fromHTML("<h4>ASAMBLEA DE DIOS EN ECUADOR</h4>", 170, 20);
-    doc.fromHTML("<h4>ACTA DE CALIFICACIONES PERIODO:" + "  " + this.periodoLectivoActual + "</h4>", 170, 40);
-
-    doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 170, 60);
-    doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 80);
-
-    doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 170, 100);
+    doc.fromHTML("<h4>SEMINARIO BÍBLICO RIOBAMBA</h4>", 170, 2);
+    doc.fromHTML("<h4>ASAMBLEAS DE DIOS DEL ECUADOR</h4>", 170, 20);
+    doc.fromHTML("<h4>REPORTE DE PROMEDIOS GENERALES</h4>", 170, 40);
+    doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoLectivoActual + "</h4>", 170, 60);
+    doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 170, 80);
+    doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 100);
+    doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 170, 120);
+    doc.fromHTML("<h4>NÚMERO DE ESTUDIANTES: "+this.listadoEstudianteMatriculas.length+ "</h4>", 170, 140);
     doc.autoTable({
-      html: '#resultsPromedios', startY: 150, columnStyles: {
+      html: '#resultsPromedios', startY: 170, columnStyles: {
         7: { fillColor: [249, 247, 95] },
         9: { fillColor: [249, 247, 95] },
         11: { fillColor: [249, 247, 95] },
@@ -1020,17 +1022,18 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
     var pageWidth = doc.internal.pageSize.width
     doc.addImage(logo, 'PNG', 30, 15, 120, 100);
-    doc.fromHTML("<h4>SEMINARIO BÍBLICO</h4>", 170, 2);
-    doc.fromHTML("<h4>ASAMBLEA DE DIOS EN ECUADOR</h4>", 170, 20);
-    doc.fromHTML("<h4>ACTA DE CALIFICACIONES PERIODO:" + "  " + this.periodoLectivoActual + "</h4>", 170, 40);
-
-    doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 170, 60);
-    doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 80);
+    doc.fromHTML("<h4>SEMINARIO BÍBLICO RIOBAMBA</h4>", 170, 2);
+    doc.fromHTML("<h4>ASAMBLEAS DE DIOS DEL ECUADOR</h4>", 170, 20);
+    doc.fromHTML("<h4>REPORTE GENERAL DE CALIFICACIONES</h4>", 170, 40);
+    doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoLectivoActual + "</h4>", 170, 60);
+    doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 170, 80);
+    doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 100);
+    doc.fromHTML("<h4>NÚMERO DE ESTUDIANTES: "+this.listadoEstudianteMatriculas.length+ "</h4>", 170, 120);
     var cont = this.listadoEstudianteNotas.length;
 
 
     if (this.banderTabla1) {
-      doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 170, 100);
+      doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 170, 150);
       doc.autoTable({
         html: '#results', startY: 150, columnStyles: {
           7: { fillColor: [249, 247, 95] },

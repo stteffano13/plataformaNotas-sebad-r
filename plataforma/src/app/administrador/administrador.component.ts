@@ -112,7 +112,7 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
 
   public arrayNivelII = [
-    "INTRODUCCIÓN AL HEBREO BIBLICO",
+    "INTRODUCCIÓN AL HEBREO BÍBLICO",
     "GEOGRAFÍA DEL ANTIGUO Y NUEVO TESTAMENTO",
     'PENTATEUCO',
     'MATERIA INTEGRADORA: LIDERAZGO ADMINISTRACIÓN ECLESIAL I',
@@ -122,7 +122,7 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
 
   public arrayNivelIII = [
-    "INTRODUCCIÓN AL GRIEGO BIBLICO",
+    "INTRODUCCIÓN AL GRIEGO BÍBLICO",
     "HISTORIA DE LA IGLESIA I",
     'ADMINSITRACIÓN Y FILOSOFÍA DE LA EDUCACIÓN',
     'MATERIA INTEGRADORA: CONSEJERÍA FAMILIAR Y MINISTERIO PASTORAL',
@@ -1586,8 +1586,8 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
   }
 
 
-  traerNotasMatris() {
-
+  async traerNotasMatris() {
+try{
     var objBuscarNotas = {
 
       materias: this.listadoMateriasCurso,
@@ -1600,12 +1600,12 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
     this.nuevo2 = [];
     let i = 0;
     console.log(" hoal entre a matris", value);
-    this.subscribe22 = this._notaService.buscarNotasMatris(value).subscribe(
-      response => {
+    let response = await this._notaService.buscarNotasMatris(value).toPromise();
+    
 
         this.loading = false;
         this.listadoNotas = response.vectorNotas;
-        console.log("listado de notas antes de nada", this.listadoNotas);
+        console.log("listado de notas antes de nada", response);
         //  ordenar
 
         this.listadoEstudianteMatriculas.forEach(elementE => {
@@ -1637,38 +1637,9 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
         });
 
         console.log("notas del promedio total", this.objNotasPT);
-        /*this.objNotasPT.pop();
-        console.log("notas del promedio total", this.objNotasPT);
-        this.diviciones = this.objNotasPT.toString().split(";");
-
-
-
-        console.log("diviciones0", this.diviciones[0]);
-        console.log("divicione1", this.diviciones[1]);
-        console.log("divicione2", this.diviciones[2]);
-
-        for (let i = 0; i < this.diviciones.length; i++) {
-          if (i == this.diviciones.length - 1) {
-            this.nuevo = this.diviciones[i].substring(1).split(",");
-
-          } else {
-            if (i % 2 == 0) {
-              var n = this.diviciones[i].slice(0, -1).split(",");
-              this.nuevo = n.filter(Boolean);
-
-            } else {
-              var n2 = this.diviciones[i].slice(1, -1).split(",");
-              this.nuevo = n2.filter(Boolean);
-            }
-          }
-          this.nuevo2[3].push(this.nuevo);
-          console.log("final", this.nuevo2);
-        }
-*/
         this.loading = false;
 
-      },
-      error => {
+      }catch(error) {
         this.loading = false;
         var errorMessage = <any>error;
         if (errorMessage) {
@@ -1686,7 +1657,7 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
         // this.loading =false;
       }
 
-    );
+    
 
   }
 
@@ -1912,15 +1883,15 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
 
     doc.addImage(logo, 'PNG', 30, 15, 120, 100);
-    doc.fromHTML("<h4>SEMINARIO BÍBLICO</h4>", 170, 2);
-    doc.fromHTML("<h4>ASAMBLEA DE DIOS EN ECUADOR</h4>", 170, 20);
-    doc.fromHTML("<h4>ACTA CONSOLIDADA DE NOTAS </h4>", 170, 40);
+    doc.fromHTML("<h4>SEMINARIO BÍBLICO RIOBAMBA</h4>", 170, 2);
+    doc.fromHTML("<h4>ASAMBLEAS DE DIOS DEL ECUADOR</h4>", 170, 20);
+    doc.fromHTML("<h4>REPORTE CONSOLIDADO DE NOTAS </h4>", 170, 40);
     doc.fromHTML("<h4>PERIODO:" + "  " + this.opcionPeriodoLectivo + "</h4>", 170, 60);
     doc.fromHTML("<h4>"+this.listadoEstudianteMatriculas[0].CURSO.CURSO +"  "+this.listadoEstudianteMatriculas[0].CURSO.PARALELO+ "</h4>", 170, 80);
-
+    doc.fromHTML("<h4>NÚMERO DE ESTUDIANTES"+this.listadoEstudianteMatriculas.length+ "</h4>", 170, 100);
 
     doc.autoTable({
-      html: '#consolidado', startY: 120, styles: {
+      html: '#consolidado', startY: 130, styles: {
         overflow: 'linebreak',
         fontSize: 8,
 

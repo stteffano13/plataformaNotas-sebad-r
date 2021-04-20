@@ -640,11 +640,11 @@ function buscarNotasMatris(req, res) {
           }
 
         } else {
-          console.log("de este estudiante no hay notas de ingles", params.estudiante.nombre, "materia", paramsM.nombre)
+          console.log("de este estudiante no hay notas de ingles", params.ESTUDIANTE.NOMBRE_ESTUDIANTE, "materia", paramsM.NOMBRE_MATERIA)
           cont2++;
           if (cont2 == multi) {
             res.status(200).send({
-              message: "no existen notas registradas"
+              vectorNotas
             });
           }
 
@@ -655,8 +655,8 @@ function buscarNotasMatris(req, res) {
         console.log("error", err)
         cont3++
         if (cont3 == multi) {
-          res.status(500).send({
-            message: "Error al guardar Curso"
+          res.status(200).send({
+            vectorNotas
           });
         }
       }

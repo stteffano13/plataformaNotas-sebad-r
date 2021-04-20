@@ -94,11 +94,7 @@ async function guardarSegundo(idE, idC, params, res) {
             where: { ESTADO_MATRICULA: 0, ID_ESTUDIANTE: idE.ID_ESTUDIANTE, PERIODO: params.periodo }
         })
 
-        if (matriculaEncontrada) {
-            return res.status(500).send({
-                message: "El Estudiante ya fue matriculado"
-            });
-        } else {
+     
 
             let array = await Matricula.findAll();
 
@@ -141,7 +137,7 @@ async function guardarSegundo(idE, idC, params, res) {
             }
 
 
-        }
+   
 
     } catch (err) {
         res.status(500).send({

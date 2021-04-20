@@ -165,7 +165,7 @@ export class LoguinComponent {
                       } else {
                         localStorage.setItem("Token", token);
                         location.reload(true);
-                        //location.href = "www.appmontecarlotransvip.com:4200";
+                       
                       }
                     },
                     error => {
@@ -244,7 +244,7 @@ export class LoguinComponent {
                     } else {
                       localStorage.setItem("Token", token);
                       location.reload(true);
-                      //location.href = "www.appmontecarlotransvip.com:4200";
+                  
                     }
                   },
                   error => {

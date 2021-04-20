@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Montecarlo VIP</title>
+  <title>SEBAD-R</title>
 </head>
 
 <div class="my-container">
@@ -94,7 +94,7 @@
           </a>
           <ul class="sidenav-second-level collapse" id="reportes">
             <li>
-              <a href="#" (click)="aparecerReportesNotas() " style="color: #ffffff">Notas por Curso</a>
+              <a href="#" (click)="aparecerReportesNotas() " style="color: #ffffff">Notas por Semestre</a>
             </li>
 
           </ul>
@@ -296,7 +296,7 @@
           </form>
         </li>
         <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-        <li class="nav-item" title="Salir del Sistema Montecarlo VIP">
+        <li class="nav-item" title="Salir del Sistema SEBAD-R">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Salir</a>
         </li>
@@ -461,7 +461,7 @@
                 <th style="color: white" scope="col">Nombre</th>
                 <th style="color: white" scope="col">Apellido</th>
                 <th style="color: white" scope="col">Cédula</th>
-                <th style="color: white" scope="col">Curso</th>
+                <th style="color: white" scope="col">Semestre</th>
                 <th style="color: white" scope="col">Periodo</th>
                 <th style="color: white" scope="col">Opción</th>
               </tr>
@@ -473,7 +473,7 @@
                 <td>{{listado.ESTUDIANTE.NOMBRE_ESTUDIANTE}}</td>
                 <td> {{ listado.ESTUDIANTE.APELLIDO_ESTUDIANTE}}</td>
                 <td>{{listado.ESTUDIANTE.CEDULA_ESTUDIANTE}}</td>
-                <td>{{listado.CURSO.CURSO }} "{{listado.CURSO.PARALELO }}"</td>
+                <td>{{listado.CURSO.CURSO }} {{listado.CURSO.PARALELO }}</td>
                 <td>{{listado.PERIODO }}</td>
                 <td>
                   <input class="btn btn-primary " type="button" value="Eliminar"
@@ -517,7 +517,7 @@
             </select>
           </div>
           <div class=" col-md-4">
-            <label for="apellido">Seleccione el curso </label>
+            <label for="apellido">Seleccione el Semestre </label>
             <input style="font-size: 85%" list="buscarCursoAsignacion" [(ngModel)]="buscarCursoAsignacion"
               name="buscarCursoAsignacion" required type="text" class="form-control">
             <datalist id="buscarCursoAsignacion">
@@ -554,7 +554,7 @@
             <thead>
               <tr style="background-color: #4c4f52; align-content: center">
                 <th style="color: white" scope="col">#</th>
-                <th style="color: white" scope="col">Curso</th>
+                <th style="color: white" scope="col">Semestre</th>
                 <th style="color: white" scope="col">Docente</th>
                 <th style="color: white" scope="col">Periodo</th>
                 <th style="color: white" scope="col">Materia</th>
@@ -596,7 +596,7 @@
 
           <div class="form-group">
 
-            <label for="apellido">Seleccione el Docente que Impartira la materia</label>
+            <label for="apellido">Seleccione el Docente que Impartirá la materia</label>
             <input list="listadoDocentesAsignacion" style="font-size: 85%" [(ngModel)]="selectedDocenteAsignacion"
               name="selectedDocenteAsinacion" required type="text" class="form-control">
 
@@ -616,7 +616,7 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group">
-                <label for="apellido">Seleccione el curso donde se impartira la materia</label>
+                <label for="apellido">Seleccione el Semestre donde se impartira la materia</label>
 
                 <input style="font-size: 85%" list="listadoCursosAsignacion" [(ngModel)]="selectedCursoAsignacion"
                   (change)="selectedCursoA($event.target.value)" name="selectedCursoAsignacion" required type="text"
@@ -704,7 +704,7 @@
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <label for="apellido">Seleccione el curso a matricular</label>
+                <label for="apellido">Seleccione el Semestre a matricular</label>
                 <input style="font-size: 85%" list="listadoCursos" [(ngModel)]="selectedCurso" name="selectedCur"
                   required type="text" class="form-control">
                 <datalist id="listadoCursos">
@@ -1198,7 +1198,7 @@
         <h4 style="color: blue">REPORTE CONSOLIDADO DE NOTAS</h4>
         <br>
         <select (change)="asignarMateriaCurso($event.target.value)" class=" custom-select  mx-auto" required>
-          <option [value]="" selected>Selecciona el curso</option>
+          <option [value]="" selected>Seleccione el Semestre</option>
           <option *ngFor="let oneDoor of this.vectorListadoCursos" value="{{oneDoor.ID_CURSO}},{{oneDoor.CURSO}} ">
             {{oneDoor.CURSO}}: {{oneDoor.PARALELO}} </option>
         </select>
@@ -1288,7 +1288,7 @@
             </button>
 
           </div>
-          <p class="modal-title" id="exampleModalLabel" style="margin-left: 22%">Seleccione el curso e ingrese el
+          <p class="modal-title" id="exampleModalLabel" style="margin-left: 22%">Seleccione el Semestre e ingrese el
             paralelo</p>
           <div style="width: 80%; border: 0; background-color: white;  margin-left: 10%" disabled
             class="modal-body  row">
@@ -1332,7 +1332,7 @@
             </button>
 
           </div>
-          <p class="modal-title" id="exampleModalLabel" style="margin-left: 22%">Seleccione el curso que desea eliminar
+          <p class="modal-title" id="exampleModalLabel" style="margin-left: 22%">Seleccione el Semestre que desea eliminar
           </p>
           <div style="width: 80%; border: 0; background-color: white;  margin-left: 10%" disabled
             class="modal-body  row">

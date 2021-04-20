@@ -657,6 +657,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
       console.log("este es el periodo que vino", response.periodo)
       if (response.periodo != undefined) {
         this.periodoLectivoActual = response.periodo;
+        this.periodoAuxiliar =  this.periodoLectivoActual
 
       }
     }, (err) => { console.log("Existen Complicaciones Intente mas tarde", err) }
@@ -915,7 +916,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     doc.fromHTML("<h4>SEMINARIO BÍBLICO RIOBAMBA</h4>", 170, 2);
     doc.fromHTML("<h4>ASAMBLEAS DE DIOS DEL ECUADOR</h4>", 170, 20);
     doc.fromHTML("<h4>ACTA DE  ASISTENCIAS </h4>", 170, 40);
-    doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoLectivoActual + "</h4>", 170, 60);
+    doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoAuxiliar + "</h4>", 170, 60);
     doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 170, 80);
     doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 100);
     doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 170, 120);
@@ -971,7 +972,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     doc.fromHTML("<h4>SEMINARIO BÍBLICO RIOBAMBA</h4>", 170, 2);
     doc.fromHTML("<h4>ASAMBLEAS DE DIOS DEL ECUADOR</h4>", 170, 20);
     doc.fromHTML("<h4>REPORTE DE PROMEDIOS GENERALES</h4>", 170, 40);
-    doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoLectivoActual + "</h4>", 170, 60);
+    doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoAuxiliar + "</h4>", 170, 60);
     doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 170, 80);
     doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 100);
     doc.fromHTML("<h4  style='text-align: center' >" + this.Titulo1 + "</h4>", 170, 120);
@@ -1025,7 +1026,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     doc.fromHTML("<h4>SEMINARIO BÍBLICO RIOBAMBA</h4>", 170, 2);
     doc.fromHTML("<h4>ASAMBLEAS DE DIOS DEL ECUADOR</h4>", 170, 20);
     doc.fromHTML("<h4>REPORTE GENERAL DE CALIFICACIONES</h4>", 170, 40);
-    doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoLectivoActual + "</h4>", 170, 60);
+    doc.fromHTML("<h4>PERIODO:" + "  " + this.periodoAuxiliar + "</h4>", 170, 60);
     doc.fromHTML("<h4  style='text-align: center' >MATERIA: " + this.Titulo2 + "</h4>", 170, 80);
     doc.fromHTML("<h4  style='text-align: center'>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 100);
     doc.fromHTML("<h4>NÚMERO DE ESTUDIANTES: "+this.listadoEstudianteMatriculas.length+ "</h4>", 170, 120);
@@ -1111,6 +1112,31 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
   }
   recargar() {
     location.reload();
+  }
+
+public opcionMesInicio;
+public opcionAnoInicio;
+public opcionMesFinal;
+public opcionAnoFinal;
+public periodoAuxiliar;
+asignarMesInicio(mesInicio) {
+  this.opcionMesInicio = mesInicio;
+}
+
+asignarAnoInicio(anoInicio) {
+  this.opcionAnoInicio = anoInicio;
+
+}
+
+asignarMesFinal(mesFinal) {
+  this.opcionMesFinal = mesFinal;
+}
+asignarAnoFinal(anoFinal) {
+  this.opcionAnoFinal = anoFinal;
+
+}
+  asignarPeriodoLectivo(){
+    this.periodoAuxiliar= this.opcionMesInicio + "/" + this.opcionAnoInicio + "-" + this.opcionMesFinal + "/" + this.opcionAnoFinal
   }
 
 }

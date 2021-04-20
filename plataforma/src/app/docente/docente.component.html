@@ -16,6 +16,148 @@
 
 <body style="height:100%;">
 
+
+  <div class="modal fade bd-example-modal-lg" id="ModalIngresarParalelo" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center ">
+          <h5 class="modal-title text-center " id="exampleModalLabel">Asignar periodo para los Reportes</h5>
+
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+
+        </div>
+        <h6 class="modal-title  mx-auto" id="exampleModalLabel">Ingrese el periodo</h6>
+        <div style=" border: 0; background-color: white;" disabled class="modal-body  row mx-0 px-3">
+
+
+          <form class="form-control  form-inline ">
+            <div class="input-group w-100">
+              <p style=" font-size: 80% ">Mes inicio &nbsp;&nbsp;&nbsp;</p>
+
+
+
+
+              <select style="font-size: 80%" (change)="asignarMesInicio($event.target.value)"
+                class=" form-control custom-select " required>
+                <option disabled selected hidde [value]="opcionMesInicio" selected>{{opcionMesInicio}} </option>
+                <option value="ENERO">ENERO</option>
+                <option value="FEBRERO">FEBRERO</option>
+                <option value="MARZO">MARZO</option>
+                <option value="ABRIL">ABRIL</option>
+                <option value="MAYO">MAYO</option>
+                <option value="JUNIO">JUNIO</option>
+                <option value="JULIO">JULIO</option>
+                <option value="AGOSTO">AGOSTO</option>
+                <option value="SEPTIEMBRE">SEPTIEMBRE</option>
+                <option value="OCTUBRE">OCTUBRE</option>
+                <option value="NOVIEMBRE">NOVIEMBRE</option>
+                <option value="DICIEMBRE">DICIEMBRE</option>
+              </select>
+
+
+              <p style="color: transparent">d</p>
+
+              <p style="font-size: 80%">Año inicio &nbsp;&nbsp;&nbsp;</p>
+
+
+
+
+              <select style="font-size: 80%" (change)="asignarAnoInicio($event.target.value)" class=" custom-select "
+                required>
+                <option disabled selected hidde [value]="opcionAnoInicio" selected>{{opcionAnoInicio}} </option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+              </select>
+
+
+            </div>
+            <br> <br> <br> <br>
+            <div class="input-group w-100">
+
+              <!-- periodo Final -->
+             
+
+              <p style=" font-size: 80% ">Mes final &nbsp;&nbsp;&nbsp;</p>
+
+
+
+
+              <select style="font-size: 80%" (change)="asignarMesFinal($event.target.value)" class=" custom-select "
+                required>
+                <option disabled selected hidde [value]="opcionMesFinal" selected>{{opcionMesFinal}} </option>
+                <option value="ENERO">ENERO</option>
+                <option value="FEBRERO">FEBRERO</option>
+                <option value="MARZO">MARZO</option>
+                <option value="ABRIL">ABRIL</option>
+                <option value="MAYO">MAYO</option>
+                <option value="JUNIO">JUNIO</option>
+                <option value="JULIO">JULIO</option>
+                <option value="AGOSTO">AGOSTO</option>
+                <option value="SEPTIEMBRE">SEPTIEMBRE</option>
+                <option value="OCTUBRE">OCTUBRE</option>
+                <option value="NOVIEMBRE">NOVIEMBRE</option>
+                <option value="DICIEMBRE">DICIEMBRE</option>
+              </select>
+
+              <p style="color: transparent">d</p>
+
+              <p style="font-size: 80% ">Año final&nbsp;&nbsp;&nbsp;</p>
+
+
+
+
+              <select style="font-size: 80%" (change)="asignarAnoFinal($event.target.value)" class=" custom-select "
+                required>
+                <option disabled selected hidde [value]="opcionAnoFinal" selected>{{opcionAnoFinal}} </option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+              </select>
+
+
+
+
+            </div>
+          </form>
+
+
+
+        </div>
+        <div class="modal-footer">
+
+          <button data-dismiss="modal" aria-label="Close" class="btn btn-primary" (click)="asignarPeriodoLectivo();"> Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" id="mainNav" style="background-color: #0071BD;">
     <a class="navbar-brand" (click)="recargar()" style="color: #ffffff">SEBAD-R</a>
@@ -29,10 +171,24 @@
 
 
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a title="Crear paralelo" class="nav-link dropdown-toggle " id="openModalIngresarParalelo" data-toggle="modal"
+            aria-haspopup="true" aria-expanded="false" data-target="#ModalIngresarParalelo">
+            <i class="fa  fa-list-alt"></i>
+            <span class="d-lg-none">Paralelo
+              <span class="badge badge-pill badge-primary"> Nuevos</span>
+            </span>
+            <span class="indicator text-primary d-none d-lg-block">
+              <i class="fa fa-arrows"></i>
+
+            </span>
+          </a>
+        </li>
+
 
 
         <li>
-          <p style="color: #ffffff">Periodo Actual {{this.periodoLectivoActual}}
+          <p style="color: #ffffff">Periodo Actual {{this.periodoAuxiliar}}
             &nbsp;&nbsp;
             &nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -77,7 +233,7 @@
       <!--Listado -->
 
 
-     
+
 
 
       <!-- cuadro agregar comentario insumos-->

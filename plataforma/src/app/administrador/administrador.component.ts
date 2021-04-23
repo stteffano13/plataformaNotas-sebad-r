@@ -1609,12 +1609,13 @@ try{
         //  ordenar
 
         this.listadoEstudianteMatriculas.forEach(elementE => {
+        
           this.objNotasPT.push([]);
           this.listadoMateriasCurso.forEach(elementM => {
 
             this.listadoNotas.forEach(element => {
 
-              console.log("elementoE", elementE.ESTUDIANTE.ID_ESTUDIANTE, "elemento", element, "elemento", elementM.ID_MATERIA);
+              console.log("elementoE", elementE.ESTUDIANTE.ID_ESTUDIANTE, "elementoEs", element.ID_ESTUDIANTE, "elemento", elementM.ID_MATERIA);
 
 
               if (elementE.ESTUDIANTE.ID_ESTUDIANTE == element.ID_ESTUDIANTE && element.ID_MATERIA == elementM.ID_MATERIA) {
@@ -1663,104 +1664,6 @@ try{
 
 
 
-  traerNotasMatrisB(value) {
-
-    this.objNotasPT = [[]];
-    this.diviciones;
-    this.nuevo = [];
-    this.nuevo2 = [];
-    let i = 0;
-    this._notaService.buscarNotasMatrisB(value).subscribe(
-      response => {
-        this.loading = false;
-        this.listadoNotas = response.vectorNotas;
-
-        //  ordenar
-
-
-        this.listadoEstudianteMatriculas.forEach(elementE => {
-
-          this.objNotasPT.push([]);
-          this.listadoMateriasCurso.forEach(elementM => {
-            this.listadoNotas.forEach(element => {
-
-              console.log("elementoE", elementE, "elemento", element, "ELEMTNM", elementM);
-
-
-
-              if (elementE.ESTUDIANTE.ID_ESTUDIANTE == element.ID_ESTUDIANTE && element.ID_MATERIA == elementM.ID_MATERIA) {
-
-                this.objNotasPT[i].push(element.PT);
-
-              } else
-                //this.objNotasPT[i].push(0)
-
-                if (elementE.ESTUDIANTE.ID_ESTUDIANTE == element.ID_ESTUDIANTE) {
-                  this.objNotasPT[i].push(0);
-
-                }
-
-
-            });
-
-          });
-          i++;
-          // this.objNotasPT.push(";");
-        });
-
-        /* this.objNotasPT.pop();
-         console.log("notas del promedio total", this.objNotasPT);
-         this.diviciones = this.objNotasPT.toString().split(";");
-         console.log("diviciones0", this.diviciones[0]);
-         console.log("divicione1", this.diviciones[1]);
-         console.log("divicione2", this.diviciones[2]);
- 
-         for (let i = 0; i < this.diviciones.length; i++) {
- 
-           if (i == this.diviciones.length - 1) {
-             this.nuevo = this.diviciones[i].substring(1).split(",");
- 
-           } else {
- 
-             if (i % 2 == 0) {
- 
-               var n = this.diviciones[i].slice(0, -1).split(",");
-               this.nuevo = n.filter(Boolean);
-             } else {
-               var n2 = this.diviciones[i].slice(1, -1).split(",");
-               this.nuevo = n2.filter(Boolean);
- 
-             }
-           }
-           this.nuevo2.push(this.nuevo);
-           console.log("final", this.nuevo2);
-         }
- */
-        console.log("final", this.objNotasPT);
-        this.loading = false;
-
-      },
-      error => {
-        this.loading = false;
-        var errorMessage = <any>error;
-        if (errorMessage) {
-          console.log(errorMessage);
-          try {
-            var body = JSON.parse(error._body);
-            errorMessage = body.message;
-          } catch {
-            errorMessage = "No hay conexión intentelo más tarde";
-            this.loading = false;
-            document.getElementById("openModalError").click();
-          }
-          // this.loading =false;
-        }
-        // this.loading =false;
-      }
-
-    );
-
-  }
 
 
   getListadoDocentes() {

@@ -1136,4 +1136,9 @@ asignarAnoFinal(anoFinal) {
     this.periodoAuxiliar= this.opcionMesInicio + "/" + this.opcionAnoInicio + "-" + this.opcionMesFinal + "/" + this.opcionAnoFinal
   }
 
+  eliminarEstudiante(i){
+    this.listadoEstudianteMatriculas.splice(i,1);
+
+  }
+
 }

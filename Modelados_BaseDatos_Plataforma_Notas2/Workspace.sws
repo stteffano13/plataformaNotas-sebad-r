@@ -4,9 +4,9 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model Expanded="Yes" ID="{5A0145D5-DE43-46B5-B054-DDB090627889}" Name="Modelo_Conceptual_SIC" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Modelo_Conceptual_SIC.cdm"/>
-		<Model Expanded="Yes" ID="{DEFB398B-7EBF-4C6F-91A5-29467C7EE844}" Name="Modelo_Logical_SIC" Type="{5F45F978-C4F3-4E35-A3FC-AF3318663A0F}" URL="../../plataformaNotas2/Modelados_BaseDatos_Plataforma_Notas2/Modelo_Logical_SIC.ldm"/>
-		<Model Expanded="Yes" ID="{F07C7BD7-CF67-4236-8847-B1474E1C517C}" Name="Modelo_Physicall_SIC" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="../../plataformaNotas2/Modelados_BaseDatos_Plataforma_Notas2/Modelo_Physicall_SIC.pdm"/>
+		<Model Expanded="Yes" ID="{5A0145D5-DE43-46B5-B054-DDB090627889}" Name="Modelo_Conceptual_SIC" Selected="Yes" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Modelo_Conceptual_SIC.cdm"/>
+		<Model Expanded="Yes" ID="{DEFB398B-7EBF-4C6F-91A5-29467C7EE844}" Loaded="No" Name="Modelo_Logical_SIC" Type="{5F45F978-C4F3-4E35-A3FC-AF3318663A0F}" URL="../../plataformaNotas2/Modelados_BaseDatos_Plataforma_Notas2/Modelo_Logical_SIC.ldm"/>
+		<Model Expanded="Yes" ID="{F07C7BD7-CF67-4236-8847-B1474E1C517C}" Loaded="No" Name="Modelo_Physicall_SIC" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="../../plataformaNotas2/Modelados_BaseDatos_Plataforma_Notas2/Modelo_Physicall_SIC.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

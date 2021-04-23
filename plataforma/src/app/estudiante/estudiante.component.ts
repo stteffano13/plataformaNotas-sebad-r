@@ -123,10 +123,12 @@ export class EstudianteComponent implements OnInit, DoCheck {
 
     this.loading = true;
     this.vectorListadoMisMaterias = [];
+    let vectorListadoMisMateriasAux;
     this.subscribe2= await this._matriculaServices.getListadoMioMateria().subscribe(response => {
 
       if (response.materias[0] != undefined) {
-        this.vectorListadoMisMaterias = response.materias;
+        this.vectorListadoMisMaterias = response.materias[0];
+        
         console.log("las amterias", this.vectorListadoMisMaterias);
 
           this.banderTabla1 = true;
@@ -134,7 +136,7 @@ export class EstudianteComponent implements OnInit, DoCheck {
           for (let i = 0; i <= Object.keys(this.vectorListadoMisMaterias).length; i++) {
 
             this.object.push(this.obj = new Nota("", "", "","",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"",0));
-            this.objectCalculable.push(this.objC = new Calculable(0,0,0,0,0,0,0,0,0,0,""));
+            this.objectCalculable.push(this.objC = new Calculable(0,0,0,0,0,0,0,0,0,0,"Reprobado"));
             console.log("estos son los seros del objeto", this.object);
           }
         
@@ -476,5 +478,10 @@ export class EstudianteComponent implements OnInit, DoCheck {
   }
   apagar() {
     this.loading = false;
+  }
+
+  eliminarMateria(i){
+    this.vectorListadoMisMaterias.splice(i,1);
+
   }
 }

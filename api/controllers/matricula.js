@@ -94,50 +94,50 @@ async function guardarSegundo(idE, idC, params, res) {
             where: { ESTADO_MATRICULA: 0, ID_ESTUDIANTE: idE.ID_ESTUDIANTE, PERIODO: params.periodo }
         })
 
-     
 
-            let array = await Matricula.findAll();
 
-            if (array) {
+        let array = await Matricula.findAll();
 
-                array.forEach(element => {
+        if (array) {
 
-                    count++
-                });
-                count++;
-                console.log("fecha", fecha);
-                matricula.CODIGO_MATRICULA = "CODMT" + count;
-                matricula.ID_ESTUDIANTE = idE.ID_ESTUDIANTE;
-                matricula.ID_CURSO = idC.ID_CURSO;
-                matricula.PERIODO = params.periodo;
-                matricula.FECHA_MATRICULA = fecha;
-                matricula.ESTADO_MATRICULA = params.estado;
-                console.log("Matricula", matricula);
+            array.forEach(element => {
 
-                if (idC.ID_CURSO && idE.ID_ESTUDIANTE) {
+                count++
+            });
+            count++;
+            console.log("fecha", fecha);
+            matricula.CODIGO_MATRICULA = "CODMT" + count;
+            matricula.ID_ESTUDIANTE = idE.ID_ESTUDIANTE;
+            matricula.ID_CURSO = idC.ID_CURSO;
+            matricula.PERIODO = params.periodo;
+            matricula.FECHA_MATRICULA = fecha;
+            matricula.ESTADO_MATRICULA = params.estado;
+            console.log("Matricula", matricula);
 
-                    let matriculaGuardada = await matricula.save();
+            if (idC.ID_CURSO && idE.ID_ESTUDIANTE) {
 
-                    if (!matriculaGuardada) {
-                        res.status(404).send({
-                            message: 'No se ha generado la matricula'
-                        });
-                    } else {
-                        res.status(200).send({
-                            message: 'La matricula se ha generado correctamente'
-                        });
-                    }
+                let matriculaGuardada = await matricula.save();
 
+                if (!matriculaGuardada) {
+                    res.status(404).send({
+                        message: 'No se ha generado la matricula'
+                    });
                 } else {
-                    res.status(500).send({
-                        message: 'No han llegado todos los datos'
+                    res.status(200).send({
+                        message: 'La matricula se ha generado correctamente'
                     });
                 }
-                //
+
+            } else {
+                res.status(500).send({
+                    message: 'No han llegado todos los datos'
+                });
             }
+            //
+        }
 
 
-   
+
 
     } catch (err) {
         res.status(500).send({
@@ -282,9 +282,7 @@ async function getlistadoMateriasE(req, res) {
             });
         } else {
 
-
             //////////////////////
-
             var periodo = await Periodo.findOne();
 
             if (!periodo) {
@@ -298,56 +296,74 @@ async function getlistadoMateriasE(req, res) {
                         message: 'No tiene viajes'
                     });
                 }
-                console.log("response curso", matriculas[0].CURSO.ID_CURSO);
-                getListadoMioMateriasE(req, res, matriculas[0].CURSO.ID_CURSO)
+                console.log("response matriculas",matriculas.length);
+                
+
+               getListadoMioMateriasE(req, res, matriculas);
             }
         }
 
     } catch (err) {
+        console.log(err)
         res.status(500).send({
             message: err.name
         });
     }
+    
 }
 
 
 async function getListadoMioMateriasE(req, res, busquedaE) {
-
+    var vectorMaterias = [];
+    let cont = 0;
     try {
-        var busqueda = busquedaE;
-
-        console.log(busqueda);
-        if (!busqueda) {
-            res.status(404).send({
-                message: 'Ingrese un parametro de busqueda'
-            });
-        } else {
-
-            var periodo = await Periodo.findOne();
-
-
-            if (!periodo) {
-                return res.status(200).send({
-                    message: 'No tiene viajes'
-                });
-            } else {
-                console.log("todo ready entre a buscar", periodo.PERIODO);
-                let materias = await Materia.findAll({ where: { ID_CURSO: busqueda, ESTADO_MATERIA: 0, PERIODO: periodo.dataValues.PERIODO }, include: { model: Curso } });
-                if (!materias) {
-                    return res.status(200).send({
-                        message: 'No tiene materias'
+        busquedaE.forEach(async (busqueda) => {
+           
+              
+                if (!busqueda) {
+                    res.status(404).send({
+                        message: 'Ingrese un parametro de busqueda'
                     });
                 } else {
-
-                    return res.status(200).send({
-                        materias
-
-                    });
+                    var periodo = await Periodo.findOne();
+                    if (!periodo) {
+                        return res.status(200).send({
+                            message: 'No tiene viajes'
+                        });
+                    } else {
+                        console.log("todo ready entre a buscar", periodo.PERIODO);
+                        let materias = await Materia.findAll({ where: { ID_CURSO: busqueda.CURSO.ID_CURSO, ESTADO_MATERIA: 0, PERIODO: periodo.dataValues.PERIODO }, include: { model: Curso } });
+                        cont++;
+                        if (!materias) {
+                            return res.status(200).send({
+                                message: 'No tiene materias'
+                            });
+                        } else {
+                         
+                            if(cont==1)
+                            {
+                                vectorMaterias.push(materias);
+                            }else{
+                                materias.forEach(m=>{
+                                    vectorMaterias[0].push(m);
+                                })
+                                
+                            }
+                           
+                           
+                            
+                            console.log(busquedaE.length-1);
+                            if (cont == busquedaE.length) {
+                                console.log("materias antes de regresar", vectorMaterias)
+                                return res.status(200).send({
+                                    materias: vectorMaterias
+                                });
+                            }
+                        }
+                    }
                 }
-
-            }
-
-        }
+            
+        });
 
     } catch (err) {
         res.status(500).send({

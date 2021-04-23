@@ -315,6 +315,7 @@
             <th style="color: white" scope="col" class="verticalText">Total Parcial 2</th>
             <th style="color: white" scope="col" class="verticalText">Total Final</th>
             <th style="color: white" scope="col" class="verticalText">Estado</th>
+            <th style="color: white" scope="col" class="verticalText">Opción</th>
           </tr>
         </thead>
         <tbody>
@@ -329,28 +330,28 @@
             <th scope="row">{{i+1}}</th>
             <td class="active">{{listado.NOMBRE_MATERIA}} </td>
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia1" name="Asistencia1{{i}}">
+              <input id="tdboton" disabled type="text" [(ngModel)]="this.object[i].Asistencia1" name="Asistencia1{{i}}">
             </td>
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia2" name="Asistencia2{{i}}">
+              <input id="tdboton" disabled type="text" [(ngModel)]="this.object[i].Asistencia2" name="Asistencia2{{i}}">
             </td>
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia3" name="Asistencia3{{i}}">
+              <input id="tdboton" disabled type="text" [(ngModel)]="this.object[i].Asistencia3" name="Asistencia3{{i}}">
             </td>
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia4" name="Asistencia4{{i}}">
+              <input id="tdboton" disabled type="text" [(ngModel)]="this.object[i].Asistencia4" name="Asistencia4{{i}}">
             </td>
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia5" name="Asistencia5{{i}}">
+              <input id="tdboton" disabled type="text" [(ngModel)]="this.object[i].Asistencia5" name="Asistencia5{{i}}">
             </td>
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia6" name="Asistencia6{{i}}">
+              <input id="tdboton" disabled type="text" [(ngModel)]="this.object[i].Asistencia6" name="Asistencia6{{i}}">
             </td>
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia7" name="Asistencia7{{i}}">
+              <input id="tdboton" disabled  type="text" [(ngModel)]="this.object[i].Asistencia7" name="Asistencia7{{i}}">
             </td>
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Asistencia8" name="Asistencia8{{i}}">
+              <input id="tdboton" disabled  type="text" [(ngModel)]="this.object[i].Asistencia8" name="Asistencia8{{i}}">
             </td>
             <td id="tdfila" style="background-color:yellow">
               <input disabled style="background-color: yellow" id="tdboton" type="text"
@@ -359,46 +360,46 @@
 
 
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea1" name="Tarea1{{i}}">
+              <input id="tdboton" disabled type="text" [(ngModel)]="this.object[i].Tarea1" name="Tarea1{{i}}">
             </td>
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea2" name="Tarea2{{i}}">
+              <input id="tdboton" disabled type="text" [(ngModel)]="this.object[i].Tarea2" name="Tarea2{{i}}">
             </td>
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea3" name="Tarea3{{i}}">
+              <input id="tdboton"  disabled type="text" [(ngModel)]="this.object[i].Tarea3" name="Tarea3{{i}}">
             </td>
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea4" name="Tarea4{{i}}">
+              <input id="tdboton" disabled type="text" [(ngModel)]="this.object[i].Tarea4" name="Tarea4{{i}}">
             </td>
 
-            <td id="tdfila" style="background-color:yellow">
+            <td id="tdfila" disabled style="background-color:yellow">
               <input disabled id="tdboton" style="background-color:yellow"
                 [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas1"
                 name="treintaycincoporcientotareas1{{i}}" type="text">
             </td>
 
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Proyecto1" name="Proyecto1{{i}}">
+              <input id="tdboton" disabled  type="text" [(ngModel)]="this.object[i].Proyecto1" name="Proyecto1{{i}}">
             </td>
 
 
-            <td id="tdfila" style="background-color:yellow">
+            <td id="tdfila" disabled  style="background-color:yellow">
               <input disabled id="tdboton" style="background-color:yellow"
                 [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto1" name="treintaporcientoproyecto1{{i}}"
                 type="text">
             </td>
 
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Examen1" name="Examen1{{i}}">
+              <input id="tdboton" disabled type="text" [(ngModel)]="this.object[i].Examen1" name="Examen1{{i}}">
             </td>
 
-            <td id="tdfila" style="background-color:yellow">
+            <td id="tdfila" disabled style="background-color:yellow">
               <input disabled id="tdboton" style="background-color:yellow"
                 [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen1" name="treintaporcientoexamen1{{i}}"
                 type="text">
             </td>
 
-            <td id="tdfila" style="background-color:rgb(215, 253, 138)">
+            <td id="tdfila" disabled style="background-color:rgb(215, 253, 138)">
               <input disabled id="tdboton" style="background-color:rgb(215, 253, 138)"
                 [(ngModel)]="this.objectCalculable[i].totalparcial1" name="totalparcial1{{i}}" type="text">
             </td>
@@ -407,48 +408,48 @@
 
 
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea11" name="Tarea11{{i}}">
+              <input id="tdboton" disabled type="text" [(ngModel)]="this.object[i].Tarea11" name="Tarea11{{i}}">
             </td>
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea22" name="Tarea22{{i}}">
+              <input id="tdboton" disabled type="text" [(ngModel)]="this.object[i].Tarea22" name="Tarea22{{i}}">
             </td>
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea33" name="Tarea33{{i}}">
+              <input id="tdboton" disabled type="text" [(ngModel)]="this.object[i].Tarea33" name="Tarea33{{i}}">
             </td>
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Tarea44" name="Tarea44{{i}}">
+              <input id="tdboton" disabled  type="text" [(ngModel)]="this.object[i].Tarea44" name="Tarea44{{i}}">
             </td>
 
 
 
-            <td id="tdfila" style="background-color:yellow">
+            <td id="tdfila" disabled style="background-color:yellow">
               <input disabled id="tdboton" style="background-color:yellow"
                 [(ngModel)]="this.objectCalculable[i].treintaycincoporcientotareas2"
                 name="treintaycincoporcientotareas2{{i}}" type="text">
             </td>
 
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Proyecto2" name="Proyecto2{{i}}">
+              <input id="tdboton"  disabled type="text" [(ngModel)]="this.object[i].Proyecto2" name="Proyecto2{{i}}">
             </td>
 
 
-            <td id="tdfila" style="background-color:yellow">
+            <td id="tdfila" disabled style="background-color:yellow">
               <input disabled id="tdboton" style="background-color:yellow"
                 [(ngModel)]="this.objectCalculable[i].treintaporcientoproyecto2" name="treintaporcientoproyecto2{{i}}"
                 type="text">
             </td>
 
             <td id="tdfila">
-              <input id="tdboton" type="text" [(ngModel)]="this.object[i].Examen2" name="Examen2{{i}}">
+              <input id="tdboton" disabled  type="text" [(ngModel)]="this.object[i].Examen2" name="Examen2{{i}}">
             </td>
 
-            <td id="tdfila" style="background-color:yellow">
+            <td id="tdfila" disabled  style="background-color:yellow">
               <input disabled id="tdboton" style="background-color:yellow"
                 [(ngModel)]="this.objectCalculable[i].treintaycincoporcientoexamen2" name="treintaporcientoexamen2{{i}}"
                 type="text">
             </td>
 
-            <td id="tdfila" style="background-color:rgb(215, 253, 138)">
+            <td id="tdfila" disabled  style="background-color:rgb(215, 253, 138)">
               <input disabled id="tdboton" style="background-color:rgb(215, 253, 138)"
                 [(ngModel)]="this.objectCalculable[i].totalparcial2" name="totalparcial2{{i}}" type="text">
             </td>
@@ -459,22 +460,25 @@
 
 
 
-            <td id="tdfila" style="background-color: lawngreen">
+            <td id="tdfila" disabled style="background-color: lawngreen">
               <input disabled id="tdboton" style="background-color:lawngreen"
                 [(ngModel)]="this.objectCalculable[i].promedioPeriodo" name="promedioPeriodo{{i}}" type="text">
             </td>
 
-            <td id="tdfila" style="background-color: lawngreen">
+            <td id="tdfila" disabled  style="background-color: lawngreen">
               <input disabled id="tdboton" style="background-color:lawngreen"
                 [(ngModel)]="this.objectCalculable[i].EstadoNotas" name="EstadoNotas{{i}}" type="text">
             </td>
 
+            <td id="tdfila">
+              <button  id="tdbuttonEliminar{{i}}" type="button" (click)="eliminarMateria(i)" style="border: none;" class="btn btn-light"><i class=" fa fa-close"></i></button>
+            </td>
 
 
             <td id="tdfila">
-              <button id="tdbuttonGuardar{{i}}" type="button" (click)="prueba(listado,i)" style="border: none;" hidden></button>
+              <button  id="tdbuttonGuardar{{i}}" type="button" (click)="prueba(listado,i)" style="border: none;" hidden></button>
             </td>
-
+            
 
 
           </tr>

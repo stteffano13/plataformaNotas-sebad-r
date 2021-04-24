@@ -1543,7 +1543,6 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
         if (this.listadoEstudianteMatriculas != null && valu1 != "BÁSICO SUPERIOR INTENSIVO ") {
 
 
-          this.loading = false;
           var objBuscarNotas = {
 
             materias: this.listadoMateriasCurso,
@@ -1635,26 +1634,22 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
       });
 
 
-      console.log("hola quesf no sale")
-      this.loading = false;
       let h = 0
       let k = 0;
 
 
-      for (k = 0; k <= this.objNotasPT[0].length-1; k++) {
+      for (k = 0; k <= this.objNotasPT[0].length - 1; k++) {
 
         var aux = 0
-        for (h = 0; h < this.objNotasPT.length-1; h++) {
-          console.log("resultado aux final", h+":"+this.objNotasPT[h][k] );
+        for (h = 0; h < this.objNotasPT.length - 1; h++) {
+          console.log("resultado aux final", h + ":" + this.objNotasPT[h][k]);
           aux = aux + this.objNotasPT[h][k];
         }
 
         console.log("resultado aux final", aux);
 
-        this.objNotasPT[this.objNotasPT.length - 1].push(aux/(this.objNotasPT.length-1));
+        this.objNotasPT[this.objNotasPT.length - 1].push(aux / (this.objNotasPT.length - 1));
       }
-    
-
 
 
 
@@ -1670,11 +1665,11 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
       }
 
 
+      this.loading = false;
 
 
-  
 
-      
+
 
 
     } catch (error) {

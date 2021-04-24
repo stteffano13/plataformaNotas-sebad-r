@@ -22,6 +22,7 @@ import * as jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { UserOptions } from 'jspdf-autotable';
 import { ExcelService } from '../services/excel.service';
+import { Console } from 'console';
 
 
 
@@ -1495,7 +1496,7 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
   asignarMateriaCurso(value) {
     console.log("value de nivel", value);
-   this.Nivel=value;
+    this.Nivel = value;
     var busqueda = value.split(",");
     this.loading = true;
 
@@ -1552,15 +1553,6 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
           //this.traerNotasB(objBuscarNotas);
 
-        } else {
-          this.loading = false;
-          var objBuscarNotas = {
-
-            materias: this.listadoMateriasCurso,
-            buscar: this.listadoEstudianteMatriculas
-          }
-          this.traerNotasMatrisB(objBuscarNotas);
-
         }
 
       },
@@ -1587,78 +1579,123 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
 
   async traerNotasMatris() {
-try{
-    var objBuscarNotas = {
+    try {
+      var objBuscarNotas = {
 
-      materias: this.listadoMateriasCurso,
-      buscar: this.listadoEstudianteMatriculas
-    }
-    var value = objBuscarNotas;
-    this.objNotasPT = [[]];
-    this.diviciones;
-    this.nuevo = [];
-    this.nuevo2 = [];
-    let i = 0;
-    console.log(" hoal entre a matris", value);
-    let response = await this._notaService.buscarNotasMatris(value).toPromise();
-    
+        materias: this.listadoMateriasCurso,
+        buscar: this.listadoEstudianteMatriculas
+      }
+      var value = objBuscarNotas;
+      this.objNotasPT = [[]];
+      this.diviciones;
+      this.nuevo = [];
+      this.nuevo2 = [];
 
-        this.loading = false;
-        this.listadoNotas = response.vectorNotas;
-        console.log("listado de notas antes de nada", response);
-        //  ordenar
-
-        this.listadoEstudianteMatriculas.forEach(elementE => {
-        
-          this.objNotasPT.push([]);
-          this.listadoMateriasCurso.forEach(elementM => {
-
-            this.listadoNotas.forEach(element => {
-
-              console.log("elementoE", elementE.ESTUDIANTE.ID_ESTUDIANTE, "elementoEs", element.ID_ESTUDIANTE, "elemento", elementM.ID_MATERIA);
+      console.log(" hoal entre a matris", value);
+      let response = await this._notaService.buscarNotasMatris(value).toPromise();
 
 
-              if (elementE.ESTUDIANTE.ID_ESTUDIANTE == element.ID_ESTUDIANTE && element.ID_MATERIA == elementM.ID_MATERIA) {
+      this.loading = false;
+      this.listadoNotas = response.vectorNotas;
+      console.log("listado de notas antes de nada", response);
+      //  ordenar
+      let i = 0, j = 0;
+      this.listadoEstudianteMatriculas.forEach(elementE => {
+        this.objNotasPT.push([]);
 
-                this.objNotasPT[i].push(element.PT)
+        this.listadoMateriasCurso.forEach(elementM => {
+          var bandera = false;
+          this.listadoNotas.forEach(element => {
 
-              } else
-                //this.objNotasPT[i].push(0)
+            // console.log("elementoE", elementE.ESTUDIANTE.ID_ESTUDIANTE, "elementoEs", element.ID_ESTUDIANTE, "elementoMateria", elementM.ID_MATERIA, "element Materia", elementM.ID_MATERIA);
 
-                if (elementE.ESTUDIANTE.ID_ESTUDIANTE == element.ID_ESTUDIANTE) {
-                  this.objNotasPT[i].push(0);
 
-                }
+            if ((elementE.ESTUDIANTE.ID_ESTUDIANTE == element.ID_ESTUDIANTE) && (element.ID_MATERIA == elementM.ID_MATERIA)) {
+              bandera = true;
+              this.objNotasPT[i].push(element.PT);
 
-            });
+            }
+            //this.objNotasPT[i].push(0)
+
 
           });
-          i++;
-          //  this.objNotasPT.push(";");
+          if (bandera == false) {
+            this.objNotasPT[i].push(0);
+
+          }
+
         });
 
-        console.log("notas del promedio total", this.objNotasPT);
-        this.loading = false;
 
-      }catch(error) {
-        this.loading = false;
-        var errorMessage = <any>error;
-        if (errorMessage) {
-          console.log(errorMessage);
-          try {
-            var body = JSON.parse(error._body);
-            errorMessage = body.message;
-          } catch {
-            errorMessage = "No hay conexión intentelo más tarde";
-            this.loading = false;
-            document.getElementById("openModalError").click();
-          }
-          // this.loading =false;
+
+
+        i++;
+
+
+      });
+
+
+      console.log("hola quesf no sale")
+      this.loading = false;
+      let h = 0
+      let k = 0;
+
+
+      for (k = 0; k <= this.objNotasPT[0].length-1; k++) {
+
+        var aux = 0
+        for (h = 0; h < this.objNotasPT.length-1; h++) {
+          console.log("resultado aux final", h+":"+this.objNotasPT[h][k] );
+          aux = aux + this.objNotasPT[h][k];
+        }
+
+        console.log("resultado aux final", aux);
+
+        this.objNotasPT[this.objNotasPT.length - 1].push(aux/(this.objNotasPT.length-1));
+      }
+    
+
+
+
+
+      for (h = 0; h < this.objNotasPT.length; h++) {
+
+        var aux = 0
+        for (k = 0; k < this.objNotasPT[h].length; k++) {
+          aux = aux + this.objNotasPT[h][k];
+
+        }
+        aux = aux / this.objNotasPT[h].length;
+        this.objNotasPT[h].push(aux);
+      }
+
+
+
+
+  
+
+      
+
+
+    } catch (error) {
+      this.loading = false;
+      var errorMessage = <any>error;
+      if (errorMessage) {
+        console.log(errorMessage);
+        try {
+          var body = JSON.parse(error._body);
+          errorMessage = body.message;
+        } catch {
+          errorMessage = "No hay conexión intentelo más tarde";
+          this.loading = false;
+          document.getElementById("openModalError").click();
         }
         // this.loading =false;
       }
+      // this.loading =false;
+    }
 
-    
+
 
   }
 
@@ -1790,8 +1827,8 @@ try{
     doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ASAMBLEAS DE DIOS DEL ECUADOR</h5>", 170, 20);
     doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>REPORTE CONSOLIDADO DE NOTAS </h5>", 170, 40);
     doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>PERIODO:" + "  " + this.opcionPeriodoLectivo + "</h5>", 170, 60);
-    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>"+this.listadoEstudianteMatriculas[0].CURSO.CURSO +"  "+this.listadoEstudianteMatriculas[0].CURSO.PARALELO+ "</h5>", 170, 80);
-    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>NÚMERO DE ESTUDIANTES"+this.listadoEstudianteMatriculas.length+ "</h5>", 170, 100);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>" + this.listadoEstudianteMatriculas[0].CURSO.CURSO + "  " + this.listadoEstudianteMatriculas[0].CURSO.PARALELO + "</h5>", 170, 80);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>NÚMERO DE ESTUDIANTES" + this.listadoEstudianteMatriculas.length + "</h5>", 170, 100);
 
     doc.autoTable({
       html: '#consolidado', startY: 130, styles: {
@@ -1825,7 +1862,7 @@ try{
     this.VreporteExcel.unshift(materias);
     console.log("esto es antes de generar excel", this.VreporteExcel);
     this.excelService.exportAsExcelFile(this.VreporteExcel, 'Consolidado_Final', this.listadoMateriasCurso);
-      this.objNotasPT.shift();
+    this.objNotasPT.shift();
     for (var i in this.listadoEstudianteMatriculas) {
       this.objNotasPT[i].shift();
     }

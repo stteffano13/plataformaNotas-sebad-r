@@ -1648,7 +1648,7 @@ export class AdministradorComponent implements OnInit, AfterViewInit {
 
         console.log("resultado aux final", aux);
 
-        this.objNotasPT[this.objNotasPT.length - 1].push(aux / (this.objNotasPT.length - 1));
+        this.objNotasPT[this.objNotasPT.length - 1].push( (aux / (this.objNotasPT.length - 1)).toFixed(2)); //calculo por materias 
       }
 
 

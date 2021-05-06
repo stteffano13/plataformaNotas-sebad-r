@@ -493,7 +493,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
 
   calculosInit(i) {
-    
+
     this.banderaHabilitar = true;
     this.banderAux = true;
     if (this.object[i].Asistencia1 > 10 || this.object[i].Asistencia2 > 10 || this.object[i].Asistencia3 > 10 || this.object[i].Asistencia4 > 10
@@ -657,7 +657,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
       console.log("este es el periodo que vino", response.periodo)
       if (response.periodo != undefined) {
         this.periodoLectivoActual = response.periodo;
-        this.periodoAuxiliar =  this.periodoLectivoActual
+        this.periodoAuxiliar = this.periodoLectivoActual
 
       }
     }, (err) => { console.log("Existen Complicaciones Intente mas tarde", err) }
@@ -900,7 +900,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     location.reload(true);
   }
 
-  generarPdfAsistencias(){
+  generarPdfAsistencias() {
     interface jsPDFWithPlugin extends jsPDF {
       autoTable: (options: UserOptions) => jsPDF;
     }
@@ -910,7 +910,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
 
     const doc = new jsPDF('l', 'px', 'a4') as jsPDFWithPlugin;;
-   
+
     var pageWidth = doc.internal.pageSize.width
     doc.addImage(logo, 'PNG', 30, 15, 120, 100);
     doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>SEMINARIO BÍBLICO RIOBAMBA</h5>", 170, 2);
@@ -920,9 +920,9 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     doc.fromHTML("<h5  style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>MATERIA: " + this.Titulo2 + "</h5>", 170, 80);
     doc.fromHTML("<h5  style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h4>", 170, 100);
     doc.fromHTML("<h5  style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; ' >" + this.Titulo1 + "</h5>", 170, 120);
-    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ESTUDIANTES: "+this.listadoEstudianteMatriculas.length+ "</h5>", 170, 140);
-    
-   
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ESTUDIANTES: " + this.listadoEstudianteMatriculas.length + "</h5>", 170, 140);
+
+
     doc.autoTable({
       html: '#resultsAsistencias', startY: 170, columnStyles: {
         7: { fillColor: [249, 247, 95] },
@@ -940,15 +940,15 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     });
 
     var pageHeight = doc.internal.pageSize.height;
-    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 75, pageHeight - pageHeight / 6);
-    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 265, pageHeight - pageHeight / 6);
-    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 455, pageHeight - pageHeight / 6);
-    doc.fromHTML(" <p style='text-align: center'>PROFESOR(A)</p>", 100, pageHeight - pageHeight / 8);
-    doc.fromHTML(" <p style='text-align: center'>ACADEMICO</p>", 290, pageHeight - pageHeight / 8);
-    doc.fromHTML(" <p style='text-align: center'>SECRETARIO</p>", 480, pageHeight - pageHeight / 8);
+    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 75, pageHeight - pageHeight / 8);
+    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 265, pageHeight - pageHeight / 8);
+    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 455, pageHeight - pageHeight / 8);
+    doc.fromHTML(" <p style='text-align: center'>PROFESOR(A)</p>", 100, pageHeight - pageHeight / 10);
+    doc.fromHTML(" <p style='text-align: center'>SECRETARIO - ACADÉMICO</p>", 260, pageHeight - pageHeight / 10);
+    doc.fromHTML(" <p style='text-align: center'>RECTORA</p>", 490, pageHeight - pageHeight / 10);
 
-    doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 280, pageHeight - pageHeight / 10);
-    doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 470, pageHeight - pageHeight / 10);
+    doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 280, pageHeight - pageHeight / 12);
+    doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 470, pageHeight - pageHeight / 12);
     this.loading = false;
 
     doc.save('Reporte_Asistencias_Docente.pdf');
@@ -956,7 +956,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
 
   }
 
-  generarPdfPromedios(){
+  generarPdfPromedios() {
     interface jsPDFWithPlugin extends jsPDF {
       autoTable: (options: UserOptions) => jsPDF;
     }
@@ -976,7 +976,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; ' >MATERIA: " + this.Titulo2 + "</h5>", 170, 80);
     doc.fromHTML("<h5  style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h5>", 170, 100);
     doc.fromHTML("<h5  style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; ' >" + this.Titulo1 + "</h5>", 170, 120);
-    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ESTUDIANTES: "+this.listadoEstudianteMatriculas.length+ "</h5>", 170, 140);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ESTUDIANTES: " + this.listadoEstudianteMatriculas.length + "</h5>", 170, 140);
     doc.autoTable({
       html: '#resultsPromedios', startY: 170, columnStyles: {
         2: { fillColor: [249, 247, 95] },
@@ -991,15 +991,15 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     });
 
     var pageHeight = doc.internal.pageSize.height;
-    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 75, pageHeight - pageHeight / 6);
-    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 265, pageHeight - pageHeight / 6);
-    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 455, pageHeight - pageHeight / 6);
-    doc.fromHTML(" <p style='text-align: center'>PROFESOR(A)</p>", 100, pageHeight - pageHeight / 8);
-    doc.fromHTML(" <p style='text-align: center'>ACADEMICO</p>", 290, pageHeight - pageHeight / 8);
-    doc.fromHTML(" <p style='text-align: center'>SECRETARIO</p>", 480, pageHeight - pageHeight / 8);
+    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 75, pageHeight - pageHeight / 8);
+    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 265, pageHeight - pageHeight / 8);
+    doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 455, pageHeight - pageHeight / 8);
+    doc.fromHTML(" <p style='text-align: center'>PROFESOR(A)</p>", 100, pageHeight - pageHeight / 10);
+    doc.fromHTML(" <p style='text-align: center'>SECRETARIO - ACADÉMICO</p>", 260, pageHeight - pageHeight / 10);
+    doc.fromHTML(" <p style='text-align: center'>RECTORA</p>", 490, pageHeight - pageHeight / 10);
 
-    doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 280, pageHeight - pageHeight / 10);
-    doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 470, pageHeight - pageHeight / 10);
+    doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 280, pageHeight - pageHeight / 12);
+    doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 470, pageHeight - pageHeight / 12);
     this.loading = false;
 
     doc.save('Reporte_Promedios_Docente.pdf');
@@ -1026,7 +1026,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>PERIODO:" + "  " + this.periodoAuxiliar + "</h5>", 170, 60);
     doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>MATERIA: " + this.Titulo2 + "</h5>", 170, 80);
     doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>DOCENTE: " + this.identity.APELLIDO_DOCENTE + " " + this.identity.NOMBRE_DOCENTE + "</h5>", 170, 100);
-    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ESTUDIANTES: "+this.listadoEstudianteMatriculas.length+ "</h5>", 170, 120);
+    doc.fromHTML("<h5 style='font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; '>ESTUDIANTES: " + this.listadoEstudianteMatriculas.length + "</h5>", 170, 120);
     var cont = this.listadoEstudianteNotas.length;
 
 
@@ -1041,7 +1041,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
           21: { fillColor: [249, 247, 95] }, 22: { fillColor: [207, 233, 176] }, 24: { fillColor: [191, 250, 119] }
         }, styles: {
           overflow: 'linebreak',
-          fontSize: 10,
+          fontSize: 8,
           rowHeight: 5,
           cellWidth: 'auto',
           cellPadding: 2
@@ -1049,15 +1049,15 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
       });
 
       var pageHeight = doc.internal.pageSize.height;
-      doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 75, pageHeight - pageHeight / 6);
-      doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 265, pageHeight - pageHeight / 6);
-      doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 455, pageHeight - pageHeight / 6);
-      doc.fromHTML(" <p style='text-align: center'>PROFESOR(A)</p>", 100, pageHeight - pageHeight / 8);
-      doc.fromHTML(" <p style='text-align: center'>ACADEMICO</p>", 290, pageHeight - pageHeight / 8);
-      doc.fromHTML(" <p style='text-align: center'>SECRETARIO</p>", 480, pageHeight - pageHeight / 8);
+      doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 75, pageHeight - pageHeight / 8);
+      doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 265, pageHeight - pageHeight / 8);
+      doc.fromHTML(" <h5 style='text-align: center'>------------------------------------------</h5>", 455, pageHeight - pageHeight / 8);
+      doc.fromHTML(" <p style='text-align: center'>PROFESOR(A)</p>", 100, pageHeight - pageHeight / 10);
+      doc.fromHTML(" <p style='text-align: center'>SECRETARIO - ACADÉMICO</p>", 260, pageHeight - pageHeight / 10);
+      doc.fromHTML(" <p style='text-align: center'>RECTORA</p>", 490, pageHeight - pageHeight / 10);
 
-      doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 280, pageHeight - pageHeight / 10);
-      doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 470, pageHeight - pageHeight / 10);
+      doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 280, pageHeight - pageHeight / 12);
+      doc.fromHTML(" <p style='text-align: center'>SEBAD - Riobamba</p>", 470, pageHeight - pageHeight / 12);
       this.loading = false;
 
       doc.save('Reporte_Promedios_Docente.pdf');
@@ -1111,33 +1111,35 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
     location.reload();
   }
 
-public opcionMesInicio;
-public opcionAnoInicio;
-public opcionMesFinal;
-public opcionAnoFinal;
-public periodoAuxiliar;
-asignarMesInicio(mesInicio) {
-  this.opcionMesInicio = mesInicio;
-}
-
-asignarAnoInicio(anoInicio) {
-  this.opcionAnoInicio = anoInicio;
-
-}
-
-asignarMesFinal(mesFinal) {
-  this.opcionMesFinal = mesFinal;
-}
-asignarAnoFinal(anoFinal) {
-  this.opcionAnoFinal = anoFinal;
-
-}
-  asignarPeriodoLectivo(){
-    this.periodoAuxiliar= this.opcionMesInicio + "/" + this.opcionAnoInicio + "-" + this.opcionMesFinal + "/" + this.opcionAnoFinal
+  public opcionMesInicio;
+  public opcionAnoInicio;
+  public opcionMesFinal;
+  public opcionAnoFinal;
+  public periodoAuxiliar;
+  asignarMesInicio(mesInicio) {
+    this.opcionMesInicio = mesInicio;
   }
 
-  eliminarEstudiante(i){
-    this.listadoEstudianteMatriculas.splice(i,1);
+  asignarAnoInicio(anoInicio) {
+    this.opcionAnoInicio = anoInicio;
+
+  }
+
+  asignarMesFinal(mesFinal) {
+    this.opcionMesFinal = mesFinal;
+  }
+  asignarAnoFinal(anoFinal) {
+    this.opcionAnoFinal = anoFinal;
+
+  }
+  asignarPeriodoLectivo() {
+    this.periodoAuxiliar = this.opcionMesInicio + "/" + this.opcionAnoInicio + "-" + this.opcionMesFinal + "/" + this.opcionAnoFinal
+  }
+
+  eliminarEstudiante(i) {
+    this.listadoEstudianteMatriculas.splice(i, 1);
+    this.object.splice(i, 1);
+    this.objectCalculable.splice(i, 1);
 
   }
 

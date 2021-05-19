@@ -983,7 +983,7 @@ export class DocenteComponent implements OnInit, DoCheck, OnDestroy {
         3: { fillColor: [207, 233, 176] }
       }, styles: {
         overflow: 'linebreak',
-        fontSize: 12,
+        fontSize: 8,
         rowHeight: 5,
         cellWidth: 'auto',
         cellPadding: 2
